@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+}
+  
+.numbers-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.calculator-number{
+  width: 40px;
+  padding: 10px;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+.operators {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.operator {
+  width: 30px;
+  padding: 8px;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+.display {
+  width: 150px;
+  padding: 4px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.calc-name {
+  height: 20px;
+  font-family: serif;
+  text-align: center;
+}

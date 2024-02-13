@@ -1,0 +1,40 @@
+
+<div>
+    <h1 class="calc-name">Casio</h1>
+    <div class="display">{{display}}</div>
+</div>
+
+<div class="numbers">
+
+    <div class="numbers-row">
+        <button class="calculator-number" (click)="pressNumber(7)">7</button>
+        <button class="calculator-number" (click)="pressNumber(8)">8</button>
+        <button class="calculator-number" (click)="pressNumber(9)">9</button>
+    </div>
+    
+    <div class="numbers-row">
+        <button class="calculator-number" (click)="pressNumber(4)">4</button>
+        <button class="calculator-number" (click)="pressNumber(5)">5</button>
+        <button class="calculator-number" (click)="pressNumber(6)">6</button>
+    </div>
+    
+    <div class="numbers-row">
+        <button class="calculator-number" (click)="pressNumber(1)">1</button>
+        <button class="calculator-number" (click)="pressNumber(2)">2</button>
+        <button class="calculator-number" (click)="pressNumber(3)">3</button>
+    </div>
+
+    <div class="numbers-row">
+        <button class="calculator-number"></button>
+        <button class="calculator-number" (click)="pressNumber(0)">0</button>
+        <button class="calculator-number"></button>
+    </div>
+    
+    <div class="operators">
+        <button class="operator" (click)="doOperation('+')">+</button>
+        <button class="operator">-</button>
+        <button class="operator">*</button>
+        <button class="operator">/</button>
+    </div>
+
+</div>
