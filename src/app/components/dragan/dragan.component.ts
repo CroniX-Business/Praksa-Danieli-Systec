@@ -19,12 +19,17 @@ export class DraganComponent {
   display='0'
   firstNum:number = 0;
   action:string='';
+  isCalculated:boolean=false;
+
   appendNum(val:any){
+    if(this.isCalculated) return;
+
     if (this.display === '0') {
       this.display = val.toString();
     } else {
       this.display = `${this.display}${val}`;
     }
+    this.isCalculated=false
   }
   clear(){
     this.display='0'
@@ -33,7 +38,7 @@ export class DraganComponent {
     this.firstNum=parseInt(this.display);
     this.action=action;
     this.display='0'
-
+    this.isCalculated=false
   }
   calculate(){
     var a=this.firstNum
@@ -52,6 +57,7 @@ export class DraganComponent {
     if(result != undefined){
     this.firstNum=result;
     this.display=result.toString();
+    this.isCalculated=true
     }
   }
 }
