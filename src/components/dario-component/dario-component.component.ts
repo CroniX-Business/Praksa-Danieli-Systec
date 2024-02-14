@@ -4,26 +4,30 @@ import { firstValueFrom } from 'rxjs';
 
 
 @Component({
-  selector: 'app-calculator',
+  selector: 'app-dario-component',
   standalone: true,
   imports: [
     CommonModule
   ],
-  templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.css',
+  templateUrl: './dario-component.component.html',
+  styleUrl: './dario-component.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorComponent {
+export class DarioComponentComponent {
 
     display = '';
     firstValue = '';
     secondValue = '';
     result = '';
     operation = '';
+    flag = false;
 
     pressNumber(num : string){
-      
+        if(this.flag){
+            this.display = '';
+        }
         this.display += num;
+        this.flag = false;
     }
 
     doOperation(op: String){
@@ -51,6 +55,7 @@ export class CalculatorComponent {
             this.result = (parseFloat(this.firstValue)/parseFloat(this.secondValue)).toString();
           }
           this.display = this.result;
+          this.flag = true;
       }
       
     }
