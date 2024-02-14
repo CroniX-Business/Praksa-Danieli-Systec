@@ -33,6 +33,7 @@ export class DraganComponent {
   }
   clear(){
     this.display='0'
+    this.isCalculated=false
   }
   operand(action:string){
     this.firstNum=parseInt(this.display);
