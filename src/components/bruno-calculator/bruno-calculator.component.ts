@@ -9,7 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   templateUrl: './bruno-calculator.component.html',
-  styleUrl: './calculator.component.css',
+  styleUrl: './bruno-calculator.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrunoCalculatorComponent implements OnInit {

@@ -3,6 +3,14 @@
   border-radius: 5px;
 }
 
+.calculators{
+  max-width: 400px;
+  max-height: 400px;
+  display: flex;
+  margin: 3px;
+  padding: 3px;
+}
+
 .wrapper{
   background-color: #000000;
   padding: 5px;
