@@ -15,9 +15,10 @@ export class CalculatorComponent {
   display = '0';
   firstValue: number | 0 = 0;
   action: string | null = null;
+  result: number = 0;
 
   numClick(val: string) {
-    this.display = (this.display === '0') ? val : (this.display + '' + val);
+    this.display = (this.display === '0' || this.result) ? val : (this.display + '' + val);
   }
 
   op(action: string) {
@@ -26,27 +27,26 @@ export class CalculatorComponent {
     this.display = ' ';
   }
 
+  
   calculate() {
     const a: number = this.firstValue;
     const b: number = parseFloat(this.display);
 
-    let result;
     if (this.action === 'mul') {
-      result = a * b;
+      this.result = a * b;
     }
     else if (this.action === 'dev') {
-      result = a / b;
+      this.result = a / b;
     }
     else if (this.action === 'add') {
-      result = a + b;
-      console.log(result);
+      this.result = a + b;
     }
     else if (this.action === 'min') {
-      result = a - b;
+      this.result = a - b;
     }
 
-    this.firstValue = result ?? 0;
-    this.display = result === undefined ? '' : result.toString();
+    this.firstValue = this.result ?? 0;
+    this.display = this.result === undefined ? '' : this.result.toString();
   }
 
   clear(){
