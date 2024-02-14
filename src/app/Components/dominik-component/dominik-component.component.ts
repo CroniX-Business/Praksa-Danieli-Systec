@@ -21,26 +21,31 @@ export class DominikComponentComponent {
   firstNumber: number | 0 = 0;
   secondNumber: number | 0 = 0;
   math: string | null = null;
+  calculated: boolean | false = false;
   number_click(val: string){
     if (this.display=='0'){
       this.display=val
     }
     else{
-      this.display+=val
+      if (this.calculated==false)
+        this.display+=val
     }
   }
   math_function(val: string){
     if (this.display!='0' && this.math==null){
       this.display+=val
       this.math=val
+      this.calculated=false
     }
   }
   clear(){
     this.display='0'
     this.math=null
+    this.calculated=false
   }
   calculate(){
     if (this.math!=null){ 
+    this.calculated=true
     let displayText: string = this.display;
     let displayNumbers: string[] = displayText.split(this.math);
     this.firstNumber = parseFloat(displayNumbers[0]);
