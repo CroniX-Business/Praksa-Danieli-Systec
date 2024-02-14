@@ -67,6 +67,7 @@ export class PetarComponentComponent {
     this.firstValue = 0;
     this.action = null;
     this.isButtonDisabled = false;
+    this.isButtonPressed = false;
   }
   
 }
