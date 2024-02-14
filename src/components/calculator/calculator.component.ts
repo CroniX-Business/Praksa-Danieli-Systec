@@ -17,11 +17,7 @@ export class CalculatorComponent {
   action: string | null = null;
 
   numClick(val: string) {
-    if (this.display === '0') {
-      this.display = val;
-    } else {
-      this.display = `${this.display}${val}`;
-    }
+    this.display = (this.display === '0') ? val : (this.display + '' + val);
   }
 
   op(action: string) {
@@ -32,10 +28,7 @@ export class CalculatorComponent {
 
   calculate() {
     const a: number = this.firstValue;
-    const b = parseFloat(this.display);
-
-    console.log(a);
-    console.log(b);
+    const b: number = parseFloat(this.display);
 
     let result;
     if (this.action === 'mul') {
