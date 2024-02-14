@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="display">
+            <form action="" [formGroup]="input">
+                <input class="display" type="text" formControlName="text" readonly>
+            </form>
+        </div>
+    </div>    
+    <div class="row">
+        <button (click)="clearDisplay()" class="button command">DEL</button>
+        <button (click)="removeLastCharacter()" class="button command">←</button>
+    </div> 
+    <div class="row">
+        <button (click)="appendCharacter($event.target)" class="button number">7</button>
+        <button (click)="appendCharacter($event.target)" class="button number">8</button>
+        <button (click)="appendCharacter($event.target)" class="button number">9</button>
+    </div>
+    <div class="row">
+        <button (click)="appendCharacter($event.target)" class="button number">4</button>
+        <button (click)="appendCharacter($event.target)" class="button number">5</button>
+        <button (click)="appendCharacter($event.target)" class="button number">6</button>
+    </div>
+    <div class="row">
+        <button (click)="appendCharacter($event.target)" class="button number">1</button>
+        <button (click)="appendCharacter($event.target)" class="button number">2</button>
+        <button (click)="appendCharacter($event.target)" class="button number">3</button>
+    </div>
+    <div class="row">
+        <button (click)="appendCharacter($event.target)" class="button number">0</button>
+        <button (click)="appendCharacter($event.target)" class="button operation">+</button>
+        <button (click)="appendCharacter($event.target)" class="button operation">-</button>
+    </div>
+    <div class="row">
+        <button (click)="appendCharacter($event.target)" class="button operation">*</button>
+        <button (click)="appendCharacter($event.target)" class="button operation">/</button>
+        <button (click)="evaluateExpression()" class="button command">⏎</button>
+    </div>
+</div>
