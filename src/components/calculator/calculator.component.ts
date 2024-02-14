@@ -16,20 +16,43 @@ import { firstValueFrom } from 'rxjs';
 export class CalculatorComponent {
 
     display = '';
-    firstValue: Number | null = null
-    secondValue: Number | null = null
+    firstValue = '';
+    secondValue = '';
+    result = '';
     operation = '';
 
-    pressNumber(num: Number){
+    pressNumber(num : string){
       
-        this.display += num.toString();
+        this.display += num;
     }
 
     doOperation(op: String){
-      if(op=='+'){
-        this.firstValue = parseInt(this.display);
+      console.log(op);
+      if(op!='=' && op!='C'){
+        this.firstValue = this.display;
+        this.operation = op as string;
         this.display = '';
       }
+      if(op=='C'){
+        this.display = '';
+      }
+      if(op=='='){
+          this.secondValue = this.display;
+          if(this.operation == '+'){
+            this.result = (parseFloat(this.firstValue)+parseFloat(this.secondValue)).toString();
+          }
+          if(this.operation == '-'){
+            this.result = (parseFloat(this.firstValue)-parseFloat(this.secondValue)).toString();
+          }
+          if(this.operation == '*'){
+            this.result = (parseFloat(this.firstValue)*parseFloat(this.secondValue)).toString();
+          }
+          if(this.operation == '/'){
+            this.result = (parseFloat(this.firstValue)/parseFloat(this.secondValue)).toString();
+          }
+          this.display = this.result;
+      }
+      
     }
 
  }

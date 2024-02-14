@@ -1,6 +1,13 @@
 :host {
   display: block;
 }
+.display{
+  height: 20px;
+}
+
+.calculator{
+  margin-left: 40px;
+}
 
 .numbers {
   display: flex;
