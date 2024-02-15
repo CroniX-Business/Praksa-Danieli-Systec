@@ -33,9 +33,12 @@ export class BrunoCalculatorComponent implements OnInit {
   }
 
   evaluateExpression(){
-    let result;
+    let inputExpression
+    const customEval = eval
+    let result
     try {
-      result=eval(this.input.controls.text.value)
+      inputExpression=(this.input.controls.text.value)
+      result=customEval(inputExpression)
       this.input.controls.text.setValue(result.toString())
     } catch (error) {
       this.input.controls.text.setValue("Invalid")
