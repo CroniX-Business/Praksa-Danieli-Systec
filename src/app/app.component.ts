@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { DominikComponentComponent } from "../components/dominik-component/dominik-component.component";
 import { PetarComponentComponent } from "../components/petar-component/petar-component.component";
 import { DarioComponentComponent } from "../components/dario-component/dario-component.component";
-import { DraganComponent } from './components/dragan/dragan.component';
+import { DraganComponent } from '../components/dragan/dragan.component';
 
 
 @Component({
