@@ -21,7 +21,7 @@
         </div>
         <div id="Languagediv">
             <p id="language">Language <select id="languageselect" name="languares">
-                <option *ngFor="let lang of Name; let code of Code" value="{{code}}">{{lang}}</option>
+                <option *ngFor="let coded of Code; let lang of Name; " value="{{coded}}">{{lang}}</option>
                 </select>
             </p>
         </div>
