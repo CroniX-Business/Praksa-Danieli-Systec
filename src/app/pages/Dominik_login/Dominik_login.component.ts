@@ -13,5 +13,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class DominikLoginComponent { 
   copyrightDate: string | "2024" = "2024";
-  languages=["English","Hrvatski","Deutsch"]
+  Code=["En","Hr","De"]
+  Name=["English","Hrvatski","Deutsch"]
 }
