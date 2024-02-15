@@ -5,14 +5,14 @@ import { PetarComponentComponent } from "../components/petar-component/petar-com
 import { DarioComponentComponent } from "../components/dario-component/dario-component.component";
 import { DraganComponent } from '../components/dragan/dragan.component';
 import { BrunoCalculatorComponent } from '../components/bruno-calculator/bruno-calculator.component';
-
+import { BrunoLoginComponent } from './pages/bruno_login/bruno_login.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent]
+    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent,BrunoLoginComponent]
 })
 export class AppComponent {
 }

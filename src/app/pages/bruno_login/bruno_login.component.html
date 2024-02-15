@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <img src="../../../assets/images/logo.png" alt="logo">
+    <div class="form-container">
+        <form action="" class="loginform">
+            <h2 class="bold">Login</h2>
+            <label for="username">Username*</label><br>
+            <div class="container">
+                <input type="text">
+            </div>
+            <div class="container">
+                <label for="password">Password*</label>
+                <a href="" class="pass-reset">Forgot password?</a>
+            </div>
+            <div class="container">
+                <input type="password">
+                <button class="password-shower">👁️</button>
+            </div>
+        </form>
+        <button class="login-button">Login</button>
+        <div class="shaded-container">
+            Don't have an account? <a href="">Create one!</a>
+        </div>
+    </div>
+    <div class="language-select">
+        <label for="language-select">Language</label>
+        <select name="lang" id="lang-select">
+            <option *ngFor="let language of languages" value="{{language.code}}">{{language.name}}</option>
+        </select>
+    </div>
+    <footer>
+        Copyright © 2024 - Danieli Systec d.o.o
+    </footer>
+</div>
