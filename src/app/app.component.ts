@@ -4,6 +4,7 @@ import { DominikComponentComponent } from "../components/dominik-component/domin
 import { PetarComponentComponent } from "../components/petar-component/petar-component.component";
 import { DarioComponentComponent } from "../components/dario-component/dario-component.component";
 import { DraganComponent } from '../components/dragan/dragan.component';
+import { BrunoCalculatorComponent } from '../components/bruno-calculator/bruno-calculator.component';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { DraganComponent } from '../components/dragan/dragan.component';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent]
+    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent]
 })
 export class AppComponent {
 }
