@@ -1,27 +1,30 @@
 <div id="main_div">
     <img src="../../../assets/images/logo.png" id="imageid" width="250" height="97" style="display: block;">
-    <div id="main_login_div">
-        <h2 id="Logintext">Login</h2>
-        <p class="components">Username</p>
-        <input type="text" class="components" id="usernamet">
-        <div id="pass_div">
-            <p class="components" id="password">Password</p>
-            <a href=""><p class="components" id="password_q">Forgot password?</p></a>
+    <form>    
+        <div id="main_login_div">
+            <h2 id="Logintext">Login</h2>
+            <p class="components">Username</p>
+            <input type="text" class="components" id="usernamet">
+            <div id="pass_div">
+                <p class="components" id="password">Password</p>
+                <a href=""><p class="components" id="password_q">Forgot password?</p></a>
+            </div>
+            
+            <input type="password" id="passwordt" class="components">
+            
+            <button id="hiddenbtn">👁</button>
+            <br>
+            <button disabled id="Login_btn">Login</button>
+            <div id="createaccdiv">
+                <p id="createacctxt">Don't have an account? <a href="" id="accqa">Create one!</a></p>
+            </div>
         </div>
-        <input type="password" id="passwordt" class="components">
-        <button id="hiddenbtn">👁</button>
-        <br>
-        <button disabled id="Login_btn">Login</button>
-        <div id="createaccdiv">
-            <p id="createacctxt">Don't have an account? <a href="" id="accqa">Create one!</a></p>
+        <div id="Languagediv">
+            <p id="language">Language <select id="languageselect" name="languares">
+                <option *ngFor="let lang of languages;" value="{{lang}}">{{lang}}</option>
+                </select>
+            </p>
         </div>
-    </div>
-    <div id="Languagediv">
-        <p id="language">Language <select id="languageselect">
-            <option value="English">English</option>
-            <option value="Hrvatski">Hrvatski</option>
-            </select>
-        </p>
-    </div>
-    <p id="CR">Copyright © 2024 - Danieli-Systec d.o.o.</p>
+    </form>
+    <p id="CR">Copyright © {{copyrightDate}} - Danieli-Systec d.o.o.</p>
 </div>

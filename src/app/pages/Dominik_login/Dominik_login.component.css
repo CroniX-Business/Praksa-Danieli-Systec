@@ -37,11 +37,12 @@ p{
   margin-bottom: 5px;
 }
 #password{
-  display: inline;
+  float: left;
+  
 }
 #password_q{
-  display: inline;
-  margin-left: 32%;
+  float: right;
+  margin-right: 10%;
 }
 #usernamet{
   width: 80%;

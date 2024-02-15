@@ -11,4 +11,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './Dominik_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DominikLoginComponent { }
+export class DominikLoginComponent { 
+  copyrightDate: string | "2024" = "2024";
+  languages=["English","Hrvatski","Deutsch"]
+}
