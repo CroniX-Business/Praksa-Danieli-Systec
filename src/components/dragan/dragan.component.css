@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+.item{
+  grid-area: area;
+}
+
+.display {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 15px;
+
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: max-content;
+  }
+  
+  .div1 { 
+  grid-area: 1 / 1 / 4 / 4; 
+  }
+  .div2 { grid-area: 4 / 1 / 5 / 3; }
+  .div3 { grid-area: 1 / 4 / 5 / 5; }
+  
+  button{
+    width: 25px;
+  }
+  .bn4 {
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    border: 0.1em solid #000;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #000000;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  
+  .bn4:hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+
