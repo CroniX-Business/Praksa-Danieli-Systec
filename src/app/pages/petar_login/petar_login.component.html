@@ -8,20 +8,20 @@
 
             <form action="">
                 <label for="username">Username<span class="required">*</span></label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" class="input-form">
 
                 <label for="password" class="password-label">Password<span class="required">*</span><span
                         class="passForgot"><a href="">Forgot password?</a></span></label>
                 <div class="password-wrapper">
-                    <input type="password" class="password-input" placeholder="Password" #passwordInput>
-                    <!--<input type="checkbox" (change)="togglePasswordVisibility(passwordInput)">-->
+                    <input type="password" class="input-form">
+                    <button class="toggle-password"><i class="fa-solid fa-eye"></i></button>
                 </div>
 
                 <input type="submit" class="submit" value="Login">
             </form>
         </div>
         <div class="signUp">
-            <p>Don't have an account?  <a href="">Create one!</a></p>
+            <p>Don't have an account? <a href="">Create one!</a></p>
         </div>
     </div>
     <div class="language">
@@ -32,7 +32,7 @@
         </select>
     </div>
 
-    <div>
-        
+    <div class="footer">
+        <p>Copyright &copy; {{currentYear}} - Danieli Systec d.o.o</p>
     </div>
 </div>

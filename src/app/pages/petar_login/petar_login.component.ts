@@ -19,5 +19,8 @@ export class PetarLoginComponent {
       input.type = 'password';
     }
   }*/
+
+  currentDate = new Date();
+  currentYear = this.currentDate.getFullYear();
   
 }

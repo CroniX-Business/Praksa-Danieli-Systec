@@ -45,9 +45,9 @@ label {
   display: block;
 }
 
-input {
+.input-form {
   display: block; 
-  margin-top: 5px;
+  margin-top: 2px;
   border: 2px solid rgb(195, 193, 193);
   border-radius: 5px;
   width: 100%;
@@ -56,14 +56,23 @@ input {
 
 .password-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
-.password-input {
-  flex: 1;
-  border-radius: 4px;
-  padding-right: 30px; /* Add space for the eye icon */
+.toggle-password {
+  position: absolute;
+  right: -4px;
+  bottom: 2px;
+  width: 50px;
+  height: 42px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-left: 2px solid rgb(195, 193, 193);
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px 5px 5px 0px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .submit {
@@ -85,14 +94,30 @@ input {
   align-items: center;
   width: 100%;
   text-align: center;
+  font-size: 20px;
 }
 
 .language p {
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .language p,
 .language select {
     display: inline-block;
     vertical-align: middle;
+    color: gray !important;
+}
+
+.language select {
+  border: 2px solid gray;
+  width: 120px;
+  height: 40px;
+  font-size: 19px;
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: gray;
 }
