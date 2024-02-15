@@ -12,7 +12,7 @@
   width: 435px;
 }
 #main_login_div{
-  width: 435px;
+  width: 23em;
   display: block;
   border: 1px solid gainsboro;
   align-items: center;
@@ -41,7 +41,7 @@ p{
 }
 #password_q{
   display: inline;
-  margin-left: 40%;
+  margin-left: 32%;
 }
 #usernamet{
   width: 80%;
