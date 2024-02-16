@@ -1,5 +1,5 @@
 <div id="main_div">
-    <img src="../../../assets/images/logo.png" id="imageid" width="250" height="97" style="display: block;">
+    <img src="../../../assets/images/logo.png" id="imageid" width="250" height="97">
     <form>    
         <div id="main_login_div">
             <h2 id="Logintext">Login</h2>
@@ -21,7 +21,7 @@
         </div>
         <div id="Languagediv">
             <p id="language">Language <select id="languageselect" name="languares">
-                <option *ngFor="let coded of Code; let lang of Name; " value="{{coded}}">{{lang}}</option>
+                <option *ngFor="let lang of Languages; " value="{{lang.name}}">{{lang.name}}</option>
                 </select>
             </p>
         </div>

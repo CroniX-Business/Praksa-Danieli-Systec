@@ -12,8 +12,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikLoginComponent { 
-  copyrightDate: string | "2024" = "2024";
-  Name=["English","Hrvatski","Deutsch"];
-  Code=["En","Hr","De"];
-  
+  copyrightDate = new Date().getFullYear();
+  Languages=[{code:"En",name:"English"},{code:"Hr",name:"Hrvatski"},{code:"De",name:"Deutsch"}]
 }
