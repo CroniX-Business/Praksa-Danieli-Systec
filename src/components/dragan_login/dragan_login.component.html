@@ -4,8 +4,9 @@
 
 
 <div class="center">
-    <form action="#" method="post">
+    <form action="#" method="post" class="forma-box">
         <div class="">
+            <h2 class="login-header">Login</h2>
             <label for="username">Username</label>
             <br>
             <input type="text" name="username" class="forma">
@@ -25,25 +26,20 @@
             <button type="submit" class="btn">Log in</button>
         </div>
 
-        <div class="registration">
-            Don't have an account? <a href="#">Create one!</a>
-        </div>
-
-
-        
     </form>
+    <div class="registration">
+        Don't have an account? <a href="#">Create one!</a>
+    </div>
 </div>
 
 <div class="center-selector">
-    <label for="language">Choose language</label>
+    <label for="language">Choose language:</label>
     <select name="language" id="">
-        <option value="english">English</option>
-        <option value="hrvatski">Hrvatski</option>
-        <option value="deutsch">Deutsch</option>
+        <option value="{{appConfig['defaultLanguage']}}">{{appConfig.defaultLanguage}}</option> 
     </select>
 
 </div>
 
 <div class="center-selector">
-    <span>Copyright Danieli Systec 2024.</span>
+    <span [innerHTML]="appConfig.copyright"></span>
 </div>
