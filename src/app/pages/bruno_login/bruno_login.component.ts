@@ -23,12 +23,17 @@ export class BrunoLoginComponent implements OnInit {
   form: any
   config = config
   languages = languages
+  fieldTextType: boolean=false;
 
   ngOnInit(): void {
     this.form = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
     })
+  }
+
+  toggleFieldTextType(){
+    this.fieldTextType= !this.fieldTextType
   }
 
   log(){

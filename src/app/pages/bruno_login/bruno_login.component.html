@@ -12,11 +12,11 @@
                 <a href="" class="pass-reset">Forgot password?</a>
             </div>
             <div class="container">
-                <input type="password" formControlName="password">
-                <button type="button" class="password-shower">👁️</button>
+                <input [type]="fieldTextType ? 'text' : 'password'" formControlName="password">
+                <button type="button" class="password-shower" (click)="toggleFieldTextType()" >👁️</button>
             </div>
         </form>
-        <button form="login-form" type="submit"class="login-button">Login</button>
+        <button form="login-form" type="submit" class="login-button">Login</button>
         <div class="shaded-container">
             Don't have an account? <a href="">Create one!</a>
         </div>
