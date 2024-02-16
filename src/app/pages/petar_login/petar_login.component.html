@@ -6,18 +6,20 @@
         <div class="content">
             <p>Login</p>
 
-            <form action="">
+            <form method="POST" class="form-container">
                 <label for="username">Username<span class="required">*</span></label>
                 <input type="text" name="username" id="username" class="input-form">
 
                 <label for="password" class="password-label">Password<span class="required">*</span><span
                         class="passForgot"><a href="">Forgot password?</a></span></label>
                 <div class="password-wrapper">
-                    <input type="password" class="input-form">
-                    <button class="toggle-password"><i class="fa-solid fa-eye"></i></button>
+                    <input type="password" class="input-form" [type]="show ? 'password' : 'text'">
+                    <button type="button" class="toggle-password" (click)="show = !show"><i class="fa-solid fa-eye"></i></button>
                 </div>
 
-                <input type="submit" class="submit" value="Login">
+                <div class="submit-button-container">
+                    <button type="submit" class="submit">Login</button>
+                  </div>
             </form>
         </div>
         <div class="signUp">
@@ -27,12 +29,11 @@
     <div class="language">
         <p>Language</p>
         <select>
-            <option value="en">English</option>
-            <option value="de">German</option>
+            <option *ngFor="let language of appLanguages.languageOptions" [value]="language.code">{{language.name}}</option>
         </select>
     </div>
 
     <div class="footer">
-        <p>Copyright &copy; {{currentYear}} - Danieli Systec d.o.o</p>
+        <p [innerHTML]="appConfig.copyright"></p>
     </div>
 </div>

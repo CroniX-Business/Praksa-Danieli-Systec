@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AppConfig } from '../../config/app.config';
+import { AppLanguages } from '../../config/app.languages';
 
 @Component({
   selector: 'app-petar-login',
@@ -11,16 +13,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './petar_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PetarLoginComponent { 
-  /*togglePasswordVisibility(input: HTMLInputElement) {
-    if (input.type === 'password') {
-      input.type = 'text';
-    } else {
-      input.type = 'password';
-    }
-  }*/
+export class PetarLoginComponent {
+  appConfig = AppConfig;
+  appLanguages = AppLanguages;
 
-  currentDate = new Date();
-  currentYear = this.currentDate.getFullYear();
-  
+  show: boolean = true;
+  togglePasswordVisibility() {
+    this.show = !this.show;    
+  }
 }
