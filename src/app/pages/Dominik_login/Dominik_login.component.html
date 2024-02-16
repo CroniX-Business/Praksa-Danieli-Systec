@@ -14,17 +14,17 @@
             
             <button id="hiddenbtn">👁</button>
             <br>
-            <button disabled id="Login_btn">Login</button>
+            <input type="submit" disabled id="Login_btn" value="Login">
             <div id="createaccdiv">
                 <p id="createacctxt">Don't have an account? <a href="" id="accqa">Create one!</a></p>
             </div>
         </div>
         <div id="Languagediv">
             <p id="language">Language <select id="languageselect" name="languares">
-                <option *ngFor="let lang of Languages; " value="{{lang.code}}">{{lang.name}}</option>
+                <option *ngFor="let lang of Lan; " value="{{lang.code}}">{{lang.name}}</option>
                 </select>
             </p>
         </div>
     </form>
-    <p id="CR">Copyright © {{copyrightDate}} - Danieli-Systec d.o.o.</p>
+    <p id="CR">{{appCnfg.copyright}}</p>
 </div>

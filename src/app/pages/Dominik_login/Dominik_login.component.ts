@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
+import { Languages } from '../../configs/app-languages.config';
+import { appConfiguration } from '../../configs/app.config';
 @Component({
   selector: 'app-dominik-login',
   standalone: true,
@@ -12,6 +13,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikLoginComponent { 
-  copyrightDate = new Date().getFullYear();
-  Languages=[{code:"En",name:"English"},{code:"Hr",name:"Hrvatski"},{code:"De",name:"Deutsch"}]
+  Lan=Languages;
+  appCnfg=appConfiguration;
 }
