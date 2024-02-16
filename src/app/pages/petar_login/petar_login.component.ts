@@ -30,11 +30,8 @@ export class PetarLoginComponent {
   });
 
   submitApplication() {
-    let username = this.applyForm.value.username ?? '';
-    let pass = this.applyForm.value.password ?? '';
-
-    console.log(username);
-    console.log(pass);
+    const username = this.applyForm.value.username ?? '';
+    const password = this.applyForm.value.password ?? '';
   }
   
 }
