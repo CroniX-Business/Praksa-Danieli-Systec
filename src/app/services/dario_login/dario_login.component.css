@@ -84,6 +84,10 @@ p span {
   text-align: center;
 }
 
+.no-acc-layout a{
+  color:blue
+}
+  
 .password-layout {
   display: flex;
   flex-direction: row;
