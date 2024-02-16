@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { config } from '../../configs/app.config';
 import { languages } from '../../configs/app-languages.config';
 
@@ -27,8 +27,8 @@ export class BrunoLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, [Validators.minLength(7),Validators.required])
     })
   }
 
@@ -37,8 +37,7 @@ export class BrunoLoginComponent implements OnInit {
   }
 
   log(){
-    console.log(this.form.controls.username.value.toString())
-    console.log(this.form.controls.password.value.toString())
+    console.log(this.form.value)
   }
 
 }

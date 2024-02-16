@@ -16,7 +16,7 @@
                 <button type="button" class="password-shower" (click)="toggleFieldTextType()" >👁️</button>
             </div>
         </form>
-        <button form="login-form" type="submit" class="login-button">Login</button>
+        <button [disabled]="form.invalid" form="login-form" type="submit" class="login-button">Login</button>
         <div class="shaded-container">
             Don't have an account? <a href="">Create one!</a>
         </div>
