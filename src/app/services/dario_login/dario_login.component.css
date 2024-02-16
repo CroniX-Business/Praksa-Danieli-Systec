@@ -25,7 +25,16 @@
   height: fit-content;
   margin-right: auto;
   margin-left: auto;
+}
+
+.login-container {
   padding: 20px;
+}
+
+.button-layout {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
 }
 
 .login-screen p {
@@ -34,9 +43,14 @@
   margin-bottom: auto;
 }
 
+p span {
+  color: red;
+}
+
 .login-screen h1 {
-  font-size: medium;
+  font-size: large;
   margin-bottom: 20px;
+  font-family: monospace;
 }
 
 .login-details {
@@ -44,6 +58,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 
 .login-button {
   width: fit-content;
@@ -54,23 +69,30 @@
   color: white;
   background-color: #8d96a4;
   margin-bottom: 10px;
+  border: 0px;
+  border-radius: 2px;
 }
 
 .input-info {
-  border-radius: 4px;
   width: 220px;
   height: 24px;
 }
 
 .no-acc-layout {
-  background-color: #f7f7f8
-
+  background-color: #f7f7f8;
+  padding: 16px;
+  text-align: center;
 }
 
 .password-layout {
   display: flex;
   flex-direction: row;
-  height: 20px;
+  height: fit-content;
+}
+
+.password-input-container input{
+  position: relative;
+  top: -6px;
 }
 
 .password-layout p,a {
@@ -79,19 +101,41 @@
   margin-bottom: auto;
 }
 
-
 .left-centered{
-  margin-left: auto;
+  margin-left: 20%;
   color: blue;
 }
 
-.centered {
+.languages-centered {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.centered label {
+.info-centered {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  font-size: small;
+  color: lightgray;
+}
+
+i {
+  width: 2px;
+  position: relative;
+  right: 30px;
+  font-size: 20px;
+  top: -3px;
+  line-height: 42px;
+  cursor: pointer;
+  color: #03045fc7;
+}
+
+.languages-centered select {
+  padding: 8px;
+}
+
+.languages-centered label {
   margin-top: auto;
   margin-bottom: auto;
 }
