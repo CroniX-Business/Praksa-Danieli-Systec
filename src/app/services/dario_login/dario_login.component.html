@@ -4,8 +4,11 @@
 </div>
 
 
-    <div class="container-sm w-25 border p-5">
+<div class="container-sm w-25 border d-flex flex-column p-0">
+        
+    <div class="p-5">
         <form>
+
             <h3>Login</h3>
             <div class="mt-4">
                 <label for="inputUsername" class="form-label m-0">Username<span>*</span></label>
@@ -14,7 +17,9 @@
             <div class="col-md-12">
                 <input type="text" class="form-control border border-secondary" id="inputUsername">
             </div>
+
             <div class="form-group has-feedback">
+
                 <div class="d-flex justify-content-between align-items-center text-center mt-3">
                     <label for="inputPassword" class="form-label m-0">Password<span>*</span></label>
                     <a class="ml-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Forgot your password?</a> 
@@ -22,10 +27,10 @@
                   
                 <div class="col-md-12 d-flex flex-row">
                     <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary rounded-end-0 " id="inputPassword">
+
                     <div class="border-1 text-center d-flex align-items-center border border-secondary rounded-end-1 ">
                         <i class="form-control-feedback fa-solid fa-eye w-100" (click)="togglePasswordVisibility()"></i>
-                    </div>
-                    
+                    </div>  
                 </div>
                 
             </div>
@@ -34,10 +39,13 @@
                 <button type="button" class="btn btn-secondary mt-3">Login</button>
             </div>
             
-            
-    
          </form>
     </div>
+        
+         <div class="no-acc-layout pb-0 pt-2">
+            <p>Don't have an account? <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Create one!</a></p>
+        </div>
+</div>
 
 <div class="languages-centered">
     <label for="languages">Language&nbsp;&nbsp;</label> 
