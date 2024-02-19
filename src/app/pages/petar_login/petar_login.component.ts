@@ -21,11 +21,6 @@ export class PetarLoginComponent {
 
   show: boolean = true;
 
-
-  togglePasswordVisibility() {
-    this.show = !this.show;    
-  }
-
   applyForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
