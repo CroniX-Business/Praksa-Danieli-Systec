@@ -1,10 +1,10 @@
 <div>
-    <div class="logo">
-        <img src="../../../assets/images/logo.png" width="300px" alt="Danieli Systec Logo">
+    <div class="text-center">
+        <img src="./assets/images/logo.png" width="300px" alt="Danieli Systec Logo">
     </div>
-    <div class="login">
-        <div class="content">
-            <p>Login</p>
+    <div class="login border border-1.5 rounded-2 mt-50 d-flex position-relative">
+        <div class="content w-75 h-75 m-auto">
+            <p class="fs-3 m-0">Login</p>
 
             <form [formGroup]="applyForm" (submit)="submitApplication()" class="form-container">
                 <label for="username">Username<span class="required">*</span></label>
@@ -24,7 +24,7 @@
 
         </div>
         <div class="signUp">
-            <p>Don't have an account? <a href="">Create one!</a></p>
+            <p class="">Don't have an account? <a href="">Create one!</a></p>
         </div>
     </div>
     <div class="language">
