@@ -25,15 +25,11 @@
                     <a class="ml-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Forgot your password?</a> 
                 </div>
                   
-                <div class="col-md-12 d-flex flex-row">
-                    <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary rounded-end-0 " id="inputPassword">
-
-                    <div class="border-1 text-center d-flex align-items-center border border-secondary rounded-end-1 p-2 icon-container">
-                        <i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i>
-                    </div>  
+                <div class="input-group mb-3">
+                    <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary" aria-label="Username" aria-describedby="basic-addon2" id="inputPassword">
+                    <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center " id="basic-addon2"><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i></button>
                 </div>
-                
-                
+
             </div>
             
             <div class="d-flex justify-content-center ">
