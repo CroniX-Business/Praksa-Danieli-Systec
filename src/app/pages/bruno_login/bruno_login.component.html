@@ -15,7 +15,9 @@
             </div>
             <div class="mb-3 d-flex align-items-center">
                 <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password">
-                <button type="button" class="btn btn-outline-secondary" (click)="toggleFieldTextType()" >👁️</button>
+                <button class="btn btn-light h-100 border ">
+                    <i type="button" class="bi bi-eye-slash bg-none" (click)="toggleFieldTextType()" >👁️</i>
+                </button>
             </div>
             <div class="text-center my-5">
                 <button [disabled]="form.invalid" form="login-form" type="submit" class="btn btn-outline-secondary px-5">Login</button>
