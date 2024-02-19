@@ -47,13 +47,13 @@
         </div>
 </div>
 
-<div class="languages-centered">
+<div class="d-flex justify-content-center mt-4">
     <label for="languages">Language&nbsp;&nbsp;</label> 
-    <select> 
+    <select class="form-select form-select-sm w-auto" aria-label=".form-select-lg example">
         <option *ngFor="let language of appLCFG.languageOptions" 
-        [value]="language.code">
-      {{language.name}}
-    </option>
+            [value]="language.code">
+          {{language.name}}
+        </option>
     </select>
 </div>
 

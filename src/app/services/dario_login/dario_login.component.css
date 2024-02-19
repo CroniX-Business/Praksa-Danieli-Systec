@@ -17,8 +17,8 @@
   margin-bottom: 20px;
 }
 
-.mt-50 span {
-  color: red;
+.p-5 span {
+    color:red;
 }
 
 .no-acc-layout {
@@ -47,12 +47,6 @@
   margin-bottom: auto;
 }
 
-.languages-centered {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
 .info-centered {
   display: flex;
   justify-content: center;
@@ -63,10 +57,6 @@
 
 i {
     cursor: pointer;
-}
-
-.languages-centered select {
-  padding: 8px;
 }
 
 .languages-centered label {
