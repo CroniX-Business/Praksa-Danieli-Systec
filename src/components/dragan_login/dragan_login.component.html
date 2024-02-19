@@ -71,14 +71,16 @@
                         <label for="password">Password</label>
                         <a href="#" class="forgotten-password-link">Forgot password?</a>
                     </div>
-                    <div class="password-box">
-                        <input type="{{passwordVisible ? 'text' : 'password' }}" name="password" id="" class="">
-                        <button type="button" class="eye-icon" (click)="toggleVisibility()"><i class="fa-solid fa-eye" ></i></button>
+                    <div class="input-group">
+                        <input type="{{passwordVisible ? 'text' : 'password' }}" class="form-control">
+                        <div class="input-group-text">
+                            <button type="button" (click)="toggleVisibility()" class="btn p-0"><i class="{{passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i></button>
+                        </div>
                     </div>
                 </div>
         
                 <br>
-                <div class="d-flex align-items-center justify-content-center">
+                <div class="d-flex align-items-center justify-content-center mb-3">
                     <button type="submit" class="btn btn-primary ">Log in</button>
                 </div>
         
