@@ -17,10 +17,11 @@
                             password?</a></span></label>
                 <div class="input-group">
                     <input type="password" id="password" formControlName="password" class="form-control"
-                        [type]="show ? 'password' : 'text'" aria-label="Password"
-                        aria-describedby="toggle-password">
-                    <button class="input-group-text bg-white " type="button" id="toggle-password" (click)="show = !show">
-                        <i class="fa-solid fa-eye"></i>
+                        [type]="show ? 'password' : 'text'" aria-label="Password" aria-describedby="toggle-password">
+                    <button class="showPass input-group-text bg-white d-flex justify-content-center align-items-center"
+                        type="button" id="toggle-password" (click)="show = !show" >
+                        <i class="text-center"
+                            [ngClass]="{'fa-solid fa-eye fa-fw': show, 'fa-regular fa-eye-slash fa-fw': !show}"></i>
                     </button>
                 </div>
 
