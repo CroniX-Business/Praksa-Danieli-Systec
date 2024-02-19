@@ -1,3 +1,4 @@
+
 :host {
   display: block;
 }
@@ -17,33 +18,7 @@
   margin-bottom: 20px;
 }
 
-.login-screen {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid gray;
-  width: fit-content;
-  height: fit-content;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.login-container {
-  padding: 20px;
-}
-
-.button-layout {
-  display: flex;
-  justify-content: center;
-  margin-top: 32px;
-}
-
-.login-screen p {
-  font-size: small;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-p span {
+.mt-50 span {
   color: red;
 }
 
@@ -53,30 +28,6 @@ p span {
   font-family: monospace;
 }
 
-.login-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-.login-button {
-  width: fit-content;
-  padding-right: 36px;
-  padding-left: 36px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color: white;
-  background-color: #8d96a4;
-  margin-bottom: 10px;
-  border: 0px;
-  border-radius: 2px;
-}
-
-.input-info {
-  width: 220px;
-  height: 24px;
-}
 
 .no-acc-layout {
   background-color: #f7f7f8;
@@ -106,7 +57,6 @@ p span {
 }
 
 .left-centered{
-  margin-left: 20%;
   color: blue;
 }
 
@@ -125,14 +75,7 @@ p span {
 }
 
 i {
-  width: 2px;
-  position: relative;
-  right: 30px;
-  font-size: 20px;
-  top: -3px;
-  line-height: 42px;
-  cursor: pointer;
-  color: #03045fc7;
+    cursor: pointer;
 }
 
 .languages-centered select {
@@ -143,3 +86,4 @@ i {
   margin-top: auto;
   margin-bottom: auto;
 }
+
