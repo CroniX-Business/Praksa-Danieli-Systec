@@ -27,7 +27,7 @@
 }
 
 
-.btn{
+.bttn{
 
   
   display: inline-block;
@@ -44,7 +44,7 @@
   color: #fff;
   background-color: #4f545c;
   transition: background-color .17s ease,color .17s ease;
-
+  width: 100px;
 
 }
 .login-header{
@@ -103,4 +103,11 @@
   margin-top: 20px;
   width: 30%;
   text-align: center;
+}
+
+.eye-icon{
+  background-color: white;
+  border: 1px solid;
+  border-color: #4f545c;
+
 }
