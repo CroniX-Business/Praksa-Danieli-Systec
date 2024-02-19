@@ -28,8 +28,8 @@
                 <div class="col-md-12 d-flex flex-row">
                     <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary rounded-end-0 " id="inputPassword">
 
-                    <div class="border-1 text-center d-flex align-items-center border border-secondary rounded-end-1 p-1 icon-container">
-                        <i [ngClass]="{'fa-solid fa-eye':showPassword, 'fa-regular fa-eye-slash':!showPassword}" (click)="togglePasswordVisibility()"></i>
+                    <div class="border-1 text-center d-flex align-items-center border border-secondary rounded-end-1 p-2 icon-container">
+                        <i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i>
                     </div>  
                 </div>
                 
