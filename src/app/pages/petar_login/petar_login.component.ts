@@ -20,6 +20,8 @@ export class PetarLoginComponent {
   appLanguages = AppLanguages;
 
   show: boolean = true;
+
+
   togglePasswordVisibility() {
     this.show = !this.show;    
   }
@@ -32,6 +34,11 @@ export class PetarLoginComponent {
   submitApplication() {
     const username = this.applyForm.value.username ?? '';
     const password = this.applyForm.value.password ?? '';
+
+    console.log(username);
+    console.log(password);
+
+    this.applyForm.reset();
   }
   
 }

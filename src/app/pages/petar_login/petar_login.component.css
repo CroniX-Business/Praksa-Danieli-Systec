@@ -7,114 +7,29 @@
   width: 450px;
 }
 
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.required {
-  color: red;
-}
-
-.passForgot {
-  margin-left: auto;
-}
-
-.password-label {
-  display: flex;
-}
-
-label {
-  color: rgb(107, 107, 107);
-  margin-top: 20px;
-  display: block;
-  font-size: 20px;
-}
-
 .input-form {
-  display: block; 
-  margin-top: 2px;
-  border: 1.5px solid rgb(195, 193, 193);
-  border-radius: 5px;
-  width: 100%;
   height: 40px;
-  font-size: 20px;
-}
-
-.password-wrapper {
-  position: relative;
 }
 
 .toggle-password {
-  position: absolute;
-  right: -4px;
+  right: 2px;
   bottom: 2px;
   width: 50px;
-  height: 42px;
-  cursor: pointer;
+  height: 36px;
   background-color: rgba(255, 255, 255, 0.8);
-  border-left: 2px solid rgb(195, 193, 193);
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0px 5px 5px 0px;
-  text-align: center;
-  font-size: 20px;
 }
 
 .submit {
-  margin-top: 50px;
-  width: 160px;
-  height: 45px;
-  background-color: rgb(143, 153, 160);
-  border: 2px solid rgb(113, 113, 113); 
-  border-radius: 5px;
-  color: rgb(224, 223, 223);
-  font-size: 20px;
-  margin-left: 100px;
-  cursor: pointer;
+  height: 50px;
+  background-color: rgb(107, 114, 120);
+  margin-left: 80px;
 }
 
 .signUp {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
   background-color: rgb(242, 240, 240);
-  font-size: 20px;
-  color: gray;
-}
-
-.language {
-  margin-top: 50px;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-}
-
-.language p {
-  margin-right: 30px;
-}
-
-.language p,
-.language select {
-    display: inline-block;
-    vertical-align: middle;
-    color: gray !important;
-}
-
-.language select {
-  border: 2px solid gray;
-  width: 120px;
-  height: 40px;
-  font-size: 19px;
+  height: 60px;
 }
 
 .footer {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 20px;
   color: rgb(174, 172, 172);
 }
