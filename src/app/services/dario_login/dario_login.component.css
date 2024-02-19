@@ -21,6 +21,10 @@
     color:red;
 }
 
+.icon-container{
+    width: 32px;
+}
+
 .no-acc-layout {
   background-color: #f7f7f8;
   text-align: center;
