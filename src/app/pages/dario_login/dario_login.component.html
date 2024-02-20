@@ -9,7 +9,7 @@
         <form [formGroup]="loginGroup">
             <h3>Login</h3>
                 <div class="mt-4">
-                    <label for="inputUsername" class="form-label m-0">Username<span>*</span></label>
+                    <label for="inputUsername" class="form-label m-0 required">Username</label>
                 </div>
                 <div class="col-md-12">
                     <input type="text" class="form-control border border-secondary" id="inputUsername" formControlName="username">
@@ -17,7 +17,7 @@
                 <div *ngIf="loginGroup.controls['username'].errors?.['required'] && loginGroup.controls['username'].touched" class="text-danger">Field is required</div>
                     <div class="form-group has-feedback">
                         <div class="d-flex justify-content-between align-items-center text-center mt-3">
-                            <label for="inputPassword" class="form-label m-0">Password<span>*</span></label>
+                            <label for="inputPassword" class="form-label m-0 required">Password</label>
                             <a class="ml-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Forgot your password?</a> 
                         </div>
                         <div class="input-group">
