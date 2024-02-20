@@ -24,3 +24,8 @@
 .inputHeights{
   height: 2.2em;
 }
+.required:after {
+  content: "*";
+  color: red;
+  font-weight: 00;
+}
