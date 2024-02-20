@@ -3,24 +3,27 @@
         <img src="../../../assets/images/logo.png" alt="logo" class="img-fluid">
     </div>
     <div class="form-signin w-100 m-auto border border-secondary rounded">
-        <form action="" class="loginform p-5" [formGroup]="form" (ngSubmit)="log()" id="login-form">
+        <form action="" class="p-5" [formGroup]="form" (ngSubmit)="log()" id="login-form">
             <h2 class="bold mb-3">Login</h2>
-            <div class="mb-3">
+            <div class="mb-3 form-group">
                 <label for="username" class="form-label">Username*</label><br>
                 <input type="text" class="form-control" formControlName="username">
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <div class="mb-3 d-flex justify-content-between form-group">
                 <label for="password" class="form-label">Password*</label>
                 <a href="" class="pass-reset">Forgot password?</a>
             </div>
-            <div class="mb-3 d-flex align-items-center">
+            <div class="mb-3 d-flex align-items-center input-group">
                 <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password">
-                <button class="btn btn-light h-100 border ">
-                    <i type="button" class="bi bi-eye-slash bg-none" (click)="toggleFieldTextType()" >👁️</i>
-                </button>
+                <div class="input-group-append d-flex align-items-stretch">
+                    <button class="btn btn-outline-secondary rounded-start-0 border border-start flex-grow-1 h-100" type="button" (click)="toggleFieldTextType()">
+                        <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
+                    </button>
+                </div>
             </div>
             <div class="text-center my-5">
-                <button [disabled]="form.invalid" form="login-form" type="submit" class="btn btn-outline-secondary px-5">Login</button>
+                <button [disabled]="form.invalid" form="login-form" type="submit"
+                    class="btn btn-outline-secondary px-5">Login</button>
             </div>
         </form>
         <div class="text-center container-fluid bg-light p-5 ">
