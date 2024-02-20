@@ -5,61 +5,40 @@
     <div class="login border border-2 rounded-2 mt-5 d-flex position-relative">
         <div class="content w-75 h-75 m-auto">
             <p class="fs-3 m-0 fw-bold">Login</p>
-
             <form [formGroup]="applyForm" class="d-flex flex-column">
                 <label for="username" class="required fs-6 text-black-50 mt-4 d-block">Username</label>
-                <input type="text" formControlName="username" id="username"
-                    class="input-form d-block border border-2 rounded-2 w-100" required>
+                <input type="text" formControlName="username" id="username" class="input-form d-block border border-2 rounded-2 w-100" required>
                 <div *ngIf="applyForm.controls['username'].invalid && applyForm.controls['username'].touched">
-                    <span class="text-danger " *ngIf="applyForm.controls['username'].errors?.['required']">
-                        Field is required.
-                    </span>
+                    <span class="text-danger " *ngIf="applyForm.controls['username'].errors?.['required']">Field is required.</span>
                 </div>
-
                 <div class="d-flex justify-content-between align-items-center">
                     <label for="password" class="required fs-6 text-black-50 mt-4 mr-2 mb-0">Password</label>
                     <a href="#" class="mt-4">Forgot password?</a>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" formControlName="password" class="form-control border border-2"
-                        [type]="show ? 'password' : 'text'" aria-label="Password" aria-describedby="toggle-password"
-                        required>
-                    <button
-                        class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2"
-                        type="button" id="toggle-password" (click)="show = !show">
-                        <i class="text-center"
-                            [ngClass]="{'fa-solid fa-eye fa-fw': show, 'fa-regular fa-eye-slash fa-fw': !show}"></i>
+                    <input type="password" id="password" formControlName="password" class="form-control border border-2" [type]="show ? 'password' : 'text'" aria-label="Password" aria-describedby="toggle-password" required>
+                    <button class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2" type="button" id="toggle-password" (click)="show = !show">
+                        <i class="text-center" [ngClass]="show ? 'fa-solid fa-eye': 'fa-solid fa-eye-slash'"></i>
                     </button>
                 </div>
                 <div *ngIf="applyForm.controls['password'].invalid && applyForm.controls['password'].touched">
-                    <span class="text-danger " *ngIf="applyForm.controls['password'].errors?.['required']">
-                        Field is required.
-                    </span>
+                    <span class="text-danger " *ngIf="applyForm.controls['password'].errors?.['required']">Field is required.</span>
                 </div>
-
                 <div class="submit-button-container">
-                    <button type="submit" class="submit mt-5 w-50 border rounded-2 text-light fs-6 pe-auto"
-                        [ngStyle]="{'background-color': applyForm.invalid ? '#b4b4b4' : ''}"
-                        [disabled]="applyForm.invalid">Login</button>
-                </div>
-
+                    <button type="submit" class="submit text-light mt-5 w-50 border rounded-2 fs-6 pe-auto" [ngClass]="applyForm.invalid ? '' : 'bg-secondary'" [disabled]="applyForm.invalid">Login</button>
+                </div>                
             </form>
-
         </div>
-        <div
-            class="signUp bottom-0 position-absolute w-100 text-center fs-6 text-black-50 d-flex align-items-center justify-content-center">
+        <div class="signUp bottom-0 position-absolute w-100 text-center fs-6 text-black-50 d-flex align-items-center justify-content-center">
             <p class="signUp-text m-0">Don't have an account? <a href="">Create one!</a></p>
         </div>
     </div>
-
     <div class="language mt-5 text-center w-100 d-flex align-items-center justify-content-center fs-5">
         <p class="me-3 d-inline-block align-middle m-0 text-black-50 ">Language</p>
         <select class="d-inline-block align-middle w-25 fs-5 text-black-50 border border-2 rounded-2">
-            <option *ngFor="let language of appLanguages.languageOptions" [value]="language.code">{{language.name}}
-            </option>
+            <option *ngFor="let language of appLanguages.languageOptions" [value]="language.code">{{language.name}}</option>
         </select>
     </div>
-
     <div class="mt-5 text-center fs-5 text-black-50">
         <p [innerHTML]="appConfig.copyright"></p>
     </div>
