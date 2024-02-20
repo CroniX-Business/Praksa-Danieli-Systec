@@ -11,25 +11,36 @@
                         class="text-danger">*</span></label>
                 <input type="text" formControlName="username" id="username"
                     class="input-form d-block border border-2 rounded-2 w-100" required>
+                <div *ngIf="applyForm.controls['username'].invalid && applyForm.controls['username'].touched">
+                    <span class="text-danger " *ngIf="applyForm.controls['username'].errors?.['required']">
+                        Field is required.
+                    </span>
+                </div>
 
 
                 <label for="password" class="d-flex fs-6 text-black-50 mt-4 d-block ">Password<span
                         class="text-danger">*</span><span class="ms-auto fs-6"><a href="">Forgot
                             password?</a></span></label>
                 <div class="input-group">
-                    <input type="password" id="password" formControlName="password" class="form-control"
+                    <input type="password" id="password" formControlName="password" class="form-control border border-2"
                         [type]="show ? 'password' : 'text'" aria-label="Password" aria-describedby="toggle-password"
                         required>
-                    <button class="showPass input-group-text bg-white d-flex justify-content-center align-items-center"
+                    <button
+                        class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2"
                         type="button" id="toggle-password" (click)="show = !show">
                         <i class="text-center"
                             [ngClass]="{'fa-solid fa-eye fa-fw': show, 'fa-regular fa-eye-slash fa-fw': !show}"></i>
                     </button>
                 </div>
+                <div *ngIf="applyForm.controls['password'].invalid && applyForm.controls['password'].touched">
+                    <span class="text-danger " *ngIf="applyForm.controls['password'].errors?.['required']">
+                        Field is required.
+                    </span>
+                </div>
 
                 <div class="submit-button-container">
                     <button type="submit"
-                        class="submit mt-5 w-50 border rounded-2 text-light fs-6 pe-auto">Login</button>
+                        class="submit mt-5 w-50 border rounded-2 text-light fs-6 pe-auto" [disabled]="applyForm.invalid">Login</button>
                 </div>
             </form>
 

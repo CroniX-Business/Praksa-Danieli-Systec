@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppConfig } from '../../config/app.config';
 import { AppLanguages } from '../../config/app.languages';
 
@@ -15,26 +15,25 @@ import { AppLanguages } from '../../config/app.languages';
   styleUrl: './petar_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PetarLoginComponent {
+export class PetarLoginComponent{
   appConfig = AppConfig;
   appLanguages = AppLanguages;
 
   show: boolean = true;
 
   applyForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl('')
-  });
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  });  
 
   submitApplication() {
-    const username = this.applyForm.value.username ?? '';
-    const password = this.applyForm.value.password ?? '';
+    const username = this.applyForm.value.username;
+    const password = this.applyForm.value.password;
 
     console.log(username);
     console.log(password);
 
     this.applyForm.reset();
   }
-  
 }
 
