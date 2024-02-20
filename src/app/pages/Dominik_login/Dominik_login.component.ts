@@ -14,12 +14,15 @@ import { appConfiguration } from '../../configs/app.config';
 })
 export class DominikLoginComponent { 
   Lan=Languages;
+  showPassword=false
   appCnfg=appConfiguration;
   passwordstate = "Password"
   change_pass_state(){
-    if (this.passwordstate=="Password")
+    if (this.passwordstate=="Password"){
       this.passwordstate="Text"
-    else
+      this.showPassword=true}
+    else{
       this.passwordstate="Password"
+      this.showPassword=false}
   }
 }
