@@ -2,25 +2,6 @@
   display: block;
 }
 
-.logo {
-  max-width: 50%;
-  max-height: 50%;
-}
-
-.logo-container {
-  width: fit-content;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.p-5 span {
-    color:red;
-}
-
 .icon-container{
     width: 32px;
 }
@@ -36,41 +17,8 @@
   text-align: center;
 }
 
-.no-acc-layout a{
-  color:blue
-}
-  
-.password-layout {
-  display: flex;
-  flex-direction: row;
-  height: fit-content;
-}
-
-.password-input-container input{
-  position: relative;
-  top: -6px;
-}
-
-.password-layout p,a {
-  font-size: small;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.info-centered {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-  font-size: small;
-  color: lightgray;
-}
-
 i {
     cursor: pointer;
 }
 
-.languages-centered label {
-  margin-top: auto;
-  margin-bottom: auto;
-}
 

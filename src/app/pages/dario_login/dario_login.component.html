@@ -1,16 +1,11 @@
 
-<div class="logo-container">
-    <img class="logo" src="../../../assets/images/logo.png">
-</div>
-
+<div class="d-flex justify-content-center mt-4 mb-4"><img  width="w-auto" height="120" src="../../../assets/images/logo.png"></div>
 
 <div class="container-sm w-25 border d-flex flex-column p-0">
     <div class="p-5">
         <form [formGroup]="loginGroup">
             <h3>Login</h3>
-                <div class="mt-4">
-                    <label for="inputUsername" class="form-label m-0 required">Username</label>
-                </div>
+                <div class="mt-4"><label for="inputUsername" class="form-label m-0 required">Username</label></div>
                 <div class="col-md-12">
                     <input type="text" class="form-control border border-secondary" id="inputUsername" formControlName="username">
                 </div>
@@ -22,34 +17,26 @@
                         </div>
                         <div class="input-group">
                             <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary" aria-label="Username" aria-describedby="basic-addon2" id="inputPassword" formControlName="password">
-                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center"  (click) ="showPassword = !showPassword"><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}"></i></button>
+                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center"  (click) ="showPassword = !showPassword"><i [ngClass]="showPassword ? 'fa-solid fa-eye': 'fa-regular fa-eye-slash'"></i></button>
                         </div>
                         <div *ngIf="loginGroup.controls['password'].errors?.['required'] && loginGroup.controls['password'].touched" class="text-danger">Field is required</div>
                         <div class="d-flex justify-content-center ">
                             <button type="button" [disabled]="loginGroup.invalid" class="btn btn-secondary mt-3">Login</button>
                         </div>
                      </div>
-            </form>
-        </div>
-        
-                <div class="no-acc-layout pb-0 pt-2">
-                    <p>Don't have an account? <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Create one!</a></p>
-                </div>
+        </form>
+    </div>
+     <div class="no-acc-layout pb-0 pt-2">
+        <p>Don't have an account? <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Create one!</a></p>
+    </div>
 </div>
-
 <div class="d-flex justify-content-center mt-4">
     <label for="languages">Language&nbsp;&nbsp;</label> 
     <select class="form-select form-select-sm w-auto" aria-label=".form-select-lg example">
-        <option *ngFor="let language of appLCFG.languageOptions" 
-            [value]="language.code">
-          {{language.name}}
-        </option>
+        <option *ngFor="let language of appLCFG.languageOptions" [value]="language.code">{{language.name}}</option>
     </select>
 </div>
-
-<div class="info-centered">
-    <p [innerHTML]="appCFG.copyright"></p>
-</div>
+<div class="d-flex justify-content-center mt-5 text-muted"><p [innerHTML]="appCFG.copyright"></p></div>
 
 
 
