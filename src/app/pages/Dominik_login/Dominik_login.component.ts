@@ -23,7 +23,7 @@ export class DominikLoginComponent {
   Passwordwarning=""
   Usernameselected=false
   Passwordselected=false
-
+  btndisabled="disabled"
   
   
   
@@ -32,36 +32,7 @@ export class DominikLoginComponent {
     userPassword: new FormControl('')
   });
 
-  clickDetect(){
-    
-    if (document.activeElement === document.getElementById("Password")){
-      this.Passwordselected=true
-      this.Passwordwarning=""
-    }
-    else if (this.Passwordselected && this.applyform.value.userPassword==''){
-      this.Passwordwarning="Field is required"
-    }
-
-    if (document.activeElement === document.getElementById("Username")){
-    this.Usernameselected=true
-    this.Usernamewarning=""
-    }
-    else if (this.Usernameselected && this.applyform.value.userName==''){
-      this.Usernamewarning="Field is required"
-    }
-}
-
-  buttonavailability(){
-    if (typeof window !== "undefined"){
-      
-      var button = document.getElementById("loginbtn") as HTMLInputElement | null;
-      if (this.applyform.value.userName!='' && this.applyform.value.userPassword!=''){
-        button?.removeAttribute('disabled')
-      }
-      else {
-        button?.setAttribute('disabled', '');}
-  }
-}
+  submitFunction(){}
 
 
   change_pass_state(){
