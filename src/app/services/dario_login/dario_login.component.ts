@@ -33,8 +33,4 @@ export class DarioLoginComponent {
     }
   );
 
-  test(){
-    console.log(this.loginGroup.value.password, this.loginGroup.value.username);
-  }
-
  }

@@ -11,30 +11,24 @@
                 <div class="mt-4">
                     <label for="inputUsername" class="form-label m-0">Username<span>*</span></label>
                 </div>
-           
                 <div class="col-md-12">
                     <input type="text" class="form-control border border-secondary" id="inputUsername" formControlName="username">
                 </div>
-
-                <div *ngIf="loginGroup.controls['username'].errors?.['required'] && loginGroup.controls['username'].touched" class="text-danger">Field is required</div> 
-
+                <div *ngIf="loginGroup.controls['username'].errors?.['required'] && loginGroup.controls['username'].touched" class="text-danger">Field is required</div>
                     <div class="form-group has-feedback">
-
                         <div class="d-flex justify-content-between align-items-center text-center mt-3">
                             <label for="inputPassword" class="form-label m-0">Password<span>*</span></label>
                             <a class="ml-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Forgot your password?</a> 
                         </div>
-                        
                         <div class="input-group">
                             <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary" aria-label="Username" aria-describedby="basic-addon2" id="inputPassword" formControlName="password">
-                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center" formControlName="password" required><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i></button>
+                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center" required><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i></button>
                         </div>
                         <div *ngIf="loginGroup.controls['password'].errors?.['required'] && loginGroup.controls['password'].touched" class="text-danger">Field is required</div>
-                    
                         <div class="d-flex justify-content-center ">
-                            <button type="button" [disabled]="loginGroup.invalid" class="btn btn-secondary mt-3" (click)="test()">Login</button>
+                            <button type="button" [disabled]="loginGroup.invalid" class="btn btn-secondary mt-3">Login</button>
                         </div>
-                    </div>
+                     </div>
             </form>
         </div>
         
