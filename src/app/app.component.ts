@@ -13,8 +13,10 @@ import { DominikLoginComponent } from './pages/Dominik_login/Dominik_login.compo
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent, DominikLoginComponent]
+    imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent, DominikLoginComponent],
+    
 })
+     
 export class AppComponent {
   title(title: any) {
     throw new Error('Method not implemented.');
