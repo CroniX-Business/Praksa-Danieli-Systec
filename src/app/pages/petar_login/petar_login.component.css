@@ -12,7 +12,7 @@
 }
 
 .showPass {
-  width: 40px; 
+  width: 40px;
 }
 
 .submit {
@@ -24,4 +24,9 @@
 .signUp {
   background-color: rgb(242, 240, 240);
   height: 60px;
+}
+
+.required:after {
+  content: "*";
+  color: red;
 }

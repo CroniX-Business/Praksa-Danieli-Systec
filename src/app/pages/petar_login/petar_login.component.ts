@@ -25,15 +25,5 @@ export class PetarLoginComponent{
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });  
-
-  submitApplication() {
-    const username = this.applyForm.value.username;
-    const password = this.applyForm.value.password;
-
-    console.log(username);
-    console.log(password);
-
-    this.applyForm.reset();
-  }
 }
 

@@ -6,9 +6,8 @@
         <div class="content w-75 h-75 m-auto">
             <p class="fs-3 m-0 fw-bold">Login</p>
 
-            <form [formGroup]="applyForm" (submit)="submitApplication()" class="d-flex flex-column">
-                <label for="username" class="fs-6 text-black-50 mt-4 d-block ">Username<span
-                        class="text-danger">*</span></label>
+            <form [formGroup]="applyForm" class="d-flex flex-column">
+                <label for="username" class="required fs-6 text-black-50 mt-4 d-block">Username</label>
                 <input type="text" formControlName="username" id="username"
                     class="input-form d-block border border-2 rounded-2 w-100" required>
                 <div *ngIf="applyForm.controls['username'].invalid && applyForm.controls['username'].touched">
@@ -17,10 +16,10 @@
                     </span>
                 </div>
 
-
-                <label for="password" class="d-flex fs-6 text-black-50 mt-4 d-block ">Password<span
-                        class="text-danger">*</span><span class="ms-auto fs-6"><a href="">Forgot
-                            password?</a></span></label>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="password" class="required fs-6 text-black-50 mt-4 mr-2 mb-0">Password</label>
+                    <a href="#" class="mt-4">Forgot password?</a>
+                </div>
                 <div class="input-group">
                     <input type="password" id="password" formControlName="password" class="form-control border border-2"
                         [type]="show ? 'password' : 'text'" aria-label="Password" aria-describedby="toggle-password"
@@ -39,9 +38,11 @@
                 </div>
 
                 <div class="submit-button-container">
-                    <button type="submit"
-                        class="submit mt-5 w-50 border rounded-2 text-light fs-6 pe-auto" [disabled]="applyForm.invalid">Login</button>
+                    <button type="submit" class="submit mt-5 w-50 border rounded-2 text-light fs-6 pe-auto"
+                        [ngStyle]="{'background-color': applyForm.invalid ? '#b4b4b4' : ''}"
+                        [disabled]="applyForm.invalid">Login</button>
                 </div>
+
             </form>
 
         </div>
