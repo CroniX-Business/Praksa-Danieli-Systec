@@ -22,7 +22,7 @@
                         </div>
                         <div class="input-group">
                             <input type="{{showPassword ? 'text': 'password'}}" class="form-control border border-secondary" aria-label="Username" aria-describedby="basic-addon2" id="inputPassword" formControlName="password">
-                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center" required><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}" (click)="togglePasswordVisibility()"></i></button>
+                            <button type="button" class="input-group-text border border-secondary icon-container d-flex justify-content-center"  (click) ="showPassword = !showPassword"><i [ngClass]="{'fa-solid fa-eye fa-fw':showPassword, 'fa-regular fa-eye-slash fa-fw':!showPassword}"></i></button>
                         </div>
                         <div *ngIf="loginGroup.controls['password'].errors?.['required'] && loginGroup.controls['password'].touched" class="text-danger">Field is required</div>
                         <div class="d-flex justify-content-center ">

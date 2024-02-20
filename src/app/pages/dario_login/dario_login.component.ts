@@ -22,10 +22,6 @@ export class DarioLoginComponent {
   appLCFG = AppLanguagesConfig;
 
 
-  togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
-  }
-
   loginGroup = new FormGroup(
     {
       password: new FormControl('', Validators.required),
