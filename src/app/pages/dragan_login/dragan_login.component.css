@@ -107,7 +107,10 @@
 
 .eye-icon{
   background-color: white;
+}
 
-
-
+.required:after {
+  content: "*";
+  color: red;
+  font-weight: 00;
 }

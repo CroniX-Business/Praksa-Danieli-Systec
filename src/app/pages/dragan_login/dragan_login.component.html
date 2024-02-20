@@ -60,20 +60,20 @@
         <div class="col">
             
 
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-fluid border rounded" >
+            <form [formGroup]="myForm" class="container-fluid border rounded" >
                 <div class="">
                     <h2 class="login-header">Login</h2>
 
-                    <label for="username">Username</label>
+                    <label for="username" class="required">Username</label>
                     
                     <input type="text" formControlName="username" class="forma" required id="username">
-                    <div *ngIf="myForm.controls['username'].invalid && (myForm.controls['username'].dirty || myForm.controls['username'].touched)">
+                    <div *ngIf="myForm.controls['username'].invalid && myForm.controls['username'].touched">
                         <span class="text-danger">Username is required</span>
                     </div>
 
 
                     <div>
-                        <label for="password">Password</label>
+                        <label for="password" class="required">Password</label>
                         <a href="#" class="forgotten-password-link">Forgot password?</a>
                     </div>
                     <div class="input-group">
@@ -82,9 +82,12 @@
                             <button type="button" (click)="toggleVisibility()" class="btn p-0"><i class="{{passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i></button>
                         </div>
                     </div>
-                    <div *ngIf="myForm.controls['password'].errors?.['required'] && myForm.controls['username'].touched" class="text-danger">
-                        Field is required
+                    <div *ngIf="myForm.controls['password'].invalid && myForm.controls['password'].touched">
+                        <span class="text-danger " *ngIf="myForm.controls['password'].errors?.['required']">
+                            Field is required.
+                        </span>
                     </div>
+    
                 </div>
         
                 <br>
