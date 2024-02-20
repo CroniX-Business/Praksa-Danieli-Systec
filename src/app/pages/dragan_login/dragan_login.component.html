@@ -60,15 +60,15 @@
         <div class="col">
             
 
-            <form #myForm="ngForm" (ngSubmit)="onSubmit()" class="container-fluid border rounded" >
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-fluid border rounded" >
                 <div class="">
                     <h2 class="login-header">Login</h2>
 
                     <label for="username">Username</label>
-                    <br>
-                    <input type="text" name="username" class="forma" required>
-                    <div *ngIf="myForm.controls['username'].invalid && myForm.controls['username'].touched" class="text-danger">
-                        Field is required
+                    
+                    <input type="text" formControlName="username" class="forma" required id="username">
+                    <div *ngIf="myForm.controls['username'].invalid && (myForm.controls['username'].dirty || myForm.controls['username'].touched)">
+                        <span class="text-danger">Username is required</span>
                     </div>
 
 
@@ -77,7 +77,7 @@
                         <a href="#" class="forgotten-password-link">Forgot password?</a>
                     </div>
                     <div class="input-group">
-                        <input type="{{passwordVisible ? 'text' : 'password' }}" class="form-control" [(ngModel)]="myData.password" name="password" required>
+                        <input type="{{passwordVisible ? 'text' : 'password' }}" class="form-control" name="password" id="Password" required>
                         <div class="input-group-text">
                             <button type="button" (click)="toggleVisibility()" class="btn p-0"><i class="{{passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i></button>
                         </div>
