@@ -66,7 +66,7 @@
 
                     <label for="username">Username</label>
                     <br>
-                    <input type="text" name="username" class="forma" [(ngModel)]="myData.username" required>
+                    <input type="text" name="username" class="forma" required>
                     <div *ngIf="myForm.controls['username'].invalid && myForm.controls['username'].touched" class="text-danger">
                         Field is required
                     </div>
