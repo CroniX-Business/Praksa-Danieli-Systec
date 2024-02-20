@@ -44,7 +44,7 @@
         "prettier/prettier": [
           "error",
           {
-            "parser": "auto"
+            "parser": "angular"
           }
         ]
       }
