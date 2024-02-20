@@ -5,7 +5,7 @@ import { PetarComponentComponent } from "../components/petar-component/petar-com
 import { DarioComponentComponent } from "../components/dario-component/dario-component.component";
 import { DraganComponent } from '../components/dragan/dragan.component';
 import { BrunoCalculatorComponent } from '../components/bruno-calculator/bruno-calculator.component';
-import { DarioLoginComponent } from "./services/dario_login/dario_login.component";
+import { DarioLoginComponent } from "./pages/dario_login/dario_login.component";
 
 
 @Component({

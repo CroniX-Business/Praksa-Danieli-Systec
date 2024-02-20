@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AppConfig } from '../../../app/configs/app.config';
-import { AppLanguagesConfig } from '../../../app/configs/app-languages.config';
+import { AppConfig } from '../../configs/app.config';
+import { AppLanguagesConfig } from '../../configs/app-languages.config';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
