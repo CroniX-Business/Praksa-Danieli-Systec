@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <!-- <div class="center-image">
     <img src="assets/images/logo.png" alt="" class="image">
 </div>
@@ -78,24 +79,25 @@
           </div>
           <div class="input-group">
             <input
-              type="{{ passwordVisible ? 'text' : 'password' }}"
-              class="form-control"
-              name="password"
-              id="Password"
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-control border border-2"
+              [type]="passwordVisible ? 'password' : 'text'"
+              aria-label="Password"
+              aria-describedby="toggle-password"
               required />
-            <div class="input-group-text">
-              <button
-                type="button"
-                (click)="toggleVisibility()"
-                class="btn p-0">
-                <i
-                  class="{{
-                    passwordVisible
-                      ? 'fa-solid fa-eye'
-                      : 'fa-solid fa-eye-slash'
-                  }}"></i>
-              </button>
-            </div>
+            <button
+              class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2"
+              type="button"
+              id="toggle-password"
+              (click)="passwordVisible = !passwordVisible">
+              <i
+                class="text-center"
+                [ngClass]="
+                  passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'
+                "></i>
+            </button>
           </div>
           <div
             *ngIf="
@@ -104,8 +106,8 @@
             ">
             <span
               class="text-danger"
-              *ngIf="myForm.controls['password'].errors?.['required']">
-              Field is required.
+              *ngIf="myForm.controls['password'].errors?.['required']"
+              >Field is required.
             </span>
           </div>
         </div>

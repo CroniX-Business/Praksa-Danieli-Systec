@@ -22,7 +22,4 @@ export class DraganLoginComponent {
   });
   public passwordVisible: boolean = false;
   public appConfig = appConfig;
-  public toggleVisibility(): void {
-    this.passwordVisible = !this.passwordVisible;
-  }
 }
