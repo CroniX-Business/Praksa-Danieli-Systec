@@ -17,7 +17,12 @@
         <input type="text" class="form-control" formControlName="username" />
         <div
           class="text-danger"
-          *ngIf="this.form.touched && this.form.get('username')!.value === ''">
+          *ngIf="
+            (this.form.get('username')!.touched &&
+              this.form.get('username')!.invalid) ||
+            (this.form.get('username')!.touched &&
+              this.form.get('username')!.value === '')
+          ">
           Username is required!
         </div>
       </div>
@@ -46,7 +51,12 @@
         </div>
         <div
           class="text-danger"
-          *ngIf="this.form.touched && this.form.get('password')!.value === ''">
+          *ngIf="
+            (this.form.get('password')!.touched &&
+              this.form.get('password')!.invalid) ||
+            (this.form.get('password')!.touched &&
+              this.form.get('password')!.value === '')
+          ">
           Password is required!
         </div>
       </div>
