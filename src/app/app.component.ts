@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 
 import { DominikComponentComponent } from "../components/dominik-component/dominik-component.component";
@@ -18,7 +19,16 @@ import { DraganLoginComponent } from './pages/dragan_login/dragan_login.componen
     imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent,
          DarioComponentComponent, DraganComponent,BrunoCalculatorComponent, DraganLoginComponent,
         FormsModule,]
+=======
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet],
+>>>>>>> main
 })
 export class AppComponent {
-  public title: string = "my-angular-project";
+  public title: string = 'my-angular-project';
 }
