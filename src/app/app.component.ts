@@ -20,4 +20,5 @@ import { DraganLoginComponent } from './pages/dragan_login/dragan_login.componen
         FormsModule,]
 })
 export class AppComponent {
+  public title: string = "my-angular-project";
 }
