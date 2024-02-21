@@ -69,7 +69,7 @@
           class="text-danger">
           Field is required
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center">
           <button
             type="button"
             [disabled]="loginGroup.invalid"
@@ -77,6 +77,9 @@
             (click)="onSubmit()">
             Login
           </button>
+          <div class="text-center mt-2" *ngIf="loginMessage !== null">
+            {{ loginMessage }}
+          </div>
         </div>
       </div>
     </form>

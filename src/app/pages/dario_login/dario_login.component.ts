@@ -24,6 +24,7 @@ export class DarioLoginComponent {
 
   public appCFG = AppConfig;
   public appLCFG = AppLanguagesConfig;
+  public loginMessage: string | null = null;
 
   public constructor(private authService: AuthService) {}
 
@@ -37,17 +38,22 @@ export class DarioLoginComponent {
       this.loginGroup.controls.username.value != null &&
       this.loginGroup.controls.password.value != null
     ) {
-      this.authService.logIn(
-        this.loginGroup.controls.username.value,
-        this.loginGroup.controls.password.value
-      );
-
-      alert(
-        'Username: ' +
-          this.loginGroup.controls.username.value +
-          ' ' +
-          'Password: ' +
+      this.authService
+        .logIn(
+          this.loginGroup.controls.username.value,
           this.loginGroup.controls.password.value
+        )
+        .subscribe(value => {
+          if (value) {
+            this.loginMessage = 'Login success!';
+          } else this.loginMessage = 'Login failed!';
+        });
+
+      console.log(
+        this.authService.logIn(
+          this.loginGroup.controls.username.value,
+          this.loginGroup.controls.password.value
+        )
       );
     }
   }
