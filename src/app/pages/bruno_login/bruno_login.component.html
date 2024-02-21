@@ -7,7 +7,7 @@
       action=""
       class="p-5"
       [formGroup]="form"
-      (ngSubmit)="log()"
+      (ngSubmit)="onSubmit()"
       id="login-form">
       <h2 class="bold mb-3">Login</h2>
       <div class="mb-3 form-group">
@@ -83,6 +83,7 @@
       </option>
     </select>
   </div>
+  <!--<div class="mb-3" *ngIf="loginResult$ === true">Login Successful!</div>-->
   <footer class="mt-5 text-center">
     {{ config.copyright }}
   </footer>
