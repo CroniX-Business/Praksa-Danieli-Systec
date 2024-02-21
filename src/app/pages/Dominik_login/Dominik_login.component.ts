@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Languages } from '../../configs/app-languages.config';
 import { appConfiguration } from '../../configs/app.config';
+import { AuthService } from '../../services/auth.service';
 import {
   FormsModule,
   FormControl,
@@ -17,6 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikLoginComponent {
+  public constructor(private authService: AuthService) {}
   public Lan = Languages;
   public showPassword = false;
   public appCnfg = appConfiguration;
@@ -27,4 +29,14 @@ export class DominikLoginComponent {
   });
 
   public submitFunction(): void {}
+  public onSubmit(): void {
+    if (
+      this.applyform.controls.userName.value != null &&
+      this.applyform.controls.userPassword.value != null
+    )
+      this.authService.login(
+        this.applyform.controls.userName.value,
+        this.applyform.controls.userPassword.value
+      );
+  }
 }
