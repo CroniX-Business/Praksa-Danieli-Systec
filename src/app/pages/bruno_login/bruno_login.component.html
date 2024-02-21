@@ -6,20 +6,25 @@
         <form action="" class="p-5" [formGroup]="form" (ngSubmit)="log()" id="login-form">
             <h2 class="bold mb-3">Login</h2>
             <div class="mb-3 form-group">
-                <label for="username" class="form-label">Username*</label><br>
+                <label for="username" class="form-label">Username<span class="text-danger ">*</span></label>
                 <input type="text" class="form-control" formControlName="username">
+                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('username').value===''">Username is required!</div>
             </div>
-            <div class="mb-3 d-flex justify-content-between form-group">
-                <label for="password" class="form-label">Password*</label>
-                <a href="" class="pass-reset">Forgot password?</a>
-            </div>
-            <div class="mb-3 d-flex align-items-center position-relative">
-                <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password">
-                <div class="input-group-append position-absolute top-0 bottom-0 end-0">
-                    <button class="btn btn-outline-secondary rounded-start-0 border border-start h-100" type="button" (click)="toggleFieldTextType()">
-                        <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
-                    </button>
+            
+            <div class="mb-3 d-flex position-relative flex-column">
+                <div class="d-flex justify-content-between form-group">
+                    <label for="password" class="form-label">Password<span class="text-danger ">*</span></label>
+                    <a href="" class="pass-reset">Forgot password?</a>
                 </div>
+                <div class="align-items-stretch d-flex ">
+                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control rounded-end-0" formControlName="password">
+                    <div class="input-group-append top-0 bottom-0 end-0">
+                        <button class="btn btn-outline-secondary rounded-start-0 border border-start h-100" type="button" (click)="toggleFieldTextType()">
+                            <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('password').value===''">Password is required!</div>
             </div>
             <div class="text-center my-5">
                 <button [disabled]="form.invalid" form="login-form" type="submit"
