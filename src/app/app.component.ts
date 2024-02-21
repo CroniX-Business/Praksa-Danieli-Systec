@@ -18,7 +18,5 @@ import { DominikLoginComponent } from './pages/Dominik_login/Dominik_login.compo
 })
      
 export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+  public title: string = "my-angular-project";
 }
