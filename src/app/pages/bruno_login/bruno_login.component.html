@@ -13,10 +13,10 @@
                 <label for="password" class="form-label">Password*</label>
                 <a href="" class="pass-reset">Forgot password?</a>
             </div>
-            <div class="mb-3 d-flex align-items-center input-group">
+            <div class="mb-3 d-flex align-items-center position-relative">
                 <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password">
-                <div class="input-group-append d-flex align-items-stretch">
-                    <button class="btn btn-outline-secondary rounded-start-0 border border-start flex-grow-1 h-100" type="button" (click)="toggleFieldTextType()">
+                <div class="input-group-append position-absolute top-0 bottom-0 end-0">
+                    <button class="btn btn-outline-secondary rounded-start-0 border border-start h-100" type="button" (click)="toggleFieldTextType()">
                         <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
                     </button>
                 </div>
