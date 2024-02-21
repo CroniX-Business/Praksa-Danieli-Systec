@@ -10,15 +10,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DarioComponentComponent {
-  display = '';
-  firstValue = '';
-  secondValue = '';
-  result = '';
-  operation = '';
-  flag = false;
+  public display = '';
+  public firstValue = '';
+  public secondValue = '';
+  public result = '';
+  public operation = '';
+  public flag = false;
   public isButtonDisabled: boolean = false;
 
-  public pressNumber(num: string): string {
+  public pressNumber(num: string): undefined {
     if (this.flag) {
       this.display = '';
     }
@@ -26,7 +26,7 @@ export class DarioComponentComponent {
     this.flag = false;
   }
 
-  doOperation(op: String) {
+  public doOperation(op: string): void {
     console.log(op);
     if (op != '=' && op != 'C') {
       this.isButtonDisabled = true;
