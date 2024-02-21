@@ -8,9 +8,8 @@
             <div class="mb-3 form-group">
                 <label for="username" class="form-label">Username<span class="text-danger ">*</span></label>
                 <input type="text" class="form-control" formControlName="username">
-                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('username').value===''">Username is required!</div>
+                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('username')!.value===''">Username is required!</div>
             </div>
-            
             <div class="mb-3 d-flex position-relative flex-column">
                 <div class="d-flex justify-content-between form-group">
                     <label for="password" class="form-label">Password<span class="text-danger ">*</span></label>
@@ -24,7 +23,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('password').value===''">Password is required!</div>
+                <div class="text-danger" *ngIf="this.form.touched&&this.form.get('password')!.value===''">Password is required!</div>
             </div>
             <div class="text-center my-5">
                 <button [disabled]="form.invalid" form="login-form" type="submit"
