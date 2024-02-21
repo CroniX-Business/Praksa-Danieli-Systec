@@ -44,82 +44,99 @@
     <span [innerHTML]="appConfig.copyright"></span>
 </div> -->
 
-
-
-
-
 <div class="d-flex justify-content-center">
-    <img src="assets/images/logo.png" alt="" class="img-responsive">
+  <img src="assets/images/logo.png" alt="" class="img-responsive" />
 </div>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form [formGroup]="myForm" class="container-fluid border rounded">
+        <div class="">
+          <h2 class="login-header">Login</h2>
 
-        </div>
-        <div class="col">
-            
+          <label for="username" class="required">Username</label>
 
-            <form [formGroup]="myForm" class="container-fluid border rounded" >
-                <div class="">
-                    <h2 class="login-header">Login</h2>
+          <input
+            type="text"
+            formControlName="username"
+            class="forma"
+            required
+            id="username" />
+          <div
+            *ngIf="
+              myForm.controls['username'].invalid &&
+              myForm.controls['username'].touched
+            ">
+            <span class="text-danger">Username is required</span>
+          </div>
 
-                    <label for="username" class="required">Username</label>
-                    
-                    <input type="text" formControlName="username" class="forma" required id="username">
-                    <div *ngIf="myForm.controls['username'].invalid && myForm.controls['username'].touched">
-                        <span class="text-danger">Username is required</span>
-                    </div>
-
-
-                    <div>
-                        <label for="password" class="required">Password</label>
-                        <a href="#" class="forgotten-password-link">Forgot password?</a>
-                    </div>
-                    <div class="input-group">
-                        <input type="{{passwordVisible ? 'text' : 'password' }}" class="form-control" name="password" id="Password" required>
-                        <div class="input-group-text">
-                            <button type="button" (click)="toggleVisibility()" class="btn p-0"><i class="{{passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i></button>
-                        </div>
-                    </div>
-                    <div *ngIf="myForm.controls['password'].invalid && myForm.controls['password'].touched">
-                        <span class="text-danger " *ngIf="myForm.controls['password'].errors?.['required']">
-                            Field is required.
-                        </span>
-                    </div>
-    
-                </div>
-        
-                <br>
-                <div class="d-flex align-items-center justify-content-center mb-3">
-                    <button type="submit" class="btn btn-primary " [disabled]="myForm.invalid">Log in</button>
-                </div>
-        
-            </form>
-            <div class="registration">
-                Don't have an account? <a href="#">Create one!</a>
+          <div>
+            <label for="password" class="required">Password</label>
+            <a href="#" class="forgotten-password-link">Forgot password?</a>
+          </div>
+          <div class="input-group">
+            <input
+              type="{{ passwordVisible ? 'text' : 'password' }}"
+              class="form-control"
+              name="password"
+              id="Password"
+              required />
+            <div class="input-group-text">
+              <button
+                type="button"
+                (click)="toggleVisibility()"
+                class="btn p-0">
+                <i
+                  class="{{
+                    passwordVisible
+                      ? 'fa-solid fa-eye'
+                      : 'fa-solid fa-eye-slash'
+                  }}"></i>
+              </button>
             </div>
+          </div>
+          <div
+            *ngIf="
+              myForm.controls['password'].invalid &&
+              myForm.controls['password'].touched
+            ">
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['password'].errors?.['required']">
+              Field is required.
+            </span>
+          </div>
         </div>
-        <div class="col">
 
+        <br />
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="myForm.invalid">
+            Log in
+          </button>
         </div>
+      </form>
+      <div class="registration">
+        Don't have an account? <a href="#">Create one!</a>
+      </div>
     </div>
-    
+    <div class="col"></div>
+  </div>
 </div>
 
 <div class="mt-3 h-100 d-flex align-items-center justify-content-center">
-    <label for="language">Choose language:</label>
-    <select name="language" id="">
-        <option value="{{appConfig['defaultLanguage']}}">{{appConfig.defaultLanguage}}</option> 
-    </select>
+  <label for="language">Choose language:</label>
+  <select name="language" id="">
+    <option value="{{ appConfig['defaultLanguage'] }}">
+      {{ appConfig.defaultLanguage }}
+    </option>
+  </select>
 </div>
-
 
 <div class="mt-3 h-100 d-flex align-items-center justify-content-center">
-    <span [innerHTML]="appConfig.copyright"></span>
+  <span [innerHTML]="appConfig.copyright"></span>
 </div>
-   
-
-
-
-

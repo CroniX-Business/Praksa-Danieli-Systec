@@ -6,32 +6,23 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-dragan-login',
   standalone: true,
-  imports: [
-    CommonModule, FormsModule, ReactiveFormsModule
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './dragan_login.component.html',
   styleUrl: './dragan_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DraganLoginComponent {
-  myData = {
+  public myData = {
     username: '',
-    password: '',   
-  }
-  myForm = new FormGroup({
+    password: '',
+  };
+  public myForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
   });
-  passwordVisible:boolean=false
-  appConfig=appConfig
-  toggleVisibility(){
-    this.passwordVisible=!this.passwordVisible;
+  public passwordVisible: boolean = false;
+  public appConfig = appConfig;
+  public toggleVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
   }
-
-  onSubmit(){
-    
-  }
-
-
-
- }
+}
