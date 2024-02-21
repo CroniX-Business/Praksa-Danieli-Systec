@@ -16,4 +16,5 @@ import { PetarLoginComponent } from "./pages/petar_login/petar_login.component";
     imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent, DraganComponent, BrunoCalculatorComponent, PetarLoginComponent]
 })
 export class AppComponent {
+  public title: string = "my-angular-project";
 }
