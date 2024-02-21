@@ -15,4 +15,5 @@ import { BrunoCalculatorComponent } from '../components/bruno-calculator/bruno-c
     imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent]
 })
 export class AppComponent {
+  public title: string = "my-angular-project";
 }
