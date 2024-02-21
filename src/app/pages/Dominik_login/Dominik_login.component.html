@@ -73,6 +73,9 @@
           Login
         </button>
       </div>
+      <div class="mt-2 d-flex justify-content-center">
+        <p *ngIf="loginMsg !== ''">{{ loginMsg }}</p>
+      </div>
       <div id="createaccdiv">
         <div
           id="creatediv"

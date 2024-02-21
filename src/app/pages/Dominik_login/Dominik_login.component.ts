@@ -22,6 +22,7 @@ export class DominikLoginComponent {
   public Lan = Languages;
   public showPassword = false;
   public appCnfg = appConfiguration;
+  public loginMsg = '';
 
   public applyform = new FormGroup({
     userName: new FormControl(''),
@@ -34,9 +35,14 @@ export class DominikLoginComponent {
       this.applyform.controls.userName.value != null &&
       this.applyform.controls.userPassword.value != null
     )
-      this.authService.login(
-        this.applyform.controls.userName.value,
-        this.applyform.controls.userPassword.value
-      );
+      this.authService
+        .login(
+          this.applyform.controls.userName.value,
+          this.applyform.controls.userPassword.value
+        )
+        .subscribe(value => {
+          if (value) this.loginMsg = 'Login complete!';
+          else this.loginMsg = 'Login failed!';
+        });
   }
 }

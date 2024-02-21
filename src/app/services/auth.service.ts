@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public login(userName: string, userPass: string): void {
-    console.log('Loggin through!');
-    const access = Math.floor(Math.random() * 2);
-    if (access == 0)
-      console.log('Accessed: User:' + userName + ' Pass:' + userPass);
-    else console.log('Unaccessed: User:' + userName + ' Pass:' + userPass);
+  public login(userName: string, userPass: string): Observable<boolean> {
+    console.log('User:' + userName + ' Pass:' + userPass);
+    return of(Math.random() >= 0.5);
   }
   public constructor() {}
 }
