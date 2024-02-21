@@ -18,7 +18,7 @@
                 <div class="align-items-stretch d-flex ">
                     <input [type]="fieldTextType ? 'text' : 'password'" class="form-control rounded-end-0" formControlName="password">
                     <div class="input-group-append top-0 bottom-0 end-0">
-                        <button class="btn btn-outline-secondary rounded-start-0 border border-start h-100" type="button" (click)="toggleFieldTextType()">
+                        <button class="btn btn-outline-secondary rounded-start-0 border border-start h-100" type="button" (click)="fieldTextType=!fieldTextType">
                             <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
                         </button>
                     </div>
