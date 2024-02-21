@@ -7,7 +7,7 @@ import { BrunoLoginComponent } from './pages/bruno_login/bruno_login.component';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet,BrunoLoginComponent],
+  imports: [RouterOutlet, BrunoLoginComponent],
 })
 export class AppComponent {
   public title: string = 'my-angular-project';
