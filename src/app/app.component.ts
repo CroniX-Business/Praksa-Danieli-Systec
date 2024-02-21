@@ -16,4 +16,5 @@ import { DarioLoginComponent } from "./pages/dario_login/dario_login.component";
     imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent, DraganComponent, BrunoCalculatorComponent, DarioLoginComponent]
 })
 export class AppComponent {
+  public title: string = "my-angular-project";
 }

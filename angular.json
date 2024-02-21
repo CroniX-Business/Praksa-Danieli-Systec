@@ -28,7 +28,9 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -95,11 +97,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "95e9c8dc-2859-4799-a8ab-c7bcad9b17bc"
+    "analytics": "95e9c8dc-2859-4799-a8ab-c7bcad9b17bc",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
