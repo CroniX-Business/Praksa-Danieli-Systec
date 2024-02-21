@@ -15,4 +15,5 @@ import { BrunoLoginComponent } from './pages/bruno_login/bruno_login.component';
     imports: [RouterOutlet, PetarComponentComponent, DominikComponentComponent, DarioComponentComponent,DraganComponent,BrunoCalculatorComponent,BrunoLoginComponent]
 })
 export class AppComponent {
+  public title: string = "my-angular-project";
 }
