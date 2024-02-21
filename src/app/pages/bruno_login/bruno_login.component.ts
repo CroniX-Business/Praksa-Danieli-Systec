@@ -17,20 +17,18 @@ import { languages } from '../../configs/app-languages.config';
   styleUrl: './bruno_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrunoLoginComponent implements OnInit {
+export class BrunoLoginComponent{
 
   time = new Date()
-  form: any
+  form = new FormGroup({
+    username: new FormControl(null, Validators.required),
+    password: new FormControl(null, [Validators.minLength(7),Validators.required])
+  })
   config = config
   languages = languages
   fieldTextType: boolean=false;
 
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, [Validators.minLength(7),Validators.required])
-    })
-  }
+  
 
   toggleFieldTextType(){
     this.fieldTextType= !this.fieldTextType
