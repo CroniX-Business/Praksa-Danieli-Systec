@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.icon-container{
+  width: 32px;
+}
+
+.required:after {
+  content: "*";
+  color: red;
+  font-weight: 00;
+}
+
+i {
+  cursor: pointer;
+}
+
+

@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center mt-4 mb-4">
+  <img
+    width="w-auto"
+    height="120"
+    src="../../../assets/images/logo.png"
+    alt="Logo page" />
+</div>
+
+<div class="container-sm w-25 border d-flex flex-column p-0">
+  <div class="p-5">
+    <form [formGroup]="registerGroup">
+      <h3>Login</h3>
+
+      <label for="inputFirstName" class="form-label m-0 required mt-4"
+        >First name</label
+      >
+      <input
+        type="text"
+        class="form-control border border-secondary"
+        id="inputFirstName"
+        formControlName="firstName" />
+
+      <label for="inputLastName" class="form-label m-0 required mt-3"
+        >Last name</label
+      >
+      <input
+        type="text"
+        class="form-control border border-secondary"
+        id="inputLastName"
+        formControlName="lastName" />
+
+      <label for="inputUsername" class="form-label m-0 required mt-3"
+        >Username</label
+      >
+
+      <div class="col-md-12">
+        <input
+          type="text"
+          class="form-control border border-secondary"
+          id="inputUsername"
+          formControlName="username" />
+      </div>
+
+      <div class="form-group has-feedback">
+        <label for="inputPassword" class="form-label m-0 required mt-3"
+          >Password</label
+        >
+
+        <div class="input-group">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control border border-secondary"
+            id="inputPassword"
+            formControlName="password" />
+          <button
+            type="button"
+            class="input-group-text border border-secondary icon-container d-flex justify-content-center"
+            (click)="showPassword = !showPassword">
+            <i
+              [ngClass]="
+                showPassword ? 'fa-solid fa-eye' : 'fa-regular fa-eye-slash'
+              "></i>
+          </button>
+        </div>
+
+        <div>
+          <label for="inputConfirmPassword" class="form-label m-0 required mt-3"
+            >Confirm password</label
+          >
+          <div class="input-group">
+            <input
+              type="{{ showConfirmPassword ? 'text' : 'password' }}"
+              class="form-control border border-secondary"
+              id="inputConfirmPassword"
+              formControlName="confirmPassword" />
+            <button
+              type="button"
+              class="input-group-text border border-secondary icon-container d-flex justify-content-center"
+              (click)="showConfirmPassword = !showConfirmPassword">
+              <i
+                [ngClass]="
+                  showConfirmPassword
+                    ? 'fa-solid fa-eye'
+                    : 'fa-regular fa-eye-slash'
+                "></i>
+            </button>
+          </div>
+        </div>
+        <label for="inputEmail" class="form-label m-0 required mt-3"
+          >E-mail</label
+        >
+        <input
+          type="text"
+          class="form-control border border-secondary"
+          id="inputEmail"
+          formControlName="email" />
+      </div>
+    </form>
+
+    <div class="d-flex flex-row justify-content-center">
+      <button
+        type="button"
+        [disabled]="registerGroup.invalid"
+        class="btn btn-secondary mt-3 w-75">
+        Register
+      </button>
+
+      <button type="button" class="btn btn btn-light mt-3 ms-3 w-75">
+        Back
+      </button>
+    </div>
+  </div>
+</div>
