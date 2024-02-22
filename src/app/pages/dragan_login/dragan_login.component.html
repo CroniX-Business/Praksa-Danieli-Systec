@@ -53,7 +53,7 @@
   <div class="row">
     <div class="col"></div>
     <div class="col">
-      <form [formGroup]="myForm" class="container-fluid border rounded">
+      <form [formGroup]="myForm" class="container-fluid border rounded" (ngSubmit)="onSubmit()">
         <div class="">
           <h2 class="login-header">Login</h2>
 
@@ -120,6 +120,9 @@
             [disabled]="myForm.invalid">
             Log in
           </button>
+          <div *ngIf="loginMessage !== null">
+            {{loginMessage}}
+          </div>
         </div>
       </form>
       <div class="registration">
