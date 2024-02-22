@@ -1,11 +1,6 @@
 .wrapper {
-  justify-content: center;
-  align-items: center;
-}
-
-.calculator-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
