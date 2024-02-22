@@ -75,9 +75,13 @@
             type="submit"
             class="submit text-light mt-5 w-50 border rounded-2 fs-6 pe-auto"
             [ngClass]="applyForm.invalid ? '' : 'bg-secondary'"
-            [disabled]="applyForm.invalid">
+            [disabled]="applyForm.invalid"
+            (click)="onSubmit()">
             Login
           </button>
+          <div class="text-center " *ngIf="loginMessage !== null">
+            {{ loginMessage }}
+          </div>
         </div>
       </form>
     </div>
