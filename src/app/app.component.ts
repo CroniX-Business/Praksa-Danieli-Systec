@@ -4,7 +4,6 @@ import { DominikLoginComponent } from './pages/Dominik_login/Dominik_login.compo
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [RouterOutlet, DominikLoginComponent],
