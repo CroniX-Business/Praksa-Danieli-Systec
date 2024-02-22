@@ -1,0 +1,180 @@
+<div class="d-flex justify-content-center">
+  <img src="assets/images/logo.png" alt="" class="img-responsive" />
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form class="container-fluid border rounded" [formGroup]="myForm">
+        <div class="">
+          <h2 class="login-header">Login</h2>
+
+          <label for="firstName" class="form-label">First name</label>
+          <input
+            type="text"
+            id="firstName"
+            class="form-control"
+            required
+            formControlName="myForm" />
+
+          <div
+            *ngIf="
+              myForm.controls['firstName'].invalid &&
+              myForm.controls['firstName'].touched
+            ">
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['firstName'].errors?.['required']"
+              >Field is required.
+            </span>
+          </div>
+
+          <label for="last_name" class="required">Last name</label>
+
+          <input
+            type="text"
+            class="forma form-control"
+            required
+            id="last_name" />
+          <div
+            *ngIf="
+              myForm.controls['lastName'].invalid &&
+              myForm.controls['lastName'].touched
+            ">
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['lastName'].errors?.['required']"
+              >Field is required.
+            </span>
+          </div>
+
+          <label for="username" class="required">Username</label>
+
+          <input
+            type="text"
+            class="forma form-control"
+            required
+            id="username" />
+          <div
+            *ngIf="
+              myForm.controls['lastName'].invalid &&
+              myForm.controls['lastName'].touched
+            ">
+            <span class="text-danger">Username is required</span>
+          </div>
+
+          <div>
+            <label for="password" class="required">Password</label>
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-control border border-2"
+              [type]="passwordVisible ? 'password' : 'text'"
+              aria-label="Password"
+              aria-describedby="toggle-password"
+              required />
+            <button
+              class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2"
+              type="button"
+              id="toggle-password"
+              (click)="passwordVisible = !passwordVisible">
+              <i
+                class="text-center"
+                [ngClass]="
+                  passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'
+                "></i>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              myForm.controls['password'].invalid &&
+              myForm.controls['password'].touched
+            ">
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['password'].errors?.['required']"
+              >Field is required.
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <label for="repeat_password" class="required">Repeat password</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control border border-2"
+            [type]="passwordVisible ? 'password' : 'text'"
+            aria-label="Password"
+            aria-describedby="toggle-password"
+            required />
+          <button
+            class="showPass input-group-text bg-white d-flex justify-content-center align-items-center border border-2"
+            type="button"
+            id="toggle-password"
+            (click)="passwordVisible = !passwordVisible">
+            <i
+              class="text-center"
+              [ngClass]="
+                passwordVisible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'
+              "></i>
+          </button>
+        </div>
+        <div
+          *ngIf="
+            myForm.controls['password'].invalid &&
+            myForm.controls['password'].touched
+          ">
+          <span
+            class="text-danger"
+            *ngIf="myForm.controls['password'].errors?.['required']"
+            >Field is required.
+          </span>
+        </div>
+        <label for="email" class="form-label">E-mail</label>
+        <input
+          type="password"
+          id="email"
+          class="form-control"
+          aria-describedby="passwordHelpBlock" />
+
+        <br />
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="myForm.invalid">
+            Log in
+          </button>
+          <div *ngIf="registerMessage !== null">
+            {{ registerMessage }}
+          </div>
+        </div>
+      </form>
+      <div class="registration">
+        Don't have an account? <a href="#">Create one!</a>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<div class="mt-3 h-100 d-flex align-items-center justify-content-center">
+  <label for="language">Choose language:</label>
+  <select name="language" id="">
+    <option value="{{ appConfig['defaultLanguage'] }}">
+      {{ appConfig.defaultLanguage }}
+    </option>
+  </select>
+</div>
+
+<div class="mt-3 h-100 d-flex align-items-center justify-content-center">
+  <span [innerHTML]="appConfig.copyright"></span>
+</div>
