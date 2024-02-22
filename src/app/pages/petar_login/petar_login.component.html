@@ -8,7 +8,10 @@
   <div class="login border border-2 rounded-2 mt-5 d-flex position-relative">
     <div class="content w-75 h-75 m-auto">
       <p class="fs-3 m-0 fw-bold">Login</p>
-      <form [formGroup]="applyForm" class="d-flex flex-column">
+      <form
+        [formGroup]="applyForm"
+        (ngSubmit)="onSubmit()"
+        class="d-flex flex-column">
         <label for="username" class="required fs-6 text-black-50 mt-4 d-block"
           >Username</label
         >
@@ -75,8 +78,7 @@
             type="submit"
             class="submit text-light mt-5 w-50 border rounded-2 fs-6 pe-auto"
             [ngClass]="applyForm.invalid ? '' : 'bg-secondary'"
-            [disabled]="applyForm.invalid"
-            (click)="onSubmit()">
+            [disabled]="applyForm.invalid">
             Login
           </button>
           <div class="text-center" *ngIf="loginMessage !== null">
