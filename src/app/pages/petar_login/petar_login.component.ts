@@ -19,16 +19,13 @@ import { AuthService } from '../../services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PetarLoginComponent {
-  public AuthService: AuthService;
   public appConfig = AppConfig;
   public appLanguages = AppLanguages;
 
   public show: boolean = true;
   public loginMessage: string = '';
 
-  public constructor(authService: AuthService) {
-    this.AuthService = authService;
-  }
+  public constructor(private authService: AuthService) {}
 
   public applyForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -40,16 +37,18 @@ export class PetarLoginComponent {
       this.applyForm.controls.username.value !== null &&
       this.applyForm.controls.password.value !== null
     ) {
-      this.AuthService.login(
-        this.applyForm.controls.username.value,
-        this.applyForm.controls.password.value
-      ).subscribe(value => {
-        if (value) {
-          this.loginMessage = 'Login success';
-        } else {
-          this.loginMessage = 'Login Failed';
-        }
-      });
+      this.authService
+        .login(
+          this.applyForm.controls.username.value,
+          this.applyForm.controls.password.value
+        )
+        .subscribe(value => {
+          if (value) {
+            this.loginMessage = 'Login success';
+          } else {
+            this.loginMessage = 'Login Failed';
+          }
+        });
     }
   }
 }
