@@ -84,7 +84,14 @@
             id="createacctxt"
             class="align-middle m-auto d-flex justify-content-center mb-0">
             Don't have an account?
-            <a href="" class="align-middle ms-1">Create one!</a>
+            <a
+              routerLink="Register-route"
+              class="align-middle ms-1"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              >Create one!</a
+            >
+            <router-outlet></router-outlet>
           </p>
         </div>
       </div>

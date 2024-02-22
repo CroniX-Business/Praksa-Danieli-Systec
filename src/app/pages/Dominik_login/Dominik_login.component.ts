@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Languages } from '../../configs/app-languages.config';
 import { appConfiguration } from '../../configs/app.config';
 import { AuthService } from '../../services/auth.service';
+import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 import {
   FormsModule,
   FormControl,
@@ -12,7 +13,14 @@ import {
 @Component({
   selector: 'app-dominik-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
   templateUrl: './Dominik_login.component.html',
   styleUrl: './Dominik_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

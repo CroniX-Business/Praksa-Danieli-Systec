@@ -1,0 +1,183 @@
+<div class="w-auto">
+  <img
+    alt="Company logo"
+    src="../../../assets/images/logo.png"
+    class="m-auto d-flex justify-content-center mb-5 mt-5"
+    width="250"
+    height="97" />
+  <form [formGroup]="applyform" (submit)="(submitFunction)">
+    <div id="main_login_div" class="align-content-center m-auto d-block">
+      <h3 class="ms-5 mt-5 mb-4">Register</h3>
+      <!-- First name -->
+      <label for="Firstname" class="labelAdjustment required">First name</label>
+      <div class="d-flex justify-content-center h-100">
+        <input
+          type="text"
+          required
+          formControlName="firstName"
+          id="Firstname"
+          class="w-75 rounded border-1 inputHeights" /><br />
+      </div>
+      <p
+        class="text-danger mb-3 ms-5"
+        *ngIf="
+          applyform.controls['userPassword'].errors?.['required'] &&
+          applyform.controls['userPassword'].touched
+        ">
+        This field is required
+      </p>
+      <!-- Last name -->
+      <label for="Lastname" class="labelAdjustment required">Last name</label>
+      <div class="d-flex justify-content-center h-100">
+        <input
+          type="text"
+          required
+          formControlName="lastName"
+          id="Lastname"
+          class="w-75 rounded border-1 inputHeights" /><br />
+      </div>
+      <p
+        class="text-danger mb-3 ms-5"
+        *ngIf="
+          applyform.controls['userPassword'].errors?.['required'] &&
+          applyform.controls['userPassword'].touched
+        ">
+        This field is required
+      </p>
+      <!-- Username -->
+      <label for="Username" class="labelAdjustment required">Username</label>
+      <div class="d-flex justify-content-center h-100">
+        <input
+          type="text"
+          required
+          formControlName="userName"
+          id="Username"
+          class="w-75 rounded border-1 inputHeights" /><br />
+      </div>
+      <p
+        class="text-danger ms-5"
+        *ngIf="
+          applyform.controls['userName'].errors?.['required'] &&
+          applyform.controls['userName'].touched
+        ">
+        This field is required
+      </p>
+      <!-- Password -->
+      <label for="Pass" class="labelAdjustment required">Password</label>
+      <div class="d-flex justify-content-center">
+        <div class="input-group w-75 h-50">
+          <input
+            id="Pass"
+            required
+            formControlName="userPassword"
+            aria-activedescendant="selectdetect()"
+            [type]="showPassword ? 'text' : 'password'"
+            class="required form-control border border-secondary h-50 inputHeights"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="input-group-text border border-secondary h-100 pt-2 rounded-start-0 inputHeights"
+              id="basic-addon2"
+              (click)="showPassword = !showPassword">
+              <i
+                class="h-100 align-items-center"
+                [ngClass]="
+                  showPassword ? 'fa-solid fa-eye' : 'fa-regular fa-eye-slash'
+                "></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p
+        class="text-danger mb-3 ms-5"
+        *ngIf="
+          applyform.controls['userPassword'].errors?.['required'] &&
+          applyform.controls['userPassword'].touched
+        ">
+        This field is required
+      </p>
+      <!-- Password confirm-->
+      <label for="Passconfirm" class="labelAdjustment required"
+        >Confirm password</label
+      >
+      <div class="d-flex justify-content-center">
+        <div class="input-group w-75 h-50">
+          <input
+            id="Passconfirm"
+            required
+            formControlName="userPassword"
+            aria-activedescendant="selectdetect()"
+            [type]="showPassword ? 'text' : 'password'"
+            class="required form-control border border-secondary h-50 inputHeights"
+            aria-describedby="basic-addon3" />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="input-group-text border border-secondary h-100 pt-2 rounded-start-0 inputHeights"
+              id="basic-addon3"
+              (click)="showPassword = !showPassword">
+              <i
+                class="h-100 align-items-center"
+                [ngClass]="
+                  showPassword ? 'fa-solid fa-eye' : 'fa-regular fa-eye-slash'
+                "></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p
+        class="text-danger mb-3 ms-5"
+        *ngIf="
+          applyform.controls['userPassword'].errors?.['required'] &&
+          applyform.controls['userPassword'].touched
+        ">
+        This field is required
+      </p>
+      <!-- Email -->
+      <label for="Username" class="labelAdjustment required">Email</label>
+      <div class="d-flex justify-content-center h-100">
+        <input
+          type="text"
+          required
+          formControlName="userName"
+          id="Username"
+          class="w-75 rounded border-1 inputHeights" /><br />
+      </div>
+      <p
+        class="text-danger ms-5"
+        *ngIf="
+          applyform.controls['userName'].errors?.['required'] &&
+          applyform.controls['userName'].touched
+        ">
+        This field is required
+      </p>
+      <br />
+      <!-- Register btn -->
+      <div class="d-flex justify-content-center">
+        <button
+          type="submit"
+          [disabled]="applyform.invalid"
+          class="mt-4 mb-4 btn btn-secondary"
+          id="loginbtn">
+          Register
+        </button>
+        <!-- Back btn -->
+        <button
+          type="button"
+          class="mt-4 mb-4 btn btn-light ms-5"
+          id="loginbtn">
+          Back
+        </button>
+      </div>
+      <div class="mt-2 d-flex justify-content-center">
+        <p *ngIf="loginMsg !== ''">{{ loginMsg }}</p>
+      </div>
+    </div>
+  </form>
+  <p
+    id="CR"
+    class="text-secondary text-opacity-25 mt-5 d-flex justify-content-center">
+    {{ appCnfg.copyright }}
+  </p>
+</div>
