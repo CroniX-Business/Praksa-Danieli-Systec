@@ -27,20 +27,20 @@ export class PetarLoginComponent {
 
   public constructor(private authService: AuthService) {}
 
-  public applyForm = new FormGroup({
+  public loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
   public onSubmit(): void {
     if (
-      this.applyForm.controls.username.value !== null &&
-      this.applyForm.controls.password.value !== null
+      this.loginForm.controls.username.value !== null &&
+      this.loginForm.controls.password.value !== null
     ) {
       this.authService
         .login(
-          this.applyForm.controls.username.value,
-          this.applyForm.controls.password.value
+          this.loginForm.controls.username.value,
+          this.loginForm.controls.password.value
         )
         .subscribe(value => {
           if (value) {

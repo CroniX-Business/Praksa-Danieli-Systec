@@ -9,7 +9,7 @@
     <div class="content w-75 h-75 m-auto">
       <p class="fs-3 m-0 fw-bold">Login</p>
       <form
-        [formGroup]="applyForm"
+        [formGroup]="loginForm"
         (ngSubmit)="onSubmit()"
         class="d-flex flex-column">
         <label for="username" class="required fs-6 text-black-50 mt-4 d-block"
@@ -23,12 +23,12 @@
           required />
         <div
           *ngIf="
-            applyForm.controls['username'].invalid &&
-            applyForm.controls['username'].touched
+            loginForm.controls['username'].invalid &&
+            loginForm.controls['username'].touched
           ">
           <span
             class="text-danger"
-            *ngIf="applyForm.controls['username'].errors?.['required']"
+            *ngIf="loginForm.controls['username'].errors?.['required']"
             >Field is required.</span
           >
         </div>
@@ -64,12 +64,12 @@
         </div>
         <div
           *ngIf="
-            applyForm.controls['password'].invalid &&
-            applyForm.controls['password'].touched
+            loginForm.controls['password'].invalid &&
+            loginForm.controls['password'].touched
           ">
           <span
             class="text-danger"
-            *ngIf="applyForm.controls['password'].errors?.['required']"
+            *ngIf="loginForm.controls['password'].errors?.['required']"
             >Field is required.</span
           >
         </div>
@@ -77,8 +77,8 @@
           <button
             type="submit"
             class="submit text-light mt-5 w-50 border rounded-2 fs-6 pe-auto"
-            [ngClass]="applyForm.invalid ? '' : 'bg-secondary'"
-            [disabled]="applyForm.invalid">
+            [ngClass]="loginForm.invalid ? '' : 'bg-secondary'"
+            [disabled]="loginForm.invalid">
             Login
           </button>
           <div class="text-center" *ngIf="loginMessage !== null">
