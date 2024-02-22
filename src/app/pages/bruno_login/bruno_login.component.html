@@ -83,7 +83,9 @@
       </option>
     </select>
   </div>
-  <!--<div class="mb-3" *ngIf="loginResult$ === true">Login Successful!</div>-->
+  <div class="mb-3" *ngIf="loginMessage !== null">
+    {{ loginMessage }}
+  </div>
   <footer class="mt-5 text-center">
     {{ config.copyright }}
   </footer>

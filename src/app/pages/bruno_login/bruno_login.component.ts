@@ -10,7 +10,6 @@ import {
 import { config } from '../../configs/app.config';
 import { languages } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bruno-login',
@@ -22,7 +21,6 @@ import { Observable } from 'rxjs';
 })
 export class BrunoLoginComponent {
   public constructor(private authService: AuthService) {}
-  public loginResult$: Observable<boolean> = new Observable<boolean>();
   public time = new Date();
   public form = new FormGroup({
     username: new FormControl(null, Validators.required),
@@ -34,6 +32,7 @@ export class BrunoLoginComponent {
   public config = config;
   public languages = languages;
   public fieldTextType: boolean = false;
+  public loginMessage: string | null = null;
 
   public toggleFieldTextType(): void {
     this.fieldTextType = !this.fieldTextType;
@@ -45,10 +44,18 @@ export class BrunoLoginComponent {
       this.form.controls.username.value != null &&
       this.form.controls.password.value != null
     ) {
-      this.loginResult$ = this.authService.login(
-        this.form.controls.username.value,
-        this.form.controls.password.value
-      );
+      this.authService
+        .login(
+          this.form.controls.username.value,
+          this.form.controls.password.value
+        )
+        .subscribe(value => {
+          if (value) {
+            this.loginMessage = 'Login successful.';
+          } else {
+            this.loginMessage = 'Login failed.';
+          }
+        });
     }
   }
 }
