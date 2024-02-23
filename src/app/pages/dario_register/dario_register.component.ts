@@ -4,6 +4,12 @@ import { AppConfig } from '../../configs/app.config';
 import { AppLanguagesConfig } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
 import {
+  EmailRegex,
+  PasswordRegex,
+  UsernameRegex,
+} from '../../common/regex_constants';
+
+import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -31,10 +37,22 @@ export class DarioRegisterComponent {
   public registerGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.pattern(UsernameRegex),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(PasswordRegex),
+    ]),
+    confirmPassword: new FormControl('', [
+      Validators.required,
+      Validators.pattern(PasswordRegex),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern(EmailRegex),
+    ]),
   });
 
   public onSubmit(): void {
