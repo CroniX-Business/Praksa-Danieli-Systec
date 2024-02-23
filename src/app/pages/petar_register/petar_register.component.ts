@@ -11,7 +11,7 @@ import {
   passwordRegex,
   usernameRegex,
   emailRegex,
-  whitespaceRegex,
+  nameRegex,
 } from '../../common/regex_constants';
 
 @Component({
@@ -31,11 +31,11 @@ export class PetarRegisterComponent {
   public registerForm = new FormGroup({
     firstName: new FormControl('', [
       Validators.required,
-      Validators.pattern(whitespaceRegex),
+      Validators.pattern(nameRegex),
     ]),
     lastName: new FormControl('', [
       Validators.required,
-      Validators.pattern(whitespaceRegex),
+      Validators.pattern(nameRegex),
     ]),
     username: new FormControl('', [
       Validators.required,

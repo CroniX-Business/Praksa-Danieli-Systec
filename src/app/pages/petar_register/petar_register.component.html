@@ -37,7 +37,7 @@
           <span
             class="error text-danger"
             *ngIf="registerForm.controls['firstName'].hasError('pattern')"
-            >First name can't contain whitespace</span
+            >First name can contain only uppercase and lowercase</span
           >
         </div>
         <label for="lastName" class="required fs-6 text-black-50 mt-2 d-block"
