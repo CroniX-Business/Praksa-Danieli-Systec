@@ -126,6 +126,16 @@
           class="text-danger"
           *ngIf="
             this.form.get('confirmPassword')!.touched &&
+            this.form.get('confirmPassword')!.invalid
+          ">
+          Password must contain at least one number,uppercase letter, lowercase
+          letter, have at least 8 characters and cannot contain whitespace.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            this.form.get('confirmPassword')!.touched &&
+            this.form.get('confirmPassword')!.valid &&
             this.form.get('confirmPassword')!.value !==
               this.form.get('password')!.value
           ">

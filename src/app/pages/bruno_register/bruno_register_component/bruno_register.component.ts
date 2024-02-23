@@ -29,6 +29,7 @@ export class BrunoRegisterComponentComponent {
     confirmPassword: new FormControl('', [
       Validators.minLength(8),
       Validators.required,
+      Validators.pattern(passwordRegex),
     ]),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
