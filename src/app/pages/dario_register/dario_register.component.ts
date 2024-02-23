@@ -5,6 +5,7 @@ import { AppLanguagesConfig } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
 import {
   EmailRegex,
+  NameRegex,
   PasswordRegex,
   UsernameRegex,
 } from '../../common/regex_constants';
@@ -35,8 +36,14 @@ export class DarioRegisterComponent {
   public constructor(private authService: AuthService) {}
 
   public registerGroup = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    firstName: new FormControl('', [
+      Validators.required,
+      Validators.pattern(NameRegex),
+    ]),
+    lastName: new FormControl('', [
+      Validators.required,
+      Validators.pattern(NameRegex),
+    ]),
     username: new FormControl('', [
       Validators.required,
       Validators.pattern(UsernameRegex),

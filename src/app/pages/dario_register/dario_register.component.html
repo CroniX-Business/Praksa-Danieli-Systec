@@ -29,6 +29,16 @@
         Field is required
       </div>
 
+      <div
+        *ngIf="
+          registerGroup.controls['firstName'].dirty &&
+          registerGroup.controls['firstName'].hasError('pattern')
+        "
+        class="text-danger">
+        Length must be greater than 3 First name must have only letters and
+        cannot be longer than 20 characters
+      </div>
+
       <label for="inputLastName" class="form-label m-0 required mt-3"
         >Last name</label
       >
@@ -45,6 +55,16 @@
         "
         class="text-danger">
         Field is required
+      </div>
+
+      <div
+        *ngIf="
+          registerGroup.controls['lastName'].dirty &&
+          registerGroup.controls['lastName'].hasError('pattern')
+        "
+        class="text-danger">
+        Length must be greater than 3 First name must have only letters and
+        cannot be longer than 20 characters
       </div>
 
       <label for="inputUsername" class="form-label m-0 required mt-3"
