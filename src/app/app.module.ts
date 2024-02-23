@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DominikLoginComponent } from './pages/Dominik_login/Dominik_login.component';
-import { DominikRegisterComponent } from './pages/Dominik_login/Dominik_register/Dominik_register.component';
+import { DominikRegisterComponent } from './pages/Dominik_register/Dominik_register.component';
 
 @NgModule({
   declarations: [AppComponent],

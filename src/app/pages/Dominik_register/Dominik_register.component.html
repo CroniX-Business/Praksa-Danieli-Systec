@@ -14,15 +14,15 @@
         <input
           type="text"
           required
-          formControlName="firstName"
+          formControlName="userFirstName"
           id="Firstname"
           class="w-75 rounded border-1 inputHeights" /><br />
       </div>
       <p
-        class="text-danger mb-3 ms-5"
+        class="text-danger mb-3 labelAdjustment"
         *ngIf="
-          applyform.controls['userPassword'].errors?.['required'] &&
-          applyform.controls['userPassword'].touched
+          applyform.controls['userFirstName'].errors?.['required'] &&
+          applyform.controls['userFirstName'].touched
         ">
         This field is required
       </p>
@@ -32,15 +32,15 @@
         <input
           type="text"
           required
-          formControlName="lastName"
+          formControlName="userLastName"
           id="Lastname"
           class="w-75 rounded border-1 inputHeights" /><br />
       </div>
       <p
-        class="text-danger mb-3 ms-5"
+        class="text-danger mb-3 labelAdjustment"
         *ngIf="
-          applyform.controls['userPassword'].errors?.['required'] &&
-          applyform.controls['userPassword'].touched
+          applyform.controls['userLastName'].errors?.['required'] &&
+          applyform.controls['userLastName'].touched
         ">
         This field is required
       </p>
@@ -52,16 +52,37 @@
           required
           formControlName="userName"
           id="Username"
+          minlength="4"
+          maxlength="20"
+          [pattern]="usernameRegex"
           class="w-75 rounded border-1 inputHeights" /><br />
       </div>
       <p
-        class="text-danger ms-5"
+        class="text-danger labelAdjustment"
         *ngIf="
           applyform.controls['userName'].errors?.['required'] &&
           applyform.controls['userName'].touched
         ">
         This field is required
       </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          applyform.controls['userName'].errors?.['minlength'] &&
+          applyform.controls['userName'].touched
+        ">
+        Length must be greater than 3
+      </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          applyform.controls['userName'].errors?.['pattern'] &&
+          applyform.controls['userName'].touched
+        ">
+        Username must have only letters, numbers, underscore, dot and cannot be
+        longer than 20 characters
+      </p>
+
       <!-- Password -->
       <label for="Pass" class="labelAdjustment required">Password</label>
       <div class="d-flex justify-content-center">
@@ -69,6 +90,8 @@
           <input
             id="Pass"
             required
+            minlength="8"
+            [pattern]="passwordRegex"
             formControlName="userPassword"
             aria-activedescendant="selectdetect()"
             [type]="showPassword ? 'text' : 'password'"
@@ -90,12 +113,22 @@
         </div>
       </div>
       <p
-        class="text-danger mb-3 ms-5"
+        class="text-danger mb-3 labelAdjustment"
         *ngIf="
           applyform.controls['userPassword'].errors?.['required'] &&
           applyform.controls['userPassword'].touched
         ">
         This field is required
+      </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          (applyform.controls['userPassword'].errors?.['pattern'] ||
+            applyform.controls['userPassword'].errors?.['minlength']) &&
+          applyform.controls['userPassword'].touched
+        ">
+        Password must contain at least one number, uppercase, lowercase, have at
+        least 8 characters and cannot contain whitespace
       </p>
       <!-- Password confirm-->
       <label for="Passconfirm" class="labelAdjustment required"
@@ -106,8 +139,10 @@
           <input
             id="Passconfirm"
             required
-            formControlName="userPassword"
+            minlength="8"
+            formControlName="userPasswordConfirm"
             aria-activedescendant="selectdetect()"
+            [pattern]="passwordRegex"
             [type]="showPassword ? 'text' : 'password'"
             class="required form-control border border-secondary h-50 inputHeights"
             aria-describedby="basic-addon3" />
@@ -127,12 +162,31 @@
         </div>
       </div>
       <p
-        class="text-danger mb-3 ms-5"
+        class="text-danger mb-3 labelAdjustment"
         *ngIf="
-          applyform.controls['userPassword'].errors?.['required'] &&
-          applyform.controls['userPassword'].touched
+          applyform.controls['userPasswordConfirm'].errors?.['required'] &&
+          applyform.controls['userPasswordConfirm'].touched
         ">
         This field is required
+      </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          (applyform.controls['userPasswordConfirm'].errors?.['pattern'] ||
+            applyform.controls['userPasswordConfirm'].errors?.['minlength']) &&
+          applyform.controls['userPasswordConfirm'].touched
+        ">
+        Password must contain at least one number, uppercase, lowercase, have at
+        least 8 characters and cannot contain whitespace
+      </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          applyform.controls['userPasswordConfirm'].value !==
+            applyform.controls['userPassword'].value &&
+          applyform.controls['userPasswordConfirm'].touched
+        ">
+        Passwords do not match
       </p>
       <!-- Email -->
       <label for="Username" class="labelAdjustment required">Email</label>
@@ -140,17 +194,26 @@
         <input
           type="text"
           required
-          formControlName="userName"
+          [pattern]="emailRegex"
+          formControlName="userEmail"
           id="Username"
           class="w-75 rounded border-1 inputHeights" /><br />
       </div>
       <p
-        class="text-danger ms-5"
+        class="text-danger labelAdjustment"
         *ngIf="
-          applyform.controls['userName'].errors?.['required'] &&
-          applyform.controls['userName'].touched
+          applyform.controls['userEmail'].errors?.['required'] &&
+          applyform.controls['userEmail'].touched
         ">
         This field is required
+      </p>
+      <p
+        class="text-danger labelAdjustment"
+        *ngIf="
+          applyform.controls['userEmail'].errors?.['pattern'] &&
+          applyform.controls['userEmail'].touched
+        ">
+        E-mail is invalid
       </p>
       <br />
       <!-- Register btn -->
