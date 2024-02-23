@@ -51,4 +51,13 @@ export class PetarRegisterComponent {
       Validators.pattern(emailRegex),
     ]),
   });
+
+  public onSubmit(): void {
+    console.log(this.registerForm.controls.firstName.value);
+    console.log(this.registerForm.controls.lastName.value);
+    console.log(this.registerForm.controls.username.value);
+    console.log(this.registerForm.controls.password.value);
+    console.log(this.registerForm.controls.repeatPassword.value);
+    console.log(this.registerForm.controls.email.value);
+  }
 }

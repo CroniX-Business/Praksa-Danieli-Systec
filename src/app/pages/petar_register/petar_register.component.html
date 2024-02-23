@@ -9,7 +9,10 @@
     class="login d-flex flex-column align-items-center border border-2 rounded-2 mt-3">
     <div class="content w-75 mt-5 mb-5 h-auto">
       <p class="fs-5 m-0 fw-bold mb-2">Register</p>
-      <form [formGroup]="registerForm" class="d-flex flex-column">
+      <form
+        [formGroup]="registerForm"
+        (submit)="onSubmit()"
+        class="d-flex flex-column">
         <label for="firstName" class="required fs-6 text-black-50 d-block"
           >First Name</label
         >
@@ -69,26 +72,15 @@
             *ngIf="registerForm.controls['username'].errors?.['required']">
             Username is required.
           </span>
-          <span
-            class="error text-danger"
-            *ngIf="registerForm.controls['username'].hasError('minlength')">
-            Lenght
-          </span>
-          <span
-            class="error text-danger"
-            *ngIf="registerForm.controls['username'].hasError('pattern')">
-            Username must have only letters, numbers, underscore, or dot.
-          </span>
         </div>
         <div *ngIf="registerForm.controls['username'].invalid">
           <span
             class="error text-danger"
-            *ngIf="registerForm.controls['username'].hasError('minlength')">
-            Lenght is to short
-          </span>
-          <span
-            class="error text-danger"
-            *ngIf="registerForm.controls['username'].hasError('pattern')">
+            *ngIf="
+              registerForm.controls['username'].hasError('minlength') ||
+              registerForm.controls['username'].hasError('pattern')
+            ">
+            Lenght must be greater than 3 <br />
             Username must have only letters, numbers, underscore, or dot.
           </span>
         </div>
