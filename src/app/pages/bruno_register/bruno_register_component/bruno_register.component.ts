@@ -19,21 +19,25 @@ export class BrunoRegisterComponentComponent {
   public config = config;
   public fieldTextType: boolean = false;
   public form = new FormGroup({
-    username: new FormControl(null, [
+    username: new FormControl('', [
       Validators.required,
       Validators.pattern(this.usernameRegex),
     ]),
-    password: new FormControl(null, [
+    password: new FormControl('', [
       Validators.minLength(8),
       Validators.pattern(this.passwordRegex),
       Validators.required,
     ]),
-    confirmPassword: new FormControl(null, [
+    confirmPassword: new FormControl('', [
       Validators.minLength(8),
       Validators.required,
     ]),
-    firstName: new FormControl(null, Validators.required),
-    lastName: new FormControl(null, Validators.required),
-    email: new FormControl(null, [Validators.required, Validators.email]),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
+  public log(): void {
+    console.log(this.form.get('username')!.value!);
+    console.log(typeof this.form.get('username')!.value!);
+  }
 }
