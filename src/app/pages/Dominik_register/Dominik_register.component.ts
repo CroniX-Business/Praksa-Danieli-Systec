@@ -5,6 +5,7 @@ import { appConfiguration } from '../.././configs/app.config';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 import {
   emailRegex,
+  nowhitespaceRegex,
   passwordRegex,
   usernameRegex,
 } from '../../regex_constants';
@@ -50,8 +51,14 @@ export class DominikRegisterComponent {
   };
 
   public applyform = new FormGroup({
-    userFirstName: new FormControl('', Validators.required),
-    userLastName: new FormControl('', Validators.required),
+    userFirstName: new FormControl('', [
+      Validators.required,
+      Validators.pattern(nowhitespaceRegex),
+    ]),
+    userLastName: new FormControl('', [
+      Validators.required,
+      Validators.pattern(nowhitespaceRegex),
+    ]),
     userName: new FormControl('', [
       Validators.required,
       Validators.minLength(4),

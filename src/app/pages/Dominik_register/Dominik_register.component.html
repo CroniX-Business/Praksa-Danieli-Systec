@@ -26,6 +26,14 @@
         ">
         This field is required
       </p>
+      <p
+        class="text-danger mb-3 labelAdjustment"
+        *ngIf="
+          applyform.controls['userFirstName'].hasError('pattern') &&
+          applyform.controls['userFirstName'].touched
+        ">
+        Cant have whitespace
+      </p>
       <!-- Last name -->
       <label for="Lastname" class="labelAdjustment required">Last name</label>
       <div class="d-flex justify-content-center h-100">
@@ -44,6 +52,14 @@
         ">
         This field is required
       </p>
+      <p
+        class="text-danger mb-3 labelAdjustment"
+        *ngIf="
+          applyform.controls['userLastName'].hasError('pattern') &&
+          applyform.controls['userLastName'].touched
+        ">
+        Cant have whitespace
+      </p>
       <!-- Username -->
       <label for="Username" class="labelAdjustment required">Username</label>
       <div class="d-flex justify-content-center h-100">
@@ -52,8 +68,6 @@
           required
           formControlName="userName"
           id="Username"
-          minlength="4"
-          maxlength="20"
           class="w-75 rounded border-1 inputHeights" /><br />
       </div>
       <p
@@ -75,11 +89,11 @@
       <p
         class="text-danger labelAdjustment"
         *ngIf="
-          applyform.controls['userName'].invalid &&
+          applyform.controls['userName'].hasError('pattern') &&
           applyform.controls['userName'].touched
         ">
-        > Username must have only letters, numbers, underscore, dot and cannot
-        be longer than 20 characters
+        Username must have only letters, numbers, underscore, dot and cannot be
+        longer than 20 characters
       </p>
 
       <!-- Password -->
@@ -89,7 +103,6 @@
           <input
             id="Pass"
             required
-            minlength="8"
             formControlName="userPassword"
             aria-activedescendant="selectdetect()"
             [type]="showPassword ? 'text' : 'password'"
@@ -121,7 +134,7 @@
       <p
         class="text-danger labelAdjustment"
         *ngIf="
-          (applyform.controls['userPassword'].errors?.['required'] ||
+          (applyform.controls['userPassword'].hasError('pattern') ||
             applyform.controls['userPassword'].hasError('minlength')) &&
           applyform.controls['userPassword'].touched
         ">
@@ -137,7 +150,6 @@
           <input
             id="Passconfirm"
             required
-            minlength="8"
             formControlName="userPasswordConfirm"
             aria-activedescendant="selectdetect()"
             [type]="showPassword ? 'text' : 'password'"
@@ -169,7 +181,7 @@
       <p
         class="text-danger labelAdjustment"
         *ngIf="
-          (applyform.controls['userPasswordConfirm'].errors?.['required'] ||
+          (applyform.controls['userPasswordConfirm'].hasError('pattern') ||
             applyform.controls['userPasswordConfirm'].hasError('minlength')) &&
           applyform.controls['userPasswordConfirm'].touched
         ">
@@ -206,7 +218,7 @@
       <p
         class="text-danger labelAdjustment"
         *ngIf="
-          applyform.controls['userPassword'].errors?.['required'] &&
+          applyform.controls['userPassword'].hasError('pattern') &&
           applyform.controls['userPassword'].touched
         ">
         E-mail is invalid
