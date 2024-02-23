@@ -77,13 +77,6 @@ export class DarioRegisterComponent {
             this.loginMessage = 'Login success!';
           } else this.loginMessage = 'Login failed!';
         });
-
-      console.log(
-        this.authService.logIn(
-          this.registerGroup.controls.username.value,
-          this.registerGroup.controls.password.value
-        )
-      );
     }
   }
 }
