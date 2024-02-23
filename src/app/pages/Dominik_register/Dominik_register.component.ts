@@ -40,9 +40,6 @@ export class DominikRegisterComponent {
   public passwordMsg = '';
   public emailMsg = '';
   public unamePattern = '^[a-z0-9_-]{8,15}$';
-  public usernameRegex: RegExp = usernameRegex;
-  public passwordRegex: RegExp = passwordRegex;
-  public emailRegex: RegExp = emailRegex;
 
   public patternWithMessage = (
     pattern: string | RegExp,
@@ -53,12 +50,28 @@ export class DominikRegisterComponent {
   };
 
   public applyform = new FormGroup({
-    userFirstName: new FormControl(''),
-    userLastName: new FormControl(''),
-    userName: new FormControl(''),
-    userPassword: new FormControl(''),
-    userPasswordConfirm: new FormControl(''),
-    userEmail: new FormControl(''),
+    userFirstName: new FormControl('', Validators.required),
+    userLastName: new FormControl('', Validators.required),
+    userName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(20),
+      Validators.pattern(usernameRegex),
+    ]),
+    userPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(passwordRegex),
+    ]),
+    userPasswordConfirm: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(passwordRegex),
+    ]),
+    userEmail: new FormControl('', [
+      Validators.required,
+      Validators.pattern(emailRegex),
+    ]),
   });
 
   public submitFunction(): void {}
