@@ -3,4 +3,4 @@ export const PasswordRegex: RegExp =
 export const EmailRegex: RegExp =
   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const UsernameRegex: RegExp = /^[a-zA-Z0-9_.]{3,20}$/;
-export const NameRegex: RegExp = /^[a-z]{3,20}$/;
+export const NameRegex: RegExp = /^[a-zA-Z]{3,20}$/;
