@@ -8,7 +8,7 @@
     <div class="col">
       <form class="container-fluid border rounded" [formGroup]="myForm">
         <div class="">
-          <h2 class="login-header">Login</h2>
+          <h2 class="login-header">Register</h2>
 
           <label for="firstName" class="form-label">First name</label>
           <input
@@ -16,7 +16,7 @@
             id="firstName"
             class="form-control"
             required
-            formControlName="myForm" />
+            formControlName="firstName" />
 
           <div
             *ngIf="
@@ -26,7 +26,7 @@
             <span
               class="text-danger"
               *ngIf="myForm.controls['firstName'].errors?.['required']"
-              >Field is required.
+              >First name is required.
             </span>
           </div>
 
@@ -36,6 +36,7 @@
             type="text"
             class="forma form-control"
             required
+            formControlName="lastName"
             id="last_name" />
           <div
             *ngIf="
@@ -45,7 +46,7 @@
             <span
               class="text-danger"
               *ngIf="myForm.controls['lastName'].errors?.['required']"
-              >Field is required.
+              >Last name is required.
             </span>
           </div>
 
@@ -55,11 +56,12 @@
             type="text"
             class="forma form-control"
             required
-            id="username" />
+            id="username"
+            formControlName="username" />
           <div
             *ngIf="
-              myForm.controls['lastName'].invalid &&
-              myForm.controls['lastName'].touched
+              myForm.controls['username'].invalid &&
+              myForm.controls['username'].touched
             ">
             <span class="text-danger">Username is required</span>
           </div>
@@ -100,6 +102,14 @@
               >Field is required.
             </span>
           </div>
+          <div
+            class="text-danger"
+            *ngIf="
+              myForm.controls['password'].hasError('minlength') &&
+              myForm.controls['password'].touched
+            ">
+            Password must be at least 8 characters long.
+          </div>
         </div>
 
         <div>
@@ -108,8 +118,8 @@
         <div class="input-group">
           <input
             type="password"
-            id="password"
-            formControlName="password"
+            id="repeat_password"
+            formControlName="repeatPassword"
             class="form-control border border-2"
             [type]="passwordVisible ? 'password' : 'text'"
             aria-label="Password"
@@ -129,15 +139,19 @@
         </div>
         <div
           *ngIf="
-            myForm.controls['password'].invalid &&
-            myForm.controls['password'].touched
+            myForm.controls['repeatPassword'].valid &&
+            myForm.controls['password'].valid
           ">
           <span
-            class="text-danger"
-            *ngIf="myForm.controls['password'].errors?.['required']"
-            >Field is required.
-          </span>
+            *ngIf="
+              myForm.controls['repeatPassword'].value !==
+              myForm.controls['password'].value
+            "
+            class="error text-danger"
+            >Passwords do not match</span
+          >
         </div>
+
         <label for="email" class="form-label">E-mail</label>
         <input
           type="password"
