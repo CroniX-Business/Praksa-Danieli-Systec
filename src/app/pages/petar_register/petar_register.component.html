@@ -1,12 +1,12 @@
 <div class="container d-flex flex-column align-items-center vh-100">
-  <div class="text-center">
+  <div class="text-center mt-3">
     <img
       src="./assets/images/logo.png"
       width="300px"
       alt="Danieli Systec Logo" />
   </div>
   <div
-    class="login d-flex flex-column align-items-center border border-2 rounded-2 mt-5">
+    class="login d-flex flex-column align-items-center border border-2 rounded-2 mt-3">
     <div class="content w-75 mt-5 mb-5 h-auto">
       <p class="fs-5 m-0 fw-bold mb-2">Register</p>
       <form [formGroup]="registerForm" class="d-flex flex-column">
@@ -66,9 +66,31 @@
           ">
           <span
             class="error text-danger"
-            *ngIf="registerForm.controls['username'].errors?.['required']"
-            >Field is required.</span
-          >
+            *ngIf="registerForm.controls['username'].errors?.['required']">
+            Username is required.
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['username'].hasError('minlength')">
+            Lenght
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['username'].hasError('pattern')">
+            Username must have only letters, numbers, underscore, or dot.
+          </span>
+        </div>
+        <div *ngIf="registerForm.controls['username'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['username'].hasError('minlength')">
+            Lenght is to short
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['username'].hasError('pattern')">
+            Username must have only letters, numbers, underscore, or dot.
+          </span>
         </div>
         <label for="password" class="required fs-6 text-black-50 mt-2 d-block"
           >Password</label
@@ -102,9 +124,23 @@
           ">
           <span
             class="error text-danger"
-            *ngIf="registerForm.controls['password'].errors?.['required']"
-            >Field is required.</span
-          >
+            *ngIf="registerForm.controls['password'].errors?.['required']">
+            Password is required.
+          </span>
+        </div>
+        <div *ngIf="registerForm.controls['password'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['password'].hasError('minlength')">
+            Lenght must be greater than 8
+            <br />
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['password'].hasError('pattern')">
+            Password must contain at least one number, uppercase, lowercase,
+            have at least 8 characters and cannot contain whitespace
+          </span>
         </div>
         <label
           for="repeatPassword"
@@ -140,8 +176,48 @@
           ">
           <span
             class="error text-danger"
-            *ngIf="registerForm.controls['repeatPassword'].errors?.['required']"
-            >Field is required.</span
+            *ngIf="
+              registerForm.controls['repeatPassword'].errors?.['required']
+            ">
+            Password is required.
+          </span>
+        </div>
+        <div *ngIf="registerForm.controls['repeatPassword'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="
+              registerForm.controls['repeatPassword'].hasError('minlength')
+            ">
+            Lenght must be greater than 8
+            <br />
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['repeatPassword'].hasError('pattern')">
+            Password must contain at least one number, uppercase, lowercase,
+            have at least 8 characters and cannot contain whitespace
+          </span>
+        </div>
+        <div
+          *ngIf="
+            registerForm.controls['repeatPassword'].valid &&
+            registerForm.controls['password'].valid
+          ">
+          <span
+            *ngIf="
+              registerForm.controls['repeatPassword'].value ===
+              registerForm.controls['password'].value
+            "
+            class="error text-success"
+            >Passwords match</span
+          >
+          <span
+            *ngIf="
+              registerForm.controls['repeatPassword'].value !==
+              registerForm.controls['password'].value
+            "
+            class="error text-danger"
+            >Passwords do not match</span
           >
         </div>
         <label for="email" class="required fs-6 text-black-50 mt-2 d-block"
@@ -160,9 +236,16 @@
           ">
           <span
             class="error text-danger"
-            *ngIf="registerForm.controls['email'].errors?.['required']"
-            >Field is required.</span
-          >
+            *ngIf="registerForm.controls['email'].errors?.['required']">
+            Email is required.
+          </span>
+        </div>
+        <div *ngIf="registerForm.controls['email'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['email'].hasError('pattern')">
+            Email doesnt match default email pattern
+          </span>
         </div>
         <div class="submit-button-container d-flex justify-content-center mt-5">
           <button

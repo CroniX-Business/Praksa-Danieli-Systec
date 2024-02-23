@@ -6,7 +6,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AppConfig } from '../../../config/app.config';
+import { AppConfig } from '../../config/app.config';
+import {
+  passwordRegex,
+  usernameRegex,
+  emailRegex,
+} from '../../common/regex_constants';
 
 @Component({
   selector: 'app-petar-register',
@@ -25,9 +30,25 @@ export class PetarRegisterComponent {
   public registerForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    repeatPassword: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(20),
+      Validators.pattern(usernameRegex),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(passwordRegex),
+    ]),
+    repeatPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(passwordRegex),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern(emailRegex),
+    ]),
   });
 }
