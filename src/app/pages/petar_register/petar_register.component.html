@@ -33,6 +33,13 @@
             >Field is required.</span
           >
         </div>
+        <div *ngIf="registerForm.controls['firstName'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['firstName'].hasError('pattern')"
+            >First name can't contain whitespace</span
+          >
+        </div>
         <label for="lastName" class="required fs-6 text-black-50 mt-2 d-block"
           >Last Name</label
         >
@@ -51,6 +58,13 @@
             class="error text-danger"
             *ngIf="registerForm.controls['lastName'].errors?.['required']"
             >Field is required.</span
+          >
+        </div>
+        <div *ngIf="registerForm.controls['lastName'].invalid">
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['lastName'].hasError('pattern')"
+            >Last name can't contain whitespace</span
           >
         </div>
         <label for="username" class="required fs-6 text-black-50 mt-2 d-block"
@@ -216,7 +230,7 @@
           >Email</label
         >
         <input
-          type="email"
+          type="text"
           formControlName="email"
           id="email"
           class="input-form d-block border border-2 rounded-2 w-100"
@@ -236,7 +250,7 @@
           <span
             class="error text-danger"
             *ngIf="registerForm.controls['email'].hasError('pattern')">
-            Email doesnt match default email pattern
+            Email doesn't match default email pattern
           </span>
         </div>
         <div class="submit-button-container d-flex justify-content-center mt-5">
