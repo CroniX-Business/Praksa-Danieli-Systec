@@ -16,4 +16,6 @@ i {
   cursor: pointer;
 }
 
-
+.info {
+  width: 600px;
+}

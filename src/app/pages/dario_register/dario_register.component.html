@@ -1,128 +1,30 @@
-<div class="d-flex justify-content-center mt-4 mb-4">
-  <img
-    width="w-auto"
-    height="120"
-    src="../../../assets/images/logo.png"
-    alt="Logo page" />
-</div>
+<div class="container d-flex flex-column align-items-center">
+  <div class="d-flex justify-content-center mt-4 mb-4">
+    <img
+      width="w-auto"
+      height="120"
+      src="../../../assets/images/logo.png"
+      alt="Logo page" />
+  </div>
 
-<div class="w-auto d-flex justify-content-center">
-  <div class="p-5 border">
-    <form [formGroup]="registerGroup">
-      <h3>Login</h3>
+  <div class="d-flex flex-column align-items-center info">
+    <div class="p-5 border w-75">
+      <form [formGroup]="registerGroup">
+        <h3>Login</h3>
 
-      <label for="inputFirstName" class="form-label m-0 required mt-4"
-        >First name</label
-      >
-      <input
-        type="text"
-        class="form-control border border-secondary"
-        id="inputFirstName"
-        formControlName="firstName" />
-
-      <div
-        *ngIf="
-          registerGroup.controls['firstName'].errors?.['required'] &&
-          registerGroup.controls['firstName'].touched
-        "
-        class="text-danger">
-        Field is required
-      </div>
-
-      <div
-        *ngIf="
-          registerGroup.controls['firstName'].dirty &&
-          registerGroup.controls['firstName'].hasError('pattern')
-        "
-        class="text-danger">
-        Length must be greater than 3 First name must have only letters and
-        cannot be longer than 20 characters
-      </div>
-
-      <label for="inputLastName" class="form-label m-0 required mt-3"
-        >Last name</label
-      >
-      <input
-        type="text"
-        class="form-control border border-secondary"
-        id="inputLastName"
-        formControlName="lastName" />
-
-      <div
-        *ngIf="
-          registerGroup.controls['lastName'].errors?.['required'] &&
-          registerGroup.controls['lastName'].touched
-        "
-        class="text-danger">
-        Field is required
-      </div>
-
-      <div
-        *ngIf="
-          registerGroup.controls['lastName'].dirty &&
-          registerGroup.controls['lastName'].hasError('pattern')
-        "
-        class="text-danger">
-        Length must be greater than 3 Last name must have only letters and
-        cannot be longer than 20 characters
-      </div>
-
-      <label for="inputUsername" class="form-label m-0 required mt-3"
-        >Username</label
-      >
-
-      <div class="col-md-12">
+        <label for="inputFirstName" class="form-label m-0 required mt-4"
+          >First name</label
+        >
         <input
           type="text"
           class="form-control border border-secondary"
-          id="inputUsername"
-          formControlName="username" />
-      </div>
-
-      <div
-        *ngIf="
-          registerGroup.controls['username'].errors?.['required'] &&
-          registerGroup.controls['username'].touched
-        "
-        class="text-danger">
-        Field is required
-      </div>
-
-      <div
-        *ngIf="
-          registerGroup.controls['username'].dirty &&
-          registerGroup.controls['username'].hasError('pattern')
-        "
-        class="text-danger">
-        Length must be greater than 3 Username must have only letters, numbers,
-        underscore, dot and cannot be longer than 20 characters
-      </div>
-
-      <div class="form-group has-feedback">
-        <label for="inputPassword" class="form-label m-0 required mt-3"
-          >Password</label
-        >
-        <div class="input-group">
-          <input
-            type="{{ showPassword ? 'text' : 'password' }}"
-            class="form-control border border-secondary"
-            id="inputPassword"
-            formControlName="password" />
-          <button
-            type="button"
-            class="input-group-text border border-secondary icon-container d-flex justify-content-center"
-            (click)="showPassword = !showPassword">
-            <i
-              [ngClass]="
-                showPassword ? 'fa-solid fa-eye' : 'fa-regular fa-eye-slash'
-              "></i>
-          </button>
-        </div>
+          id="inputFirstName"
+          formControlName="firstName" />
 
         <div
           *ngIf="
-            registerGroup.controls['password'].errors?.['required'] &&
-            registerGroup.controls['password'].touched
+            registerGroup.controls['firstName'].errors?.['required'] &&
+            registerGroup.controls['firstName'].touched
           "
           class="text-danger">
           Field is required
@@ -130,41 +32,178 @@
 
         <div
           *ngIf="
-            registerGroup.controls['password'].dirty &&
-            registerGroup.controls['password'].hasError('pattern')
+            registerGroup.controls['firstName'].dirty &&
+            registerGroup.controls['firstName'].hasError('pattern')
           "
           class="text-danger">
-          Password must contain at least one number, uppercase, lowercase, have
-          at least 8 characters and cannot contain whitespace
+          Length must be greater than 3 First name must have only letters and
+          cannot be longer than 20 characters
         </div>
 
-        <div>
-          <label for="inputConfirmPassword" class="form-label m-0 required mt-3"
-            >Confirm password</label
+        <label for="inputLastName" class="form-label m-0 required mt-3"
+          >Last name</label
+        >
+        <input
+          type="text"
+          class="form-control border border-secondary"
+          id="inputLastName"
+          formControlName="lastName" />
+
+        <div
+          *ngIf="
+            registerGroup.controls['lastName'].errors?.['required'] &&
+            registerGroup.controls['lastName'].touched
+          "
+          class="text-danger">
+          Field is required
+        </div>
+
+        <div
+          *ngIf="
+            registerGroup.controls['lastName'].dirty &&
+            registerGroup.controls['lastName'].hasError('pattern')
+          "
+          class="text-danger">
+          Length must be greater than 3 Last name must have only letters and
+          cannot be longer than 20 characters
+        </div>
+
+        <label for="inputUsername" class="form-label m-0 required mt-3"
+          >Username</label
+        >
+
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control border border-secondary"
+            id="inputUsername"
+            formControlName="username" />
+        </div>
+
+        <div
+          *ngIf="
+            registerGroup.controls['username'].errors?.['required'] &&
+            registerGroup.controls['username'].touched
+          "
+          class="text-danger">
+          Field is required
+        </div>
+
+        <div
+          *ngIf="
+            registerGroup.controls['username'].dirty &&
+            registerGroup.controls['username'].hasError('pattern')
+          "
+          class="text-danger">
+          Length must be greater than 3 Username must have only letters,
+          numbers, underscore, dot and cannot be longer than 20 characters
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="inputPassword" class="form-label m-0 required mt-3"
+            >Password</label
           >
           <div class="input-group">
             <input
-              type="{{ showConfirmPassword ? 'text' : 'password' }}"
+              type="{{ showPassword ? 'text' : 'password' }}"
               class="form-control border border-secondary"
-              id="inputConfirmPassword"
-              formControlName="confirmPassword" />
+              id="inputPassword"
+              formControlName="password" />
             <button
               type="button"
               class="input-group-text border border-secondary icon-container d-flex justify-content-center"
-              (click)="showConfirmPassword = !showConfirmPassword">
+              (click)="showPassword = !showPassword">
               <i
                 [ngClass]="
-                  showConfirmPassword
-                    ? 'fa-solid fa-eye'
-                    : 'fa-regular fa-eye-slash'
+                  showPassword ? 'fa-solid fa-eye' : 'fa-regular fa-eye-slash'
                 "></i>
             </button>
           </div>
+
+          <div
+            *ngIf="
+              registerGroup.controls['password'].errors?.['required'] &&
+              registerGroup.controls['password'].touched
+            "
+            class="text-danger">
+            Field is required
+          </div>
+
+          <div
+            *ngIf="
+              registerGroup.controls['password'].dirty &&
+              registerGroup.controls['password'].hasError('pattern')
+            "
+            class="text-danger">
+            Password must contain at least one number, uppercase, lowercase,
+            have at least 8 characters and cannot contain whitespace
+          </div>
+
+          <div>
+            <label
+              for="inputConfirmPassword"
+              class="form-label m-0 required mt-3"
+              >Confirm password</label
+            >
+            <div class="input-group">
+              <input
+                type="{{ showConfirmPassword ? 'text' : 'password' }}"
+                class="form-control border border-secondary"
+                id="inputConfirmPassword"
+                formControlName="confirmPassword" />
+              <button
+                type="button"
+                class="input-group-text border border-secondary icon-container d-flex justify-content-center"
+                (click)="showConfirmPassword = !showConfirmPassword">
+                <i
+                  [ngClass]="
+                    showConfirmPassword
+                      ? 'fa-solid fa-eye'
+                      : 'fa-regular fa-eye-slash'
+                  "></i>
+              </button>
+            </div>
+          </div>
+          <div
+            *ngIf="
+              registerGroup.controls['confirmPassword'].errors?.['required'] &&
+              registerGroup.controls['confirmPassword'].touched
+            "
+            class="text-danger">
+            Field is required
+          </div>
+
+          <div
+            *ngIf="
+              registerGroup.controls['confirmPassword'].dirty &&
+              registerGroup.controls['confirmPassword'].hasError('pattern')
+            "
+            class="text-danger">
+            Password must contain at least one number, uppercase, lowercase,
+            have at least 8 characters and cannot contain whitespace
+          </div>
+
+          <div
+            *ngIf="
+              registerGroup.controls['password'].value !==
+              registerGroup.controls['confirmPassword'].value
+            "
+            class="text-danger">
+            Password do not match
+          </div>
+          <label for="inputEmail" class="form-label m-0 required mt-3"
+            >E-mail</label
+          >
+          <input
+            type="text"
+            class="form-control border border-secondary"
+            id="inputEmail"
+            formControlName="email" />
         </div>
         <div
           *ngIf="
-            registerGroup.controls['confirmPassword'].errors?.['required'] &&
-            registerGroup.controls['confirmPassword'].touched
+            registerGroup.controls['email'].errors?.['required'] &&
+            registerGroup.controls['email'].touched
           "
           class="text-danger">
           Field is required
@@ -172,61 +211,26 @@
 
         <div
           *ngIf="
-            registerGroup.controls['confirmPassword'].dirty &&
-            registerGroup.controls['confirmPassword'].hasError('pattern')
+            registerGroup.controls['email'].dirty &&
+            registerGroup.controls['email'].hasError('pattern')
           "
           class="text-danger">
-          Password must contain at least one number, uppercase, lowercase, have
-          at least 8 characters and cannot contain whitespace
+          E-mail is invalid
         </div>
+      </form>
 
-        <div
-          *ngIf="
-            registerGroup.controls['password'].value !==
-            registerGroup.controls['confirmPassword'].value
-          "
-          class="text-danger">
-          Password do not match
-        </div>
-        <label for="inputEmail" class="form-label m-0 required mt-3"
-          >E-mail</label
-        >
-        <input
-          type="text"
-          class="form-control border border-secondary"
-          id="inputEmail"
-          formControlName="email" />
+      <div class="d-flex flex-row justify-content-center">
+        <button
+          type="button"
+          [disabled]="registerGroup.invalid"
+          class="btn btn-secondary mt-3 w-75">
+          Register
+        </button>
+
+        <button type="button" class="btn btn btn-light mt-3 ms-3 w-75">
+          Back
+        </button>
       </div>
-      <div
-        *ngIf="
-          registerGroup.controls['email'].errors?.['required'] &&
-          registerGroup.controls['email'].touched
-        "
-        class="text-danger">
-        Field is required
-      </div>
-
-      <div
-        *ngIf="
-          registerGroup.controls['email'].dirty &&
-          registerGroup.controls['email'].hasError('pattern')
-        "
-        class="text-danger">
-        E-mail is invalid
-      </div>
-    </form>
-
-    <div class="d-flex flex-row justify-content-center">
-      <button
-        type="button"
-        [disabled]="registerGroup.invalid"
-        class="btn btn-secondary mt-3 w-75">
-        Register
-      </button>
-
-      <button type="button" class="btn btn btn-light mt-3 ms-3 w-75">
-        Back
-      </button>
     </div>
   </div>
 </div>
