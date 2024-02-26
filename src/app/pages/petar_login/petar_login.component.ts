@@ -9,11 +9,18 @@ import {
 import { AppConfig } from '../../config/app.config';
 import { AppLanguages } from '../../config/app.languages';
 import { AuthService } from '../../services/auth.service';
-
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { routesConfig } from '../../config/routes.config';
 @Component({
   selector: 'app-petar-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
   templateUrl: './petar_login.component.html',
   styleUrl: './petar_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +28,7 @@ import { AuthService } from '../../services/auth.service';
 export class PetarLoginComponent {
   public appConfig = AppConfig;
   public appLanguages = AppLanguages;
+  public routesConfig = routesConfig;
 
   public show: boolean = true;
   public loginMessage: string = '';

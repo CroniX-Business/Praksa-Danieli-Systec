@@ -1,5 +1,5 @@
-export const routersConfig = [
-  { path: 'login', title: 'Login Page' },
-  { path: 'register', title: 'Register Page' },
-  { path: '**', title: 'Error 404' },
-];
+export const routesConfig = {
+  login: '/login',
+  register: '/register',
+  error404: '/error404',
+};

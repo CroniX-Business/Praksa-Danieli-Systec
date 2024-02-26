@@ -13,11 +13,18 @@ import {
   emailRegex,
   nameRegex,
 } from '../../common/regex_constants';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-petar-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
   templateUrl: './petar_register.component.html',
   styleUrl: './petar_register.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
