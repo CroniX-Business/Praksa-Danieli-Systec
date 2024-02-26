@@ -52,13 +52,6 @@ export class DarioLoginComponent {
             this.loginMessage = 'Login success!';
           } else this.loginMessage = 'Login failed!';
         });
-
-      console.log(
-        this.authService.logIn(
-          this.loginGroup.controls.username.value,
-          this.loginGroup.controls.password.value
-        )
-      );
     }
   }
 }
