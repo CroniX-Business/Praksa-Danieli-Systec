@@ -5,6 +5,7 @@ import { appConfig } from '../../configs/app.config';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NameRegex } from '../../common/regex_constants';
 import { EmailRegex } from '../../common/regex_constants';
+import { UsernameRegex } from '../../common/regex_constants';
 @Component({
   selector: 'app-dragan-register',
   standalone: true,
@@ -31,7 +32,10 @@ export class DraganRegisterComponent {
       Validators.required,
       Validators.pattern(EmailRegex),
     ]),
-    username: new FormControl('', Validators.required),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.pattern(UsernameRegex),
+    ]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),

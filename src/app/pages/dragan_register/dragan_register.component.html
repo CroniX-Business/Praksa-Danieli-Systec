@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col"></div>
-    <div class="col">
+    <div class="col-6">
       <form class="container-fluid border rounded" [formGroup]="myForm">
         <div class="">
           <h2 class="login-header">Register</h2>
@@ -28,6 +28,11 @@
               *ngIf="myForm.controls['firstName'].errors?.['required']"
               >First name is required.
             </span>
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['firstName'].hasError('pattern')">
+              Invalid name
+            </span>
           </div>
 
           <label for="last_name" class="required">Last name</label>
@@ -48,6 +53,11 @@
               *ngIf="myForm.controls['lastName'].errors?.['required']"
               >Last name is required.
             </span>
+            <span
+              class="text-danger"
+              *ngIf="myForm.controls['lastName'].hasError('pattern')">
+              Invalid name
+            </span>
           </div>
 
           <label for="username" class="required">Username</label>
@@ -62,8 +72,15 @@
             *ngIf="
               myForm.controls['username'].invalid &&
               myForm.controls['username'].touched
-            ">
-            <span class="text-danger">Username is required</span>
+            "
+            class="text-danger">
+            Username is required
+          </div>
+
+          <div
+            class="text-danger"
+            *ngIf="myForm.controls['username'].hasError('pattern')">
+            Invalid username
           </div>
 
           <div>
@@ -137,11 +154,7 @@
               "></i>
           </button>
         </div>
-        <div
-          *ngIf="
-            myForm.controls['repeatPassword'].valid &&
-            myForm.controls['password'].valid
-          ">
+        <div *ngIf="myForm.controls['password'].valid">
           <span
             *ngIf="
               myForm.controls['repeatPassword'].value !==
@@ -154,10 +167,26 @@
 
         <label for="email" class="form-label">E-mail</label>
         <input
-          type="password"
+          type="text"
           id="email"
           class="form-control"
-          aria-describedby="passwordHelpBlock" />
+          formControlName="email" />
+        <div
+          *ngIf="
+            myForm.controls['email'].errors?.['required'] &&
+            myForm.controls['email'].touched
+          "
+          class="text-danger">
+          Field is required
+        </div>
+        <div
+          *ngIf="
+            myForm.controls['email'].dirty &&
+            myForm.controls['email'].hasError('pattern')
+          "
+          class="text-danger">
+          E-mail is invalid
+        </div>
 
         <br />
         <div class="d-flex align-items-center justify-content-center mb-3">
@@ -167,9 +196,6 @@
             [disabled]="myForm.invalid">
             Log in
           </button>
-          <div *ngIf="registerMessage !== null">
-            {{ registerMessage }}
-          </div>
         </div>
       </form>
       <div class="registration">
