@@ -3,7 +3,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { config } from '../../../configs/app.config';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { passwordRegex, usernameRegex } from '../../../common/regex_constants';
+import {
+  emailRegex,
+  passwordRegex,
+  usernameRegex,
+} from '../../../common/regex_constants';
 
 @Component({
   selector: 'app-bruno-register',
@@ -33,10 +37,10 @@ export class BrunoRegisterComponentComponent {
     ]),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.pattern(emailRegex),
+    ]),
   });
-  public log(): void {
-    console.log(this.form.get('username')!.value!);
-    console.log(typeof this.form.get('username')!.value!);
-  }
 }
