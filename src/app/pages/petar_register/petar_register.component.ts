@@ -14,6 +14,7 @@ import {
   nameRegex,
 } from '../../common/regex_constants';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { routesConfig } from '../../config/routes.config';
 
 @Component({
   selector: 'app-petar-register',
@@ -31,6 +32,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class PetarRegisterComponent {
   public appConfig = AppConfig;
+  public routesConfig = routesConfig;
 
   public show: boolean = true;
   public showRepeat: boolean = true;
