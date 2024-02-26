@@ -90,11 +90,12 @@
         <div *ngIf="registerForm.controls['username'].invalid">
           <span
             class="error text-danger"
-            *ngIf="
-              registerForm.controls['username'].hasError('minlength') ||
-              registerForm.controls['username'].hasError('pattern')
-            ">
-            Lenght must be greater than 3 <br />
+            *ngIf="registerForm.controls['username'].hasError('minlength')">
+            Lenght must be greater than 3
+          </span>
+          <span
+            class="error text-danger"
+            *ngIf="registerForm.controls['username'].hasError('pattern')">
             Username must have only letters, numbers, underscore, or dot.
           </span>
         </div>
@@ -214,17 +215,17 @@
               registerForm.controls['repeatPassword'].value ===
               registerForm.controls['password'].value
             "
-            class="error text-success"
-            >Passwords match</span
-          >
+            class="error text-success">
+            Passwords match
+          </span>
           <span
             *ngIf="
               registerForm.controls['repeatPassword'].value !==
               registerForm.controls['password'].value
             "
-            class="error text-danger"
-            >Passwords do not match</span
-          >
+            class="error text-danger">
+            Passwords do not match
+          </span>
         </div>
         <label for="email" class="required fs-6 text-black-50 mt-2 d-block"
           >Email</label
@@ -257,8 +258,18 @@
           <button
             type="submit"
             class="submit text-light border rounded-2 fs-6 me-4"
-            [ngClass]="registerForm.invalid ? '' : 'bg-secondary'"
-            [disabled]="registerForm.invalid">
+            [ngClass]="
+              registerForm.invalid ||
+              registerForm.controls['repeatPassword'].value !==
+                registerForm.controls['password'].value
+                ? ''
+                : 'bg-secondary'
+            "
+            [disabled]="
+              registerForm.invalid ||
+              registerForm.controls['repeatPassword'].value !==
+                registerForm.controls['password'].value
+            ">
             Register
           </button>
           <button type="button" class="submit border rounded-2 fs-6 bg-light">
