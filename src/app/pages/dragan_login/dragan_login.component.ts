@@ -4,10 +4,21 @@ import { appConfig } from '../../configs/app.config';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DraganAuthService } from '../../services/dragan_auth.service';
+import { routes } from '../../configs/routes.config';
+import { RouterLink } from '@angular/router';
+import { RouterLinkActive } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-dragan-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
   templateUrl: './dragan_login.component.html',
   styleUrl: './dragan_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,7 +26,7 @@ import { DraganAuthService } from '../../services/dragan_auth.service';
 export class DraganLoginComponent {
   public loginMessage: string | null = null;
   public constructor(private authService: DraganAuthService) {}
-
+  public routes = routes;
   public myForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
