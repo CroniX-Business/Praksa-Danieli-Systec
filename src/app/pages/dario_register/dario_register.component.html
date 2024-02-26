@@ -222,7 +222,11 @@
       <div class="d-flex flex-row justify-content-center">
         <button
           type="button"
-          [disabled]="registerGroup.invalid"
+          [disabled]="
+            registerGroup.invalid ||
+            registerGroup.controls.password.value !==
+              registerGroup.controls.confirmPassword.value
+          "
           class="btn btn-secondary mt-3 w-75">
           Register
         </button>
