@@ -20,4 +20,6 @@ export const appRoutes: Routes = [
     component: DarioNotFoundComponent,
     title: 'Error page',
   },
+  { path: '', redirectTo: AppRoutesConfig.routeNames.login, pathMatch: 'full' },
+  { path: '**', component: DarioNotFoundComponent },
 ];
