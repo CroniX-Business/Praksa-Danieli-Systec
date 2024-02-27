@@ -4,6 +4,7 @@ import { Languages } from '../../configs/app-languages.config';
 import { appConfiguration } from '../../configs/app.config';
 import { AuthService } from '../../services/auth.service';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import { routesConfig } from '../../configs/routes.config';
 import {
   FormsModule,
   FormControl,
@@ -26,6 +27,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikLoginComponent {
+  public routesConfig = routesConfig;
   public constructor(private authService: AuthService) {}
   public Lan = Languages;
   public showPassword = false;

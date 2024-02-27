@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+.maindiv{
+  width: 20em;
+  height: 10em;
+  border: 2px solid black;
+  margin-top: 15%;
+}

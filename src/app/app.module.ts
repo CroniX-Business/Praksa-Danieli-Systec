@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DominikLoginComponent } from './pages/Dominik_login/Dominik_login.component';
 import { DominikRegisterComponent } from './pages/Dominik_register/Dominik_register.component';
+import { DominikErrorComponent } from './pages/Dominik_error/Dominik_error.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { DominikRegisterComponent } from './pages/Dominik_register/Dominik_regis
     AppRoutingModule,
     DominikLoginComponent,
     DominikRegisterComponent,
+    DominikErrorComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
