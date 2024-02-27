@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Languages } from '../.././configs/app-languages.config';
 import { appConfiguration } from '../.././configs/app.config';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
-import { routesConfig } from '../../configs/routes.config';
+import { routeConfig } from '../../configs/routes.config';
 import {
   emailRegex,
   nowhitespaceRegex,
@@ -34,7 +34,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikRegisterComponent {
-  public routesConfig = routesConfig;
+  public routesConfig = routeConfig;
   public Lan = Languages;
   public showPassword = false;
   public appCnfg = appConfiguration;
