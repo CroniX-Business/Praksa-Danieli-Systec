@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+.backLink{
+  text-decoration: none;
+  color: white;
+}

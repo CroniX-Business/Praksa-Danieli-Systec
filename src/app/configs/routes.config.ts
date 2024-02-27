@@ -1,10 +1,12 @@
-export const routesConfig = {
-  login: '/login',
-  register: '/register',
-  error404: '/error404',
-};
-export const routeNames = {
-  login: 'login',
-  register: 'register',
-  error404: 'error404',
+export const appRouteConfig = {
+  routesConfig: {
+    login: '/login',
+    register: '/register',
+    error404: '/error404',
+  },
+  routeNames: {
+    login: 'login',
+    register: 'register',
+    error404: 'error404',
+  },
 };
