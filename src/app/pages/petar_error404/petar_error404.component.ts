@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppConfig } from '../../config/app.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { routesConfig } from '../../config/routes.config';
+import { AppRoutesConfig } from '../../config/routes.config';
 
 @Component({
   selector: 'app-petar-error404',
@@ -14,5 +14,5 @@ import { routesConfig } from '../../config/routes.config';
 })
 export class PetarError404Component {
   public appConfig = AppConfig;
-  public routesConfig = routesConfig;
+  public AppRoutesConfig = AppRoutesConfig;
 }

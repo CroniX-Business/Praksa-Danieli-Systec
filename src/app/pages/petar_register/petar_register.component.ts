@@ -14,7 +14,8 @@ import {
   nameRegex,
 } from '../../common/regex_constants';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { routesConfig } from '../../config/routes.config';
+import { AppRoutesConfig } from '../../config/routes.config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-petar-register',
@@ -32,10 +33,12 @@ import { routesConfig } from '../../config/routes.config';
 })
 export class PetarRegisterComponent {
   public appConfig = AppConfig;
-  public routesConfig = routesConfig;
+  public AppRoutesConfig = AppRoutesConfig;
 
   public show: boolean = true;
   public showRepeat: boolean = true;
+
+  public constructor(private router: Router) {}
 
   public registerForm = new FormGroup({
     firstName: new FormControl('', [
@@ -68,5 +71,7 @@ export class PetarRegisterComponent {
     ]),
   });
 
-  public onSubmit(): void {}
+  public onSubmit(): void {
+    this.router.navigate([AppRoutesConfig.routes.homepage]);
+  }
 }

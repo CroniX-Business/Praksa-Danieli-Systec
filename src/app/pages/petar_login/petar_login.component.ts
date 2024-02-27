@@ -10,7 +10,8 @@ import { AppConfig } from '../../config/app.config';
 import { AppLanguages } from '../../config/app.languages';
 import { AuthService } from '../../services/auth.service';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { routesConfig } from '../../config/routes.config';
+import { AppRoutesConfig } from '../../config/routes.config';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-petar-login',
   standalone: true,
@@ -28,12 +29,15 @@ import { routesConfig } from '../../config/routes.config';
 export class PetarLoginComponent {
   public appConfig = AppConfig;
   public appLanguages = AppLanguages;
-  public routesConfig = routesConfig;
+  public AppRoutesConfig = AppRoutesConfig;
 
   public show: boolean = true;
   public loginMessage: string = '';
 
-  public constructor(private authService: AuthService) {}
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   public loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -52,7 +56,7 @@ export class PetarLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.loginMessage = 'Login success';
+            this.router.navigate([AppRoutesConfig.routes.homepage]);
           } else {
             this.loginMessage = 'Login Failed';
           }
