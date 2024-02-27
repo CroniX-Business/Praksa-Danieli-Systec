@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
-import { routeConfig } from '../../configs/routes.config';
+import { AppRoutesConfig } from '../../configs/routes.config';
 
 @Component({
   selector: 'app-dominik-error',
@@ -12,5 +12,5 @@ import { routeConfig } from '../../configs/routes.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikErrorComponent {
-  public routesConfig = routeConfig;
+  public routesConfig = AppRoutesConfig.routeConfig;
 }
