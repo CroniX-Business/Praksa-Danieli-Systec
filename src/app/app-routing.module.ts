@@ -15,6 +15,11 @@ const routes: Routes = [
     path: AppRoutesConfig.routeNames.notFound,
     component: BrunoNotFoundComponent,
   },
+  {
+    path: '**',
+    redirectTo: AppRoutesConfig.routes.notFound,
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
