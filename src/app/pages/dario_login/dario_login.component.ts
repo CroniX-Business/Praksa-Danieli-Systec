@@ -11,7 +11,12 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { AppRoutesConfig } from '../../configs/routes.config';
 
 @Component({
@@ -37,7 +42,10 @@ export class DarioLoginComponent {
 
   public appRoutes = AppRoutesConfig.routes;
 
-  public constructor(private authService: AuthService) {}
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   public loginGroup = new FormGroup({
     password: new FormControl('', Validators.required),
@@ -56,8 +64,8 @@ export class DarioLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.loginMessage = 'Login success!';
-          } else this.loginMessage = 'Login failed!';
+            this.router.navigate([this.appRoutes.home]);
+          } else this.router.navigate([this.appRoutes.error]);
         });
     }
   }
