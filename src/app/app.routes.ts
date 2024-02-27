@@ -11,5 +11,5 @@ export const routes: Routes = [
     component: DominikRegisterComponent,
     title: 'Register page',
   },
-  { path: 'error', component: DominikErrorComponent, title: 'Error page' },
+  { path: '**', component: DominikErrorComponent, title: 'Error page' },
 ];

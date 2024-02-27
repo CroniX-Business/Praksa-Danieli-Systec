@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import { routesConfig } from '../../configs/routes.config';
 
 @Component({
   selector: 'app-dominik-error',
@@ -10,4 +11,6 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './Dominik_error.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DominikErrorComponent {}
+export class DominikErrorComponent {
+  public routesConfig = routesConfig;
+}
