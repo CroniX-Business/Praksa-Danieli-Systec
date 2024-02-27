@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppConfig } from '../../configs/app.config';
 import { AppLanguagesConfig } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 
 import {
   FormControl,
@@ -38,10 +37,7 @@ export class DarioLoginComponent {
 
   public appRoutes = AppRoutesConfig.routes;
 
-  public constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  public constructor(private authService: AuthService) {}
 
   public loginGroup = new FormGroup({
     password: new FormControl('', Validators.required),

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppConfig } from '../../configs/app.config';
 import { AppLanguagesConfig } from '../../configs/app-languages.config';
-import { AuthService } from '../../services/auth.service';
 
 import {
   EmailRegex,
@@ -17,12 +16,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  Router,
-  RouterLink,
-  RouterLinkActive,
-  RouterOutlet,
-} from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AppRoutesConfig } from '../../configs/routes.config';
 
 @Component({
@@ -49,10 +43,7 @@ export class DarioRegisterComponent {
 
   public appRoutes = AppRoutesConfig.routes;
 
-  public constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  public constructor() {}
 
   public registerGroup = new FormGroup({
     firstName: new FormControl('', [
