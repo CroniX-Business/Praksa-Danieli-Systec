@@ -6,6 +6,7 @@ import { DraganLoginComponent } from './pages/dragan_login/dragan_login.componen
 import { DraganRegisterComponent } from './pages/dragan_register/dragan_register.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { routes } from './app.routes';
     DraganLoginComponent,
     DraganRegisterComponent,
     RouterModule.forRoot(routes),
+    HomepageComponent,
   ],
 })
 export class AppModule {}
