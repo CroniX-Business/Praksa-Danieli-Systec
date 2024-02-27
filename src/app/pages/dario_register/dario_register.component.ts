@@ -23,7 +23,7 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { routes } from '../../configs/routes.config';
+import { AppRoutesConfig } from '../../configs/routes.config';
 
 @Component({
   selector: 'app-dario-register',
@@ -47,14 +47,12 @@ export class DarioRegisterComponent {
   public appLCFG = AppLanguagesConfig;
   public loginMessage: string | null = null;
 
-  public appRoutes = routes;
+  public appRoutes = AppRoutesConfig.routes;
 
   public constructor(
     private authService: AuthService,
     private router: Router
-  ) {
-    console.log(this.appRoutes);
-  }
+  ) {}
 
   public registerGroup = new FormGroup({
     firstName: new FormControl('', [

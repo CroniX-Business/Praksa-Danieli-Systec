@@ -75,7 +75,6 @@
               type="button"
               [disabled]="loginGroup.invalid"
               class="btn btn-secondary mt-3"
-              [routerLink]="appRoutes.register"
               (click)="onSubmit()">
               Login
             </button>
@@ -89,11 +88,7 @@
     <div class="no-acc-layout pt-3 w-100">
       <p>
         Don't have an account?
-        <a
-          href="../dario_register/dario_register.component.html"
-          target="_blank"
-          >Create one!</a
-        >
+        <a [routerLink]="appRoutes.register">Create one!</a>
       </p>
     </div>
   </div>

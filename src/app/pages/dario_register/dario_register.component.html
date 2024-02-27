@@ -10,7 +10,7 @@
   <div class="d-flex flex-column align-items-center info">
     <div class="p-5 border w-75">
       <form [formGroup]="registerGroup">
-        <h3>Login</h3>
+        <h3>Register</h3>
 
         <label for="inputFirstName" class="form-label m-0 required mt-4"
           >First name</label
@@ -231,7 +231,10 @@
           Register
         </button>
 
-        <button type="button" class="btn btn btn-light mt-3 ms-3 w-75">
+        <button
+          type="button"
+          class="btn btn btn-light mt-3 ms-3 w-75"
+          [routerLink]="appRoutes.login">
           Back
         </button>
       </div>

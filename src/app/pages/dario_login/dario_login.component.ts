@@ -13,7 +13,7 @@ import {
 } from '@angular/forms';
 
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { routes } from '../../configs/routes.config';
+import { AppRoutesConfig } from '../../configs/routes.config';
 
 @Component({
   selector: 'app-dario-login',
@@ -36,7 +36,7 @@ export class DarioLoginComponent {
   public appLCFG = AppLanguagesConfig;
   public loginMessage: string | null = null;
 
-  public appRoutes = routes;
+  public appRoutes = AppRoutesConfig.routes;
 
   public constructor(
     private authService: AuthService,
