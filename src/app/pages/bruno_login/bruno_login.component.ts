@@ -11,7 +11,7 @@ import { config } from '../../configs/app.config';
 import { languages } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule } from '@angular/router';
-import { routeNames } from '../../configs/app-routes.config';
+import { AppRoutesConfig } from '../../configs/app-routes.config';
 
 @Component({
   selector: 'app-bruno-login',
@@ -31,7 +31,7 @@ export class BrunoLoginComponent {
       Validators.required,
     ]),
   });
-  public routes = routeNames;
+  public routes = AppRoutesConfig;
   public config = config;
   public languages = languages;
   public fieldTextType: boolean = false;

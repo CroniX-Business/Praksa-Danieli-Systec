@@ -9,7 +9,7 @@ import {
   usernameRegex,
 } from '../../common/regex_constants';
 import { RouterModule } from '@angular/router';
-import { routeNames } from '../../configs/app-routes.config';
+import { AppRoutesConfig } from '../../configs/app-routes.config';
 
 @Component({
   selector: 'app-bruno-register',
@@ -20,8 +20,8 @@ import { routeNames } from '../../configs/app-routes.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrunoRegisterComponent {
+  public routes = AppRoutesConfig;
   public config = config;
-  public routes = routeNames;
   public fieldTextType: boolean = false;
   public form = new FormGroup({
     username: new FormControl('', [
