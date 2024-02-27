@@ -10,7 +10,7 @@ import {
 import { config } from '../../configs/app.config';
 import { languages } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { AppRoutesConfig } from '../../configs/app-routes.config';
 
 @Component({
@@ -22,7 +22,10 @@ import { AppRoutesConfig } from '../../configs/app-routes.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrunoLoginComponent {
-  public constructor(private authService: AuthService) {}
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
   public time = new Date();
   public form = new FormGroup({
     username: new FormControl(null, Validators.required),
@@ -55,6 +58,8 @@ export class BrunoLoginComponent {
         .subscribe(value => {
           if (value) {
             this.loginMessage = 'Login successful.';
+            this.router.navigate([this.routes.routeNames.landing]);
+            this.loginMessage = 'Navigation successful';
           } else {
             this.loginMessage = 'Login failed.';
           }
