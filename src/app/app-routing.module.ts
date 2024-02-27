@@ -11,7 +11,10 @@ const routes: Routes = [
     path: AppRoutesConfig.routeNames.register,
     component: BrunoRegisterComponent,
   },
-  { path: AppRoutesConfig.routeNames.error, component: BrunoNotFoundComponent },
+  {
+    path: AppRoutesConfig.routeNames.notFound,
+    component: BrunoNotFoundComponent,
+  },
 ];
 
 @NgModule({
