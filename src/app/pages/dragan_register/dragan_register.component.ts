@@ -9,7 +9,7 @@ import { UsernameRegex } from '../../common/regex_constants';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { routes } from '../../configs/routes.config';
+import { routesConfig } from '../../configs/routes.config';
 @Component({
   selector: 'app-dragan-register',
   standalone: true,
@@ -27,7 +27,7 @@ import { routes } from '../../configs/routes.config';
 export class DraganRegisterComponent {
   public passwordVisible: boolean = true;
   public appConfig = appConfig;
-  public routes = routes;
+  public routes = routesConfig;
   public registerMessage: string | null = null;
   public myForm = new FormGroup({
     firstName: new FormControl('', [

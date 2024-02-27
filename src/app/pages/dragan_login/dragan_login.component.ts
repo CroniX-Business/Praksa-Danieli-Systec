@@ -4,7 +4,7 @@ import { appConfig } from '../../configs/app.config';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DraganAuthService } from '../../services/dragan_auth.service';
-import { routes } from '../../configs/routes.config';
+import { routesConfig } from '../../configs/routes.config';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
@@ -26,7 +26,7 @@ import { RouterOutlet } from '@angular/router';
 export class DraganLoginComponent {
   public loginMessage: string | null = null;
   public constructor(private authService: DraganAuthService) {}
-  public routes = routes;
+  public routes = routesConfig;
   public myForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
