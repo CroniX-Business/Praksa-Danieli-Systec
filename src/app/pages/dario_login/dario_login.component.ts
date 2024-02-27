@@ -12,10 +12,19 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { routes } from '../../configs/routes.config';
+
 @Component({
   selector: 'app-dario-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: './dario_login.component.html',
   styleUrl: './dario_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,6 +35,8 @@ export class DarioLoginComponent {
   public appCFG = AppConfig;
   public appLCFG = AppLanguagesConfig;
   public loginMessage: string | null = null;
+
+  public appRoutes = routes;
 
   public constructor(
     private authService: AuthService,
