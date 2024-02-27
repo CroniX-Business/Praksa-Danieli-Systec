@@ -2,8 +2,10 @@
   display: block;
 }
 .maindiv{
+  margin-top: 10%;
+}
+.othermaindiv{
   width: 20em;
   height: 10em;
   border: 2px solid black;
-  margin-top: 15%;
 }
