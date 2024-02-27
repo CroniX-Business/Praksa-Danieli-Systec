@@ -3,7 +3,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Languages } from '../../configs/app-languages.config';
 import { appConfiguration } from '../../configs/app.config';
 import { AuthService } from '../../services/auth.service';
-import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import {
+  Router,
+  RouterLinkActive,
+  RouterOutlet,
+  RouterLink,
+} from '@angular/router';
 import { AppRoutesConfig } from '../../configs/routes.config';
 import {
   FormsModule,
@@ -28,7 +33,10 @@ import {
 })
 export class DominikLoginComponent {
   public routesConfig = AppRoutesConfig.routeConfig;
-  public constructor(private authService: AuthService) {}
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
   public Lan = Languages;
   public showPassword = false;
   public appCnfg = appConfiguration;
@@ -51,8 +59,9 @@ export class DominikLoginComponent {
           this.applyform.controls.userPassword.value
         )
         .subscribe(value => {
-          if (value) this.loginMsg = 'Login complete!';
-          else this.loginMsg = 'Login failed!';
+          if (value) {
+            this.router.navigate([this.routesConfig.main]);
+          } else this.loginMsg = 'Login failed!';
         });
   }
 }
