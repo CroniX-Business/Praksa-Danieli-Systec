@@ -10,11 +10,13 @@ import {
 import { config } from '../../configs/app.config';
 import { languages } from '../../configs/app-languages.config';
 import { AuthService } from '../../services/auth.service';
+import { RouterModule } from '@angular/router';
+import { routeNames } from '../../configs/app-routes.config';
 
 @Component({
   selector: 'app-bruno-login',
   standalone: true,
-  imports: [CommonModule, NgFor, ReactiveFormsModule],
+  imports: [CommonModule, NgFor, ReactiveFormsModule, RouterModule],
   templateUrl: './bruno_login.component.html',
   styleUrl: './bruno_login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +31,7 @@ export class BrunoLoginComponent {
       Validators.required,
     ]),
   });
+  public routes = routeNames;
   public config = config;
   public languages = languages;
   public fieldTextType: boolean = false;

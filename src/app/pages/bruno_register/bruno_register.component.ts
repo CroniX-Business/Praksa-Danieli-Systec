@@ -1,24 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { config } from '../../../configs/app.config';
+import { config } from '../../configs/app.config';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   emailRegex,
   passwordRegex,
   usernameRegex,
-} from '../../../common/regex_constants';
+} from '../../common/regex_constants';
+import { RouterModule } from '@angular/router';
+import { routeNames } from '../../configs/app-routes.config';
 
 @Component({
   selector: 'app-bruno-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './bruno_register.component.html',
   styleUrl: './bruno_register.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrunoRegisterComponentComponent {
+export class BrunoRegisterComponent {
   public config = config;
+  public routes = routeNames;
   public fieldTextType: boolean = false;
   public form = new FormGroup({
     username: new FormControl('', [
