@@ -65,7 +65,7 @@ export class DarioLoginComponent {
         .subscribe(value => {
           if (value) {
             this.router.navigate([this.appRoutes.home]);
-          } else this.router.navigate([this.appRoutes.error]);
+          }
         });
     }
   }
