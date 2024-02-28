@@ -1,38 +1,45 @@
-<div class="vh-100">
-  <div
-    class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100"
-    style="width: 280px">
-    <a
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="fs-4">Sidebar</span>
-    </a>
-    <hr />
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page"> Home </a>
-      </li>
-      <li>
-        <a [routerLink]="routes.routes.restaurants" class="nav-link text-white">
-          Restaurants
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="routes.routes.categories" class="nav-link text-white">
-          Category
-        </a>
-      </li>
-    </ul>
-    <hr />
-    <div class="dropdown text-center">
-      <button
-        [routerLink]="routes.routes.login"
-        class="bg-transparent border-0 text-white">
-        <a><strong>Logout</strong> </a>
-      </button>
+<div class="d-flex flex-nowrap">
+  <div class="vh-100">
+    <div
+      class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100"
+      style="width: 280px">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">Sidebar</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a
+            [routerLink]="[
+              routes.routes.landing,
+              routes.routeNames.restaurants
+            ]"
+            class="nav-link text-white">
+            Restaurants
+          </a>
+        </li>
+        <li>
+          <a
+            [routerLink]="[routes.routes.landing, routes.routeNames.categories]"
+            class="nav-link text-white">
+            Category
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <div class="dropdown text-center">
+        <button
+          [routerLink]="routes.routes.login"
+          class="bg-transparent border-0 text-white">
+          <a><strong>Logout</strong> </a>
+        </button>
+      </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>

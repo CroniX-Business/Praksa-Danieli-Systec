@@ -5,6 +5,7 @@ export const AppRoutesConfig = {
     notFound: '404',
     restaurants: 'restaurants',
     categories: 'categories',
+    landing: 'home',
   },
   routes: {
     login: '/login',
@@ -12,5 +13,6 @@ export const AppRoutesConfig = {
     notFound: '/404',
     restaurants: '/restaurants',
     categories: '/categories',
+    landing: '/home',
   },
 };

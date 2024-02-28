@@ -6,6 +6,7 @@ import { BrunoNotFoundComponent } from './pages/bruno_not_found/bruno_not_found.
 import { AppRoutesConfig } from './configs/app-routes.config';
 import { BrunoCategoryComponent } from './pages/bruno_category/bruno_category.component';
 import { BrunoRestaurantComponent } from './pages/bruno_restaurant/bruno_restaurant.component';
+import { BrunoLandingComponent } from './pages/bruno_landing/bruno_landing.component';
 const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
   { path: AppRoutesConfig.routeNames.login, component: BrunoLoginComponent },
@@ -16,6 +17,25 @@ const routes: Routes = [
   {
     path: AppRoutesConfig.routeNames.notFound,
     component: BrunoNotFoundComponent,
+  },
+  {
+    path: AppRoutesConfig.routeNames.landing,
+    component: BrunoLandingComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: AppRoutesConfig.routeNames.restaurants,
+        pathMatch: 'full',
+      },
+      {
+        path: AppRoutesConfig.routeNames.restaurants,
+        component: BrunoRestaurantComponent,
+      },
+      {
+        path: AppRoutesConfig.routeNames.categories,
+        component: BrunoCategoryComponent,
+      },
+    ],
   },
   {
     path: AppRoutesConfig.routeNames.categories,
