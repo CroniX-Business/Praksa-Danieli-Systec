@@ -1,60 +1,22 @@
 <div class="wrapper">
   <!-- Sidebar  -->
-  <nav id="sidebar">
+  <nav id="sidebar" *ngIf="sidebar">
     <div class="sidebar-header">
-      <h3>Bootstrap Sidebar</h3>
+      <img
+        alt="Company logo"
+        src="../../../assets/images/logo.png"
+        class="m-auto d-flex justify-content-center"
+        width="200"
+        height="78" />
     </div>
 
     <ul class="list-unstyled components">
-      <p>Dummy Heading</p>
-      <li class="active">
-        <a
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          (click)="restocollapsed = !restocollapsed"
-          >Restaurants</a
-        >
-        <ul class="list-unstyled" *ngIf="!restocollapsed">
-          <li>
-            <a href="#">Home 1</a>
-          </li>
-          <li>
-            <a href="#">Home 2</a>
-          </li>
-          <li>
-            <a href="#">Home 3</a>
-          </li>
-        </ul>
+      <p>DANIELI SYSTEC</p>
+      <li>
+        <a href="#">Restaurants</a>
       </li>
       <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a
-          href="#pageSubmenu"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          >Pages</a
-        >
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li>
-            <a href="#">Page 1</a>
-          </li>
-          <li>
-            <a href="#">Page 2</a>
-          </li>
-          <li>
-            <a href="#">Page 3</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Portfolio</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
+        <a href="#">Cetegory</a>
       </li>
     </ul>
 
@@ -67,11 +29,15 @@
 
   <!-- Page Content  -->
   <div id="content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
+        <button
+          type="button"
+          id="sidebarCollapse"
+          class="btn btn-info"
+          (click)="sidebar = !sidebar">
           <i class="fas fa-align-left"></i>
-          <span>Toggle Sidebar</span>
+          Toggle Sidebar
         </button>
         <button
           class="btn btn-dark d-inline-block d-lg-none ml-auto"
