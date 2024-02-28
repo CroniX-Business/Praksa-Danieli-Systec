@@ -64,7 +64,7 @@ export class DarioLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.router.navigate([this.appRoutes.home]);
+            this.router.navigate([this.appRoutes.restaurant]);
           }
         });
     }
