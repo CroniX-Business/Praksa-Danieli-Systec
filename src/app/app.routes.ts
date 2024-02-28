@@ -17,10 +17,10 @@ export const routes: Routes = [
     path: appRouteConfig.routeNames.register,
     component: DraganRegisterComponent,
   },
-  { path: '**', component: PageNotFoundComponent },
   { path: appRouteConfig.routeNames.home, component: MyHomepageComponent },
   {
     path: appRouteConfig.routeNames.restaurant,
     component: RestaurantComponent,
   },
+  { path: '**', component: PageNotFoundComponent },
 ];
