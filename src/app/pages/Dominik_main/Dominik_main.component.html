@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+
+  <nav id="sidebar" *ngIf="sidebar" class="d-inline">
+    <div class="sidebar-header">
+      <img
+        alt="Company logo"
+        src="../../../assets/images/logo.png"
+        class="m-auto d-flex justify-content-center"
+        width="200"
+        height="78" />
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>DANIELI SYSTEC</p>
+      <li>
+        <a (pointerdown)="displayPage = 'Restaurant'" class="pointerCursors"
+          >Restaurants</a
+        >
+      </li>
+      <li>
+        <a (pointerdown)="displayPage = 'Category'" class="pointerCursors"
+          >Category</a
+        >
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li>
+        <a routerLink="{{ routesConfig.login }}" class="download">Log out</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="d-inline">
+    <button
+      type="button"
+      id="sidebarCollapse"
+      class="btn rounded-start-0"
+      (click)="sidebar = !sidebar">
+      <i class="fas fa-align-left"></i>
+    </button>
+  </div>
+  <app-dominik-restaurant
+    *ngIf="displayPage === 'Restaurant'"></app-dominik-restaurant>
+  <app-dominik-category
+    *ngIf="displayPage === 'Category'"></app-dominik-category>
+</div>

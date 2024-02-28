@@ -1,16 +1,14 @@
 export const AppRoutesConfig = {
   routeNames: {
     login: 'login',
+    main: 'main',
     register: 'register',
-    restaurant: 'restaurant',
-    category: 'category',
     notFound: '404',
   },
   routeConfig: {
     login: '/login',
+    main: '/main',
     register: '/register',
-    restaurant: '/restaurant',
-    category: '/category',
     notFound: '/404',
   },
 };
