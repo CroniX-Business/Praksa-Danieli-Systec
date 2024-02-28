@@ -1,29 +1,34 @@
-<div
-  class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100">
-  <span class="fs-4 d-flex mb-2">Ime Prezime</span>
-  <hr />
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
+<div class="d-flex">
+  <div
+    class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100">
+    <span class="fs-4 d-flex mb-2">Ime Prezime</span>
+    <hr />
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a
+          [routerLink]="[AppRoutesConfig.routeNames.restaurants]"
+          class="link nav-link text-white">
+          <i class="fa-regular fa-house"></i>&nbsp; Restaurants
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="[AppRoutesConfig.routeNames.category]"
+          class="link nav-link text-white">
+          <i class="fa-solid fa-list"></i>&nbsp; Category
+        </a>
+      </li>
+    </ul>
+    <hr />
+    <div class="dropdown">
       <a
-        routerLink="{{ AppRoutesConfig.routes.restaurants }}"
-        class="link nav-link text-white">
-        <i class="fa-regular fa-house"></i>&nbsp; Restaurants
+        class="text-decoration-none text-white"
+        routerLink="{{ AppRoutesConfig.routes.login }}">
+        <i class="fa-solid fa-right-from-bracket"></i>&nbsp; Sign out
       </a>
-    </li>
-    <li>
-      <a
-        routerLink="{{ AppRoutesConfig.routes.category }}"
-        class="link nav-link text-white">
-        <i class="fa-solid fa-list"></i>&nbsp; Category
-      </a>
-    </li>
-  </ul>
-  <hr />
-  <div class="dropdown">
-    <a
-      class="text-decoration-none text-white"
-      routerLink="{{ AppRoutesConfig.routes.login }}"
-      ><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Sign out</a
-    >
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
   </div>
 </div>

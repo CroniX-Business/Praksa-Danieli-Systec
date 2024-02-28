@@ -56,7 +56,7 @@ export class PetarLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.router.navigate([AppRoutesConfig.routes.restaurants]);
+            this.router.navigate([AppRoutesConfig.routes.homepage]);
           } else {
             this.loginMessage = 'Login Failed';
           }

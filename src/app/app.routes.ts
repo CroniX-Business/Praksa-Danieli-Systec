@@ -5,6 +5,7 @@ import { PetarError404Component } from './pages/petar_error404/petar_error404.co
 import { AppRoutesConfig } from './config/routes.config';
 import { PetarRestaurantComponent } from './pages/petar_restaurant/petar_restaurant.component';
 import { PetarCategoryComponent } from './pages/petar_category/petar_category.component';
+import { PetarHomepageComponent } from './pages/petar_homepage/petar_homepage.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
@@ -19,14 +20,21 @@ export const routes: Routes = [
     title: 'Register',
   },
   {
-    path: AppRoutesConfig.routeNames.restaurants,
-    component: PetarRestaurantComponent,
-    title: 'Restaurants',
-  },
-  {
-    path: AppRoutesConfig.routeNames.category,
-    component: PetarCategoryComponent,
-    title: 'Category',
+    path: AppRoutesConfig.routeNames.homepage,
+    component: PetarHomepageComponent,
+    title: 'Homepage',
+    children: [
+      {
+        path: AppRoutesConfig.routeNames.restaurants,
+        component: PetarRestaurantComponent,
+        title: 'Restaurants',
+      },
+      {
+        path: AppRoutesConfig.routeNames.category,
+        component: PetarCategoryComponent,
+        title: 'Category',
+      },
+    ],
   },
   {
     path: AppRoutesConfig.routeNames.notFound,
