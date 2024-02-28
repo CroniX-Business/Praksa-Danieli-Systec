@@ -14,12 +14,16 @@
     <ul class="list-unstyled components">
       <p>DANIELI SYSTEC</p>
       <li>
-        <a (pointerdown)="displayPage = 'Restaurant'" class="pointerCursors"
+        <a
+          routerLink="{{ routesConfig.main + '/' + routesConfig.restaurants }}"
+          class="pointerCursors"
           >Restaurants</a
         >
       </li>
       <li>
-        <a (pointerdown)="displayPage = 'Category'" class="pointerCursors"
+        <a
+          routerLink="{{ routesConfig.main + '/' + routesConfig.category }}"
+          class="pointerCursors"
           >Category</a
         >
       </li>
@@ -40,8 +44,5 @@
       <i class="fas fa-align-left"></i>
     </button>
   </div>
-  <app-dominik-restaurant
-    *ngIf="displayPage === 'Restaurant'"></app-dominik-restaurant>
-  <app-dominik-category
-    *ngIf="displayPage === 'Category'"></app-dominik-category>
+  <router-outlet></router-outlet>
 </div>
