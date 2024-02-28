@@ -72,6 +72,6 @@ export class PetarRegisterComponent {
   });
 
   public onSubmit(): void {
-    this.router.navigate([AppRoutesConfig.routes.homepage]);
+    this.router.navigate([AppRoutesConfig.routes.restaurants]);
   }
 }
