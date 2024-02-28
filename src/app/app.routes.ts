@@ -25,6 +25,11 @@ export const routes: Routes = [
     title: 'Homepage',
     children: [
       {
+        path: '',
+        redirectTo: AppRoutesConfig.routeNames.restaurants,
+        pathMatch: 'full',
+      },
+      {
         path: AppRoutesConfig.routeNames.restaurants,
         component: PetarRestaurantComponent,
         title: 'Restaurants',
@@ -36,6 +41,7 @@ export const routes: Routes = [
       },
     ],
   },
+
   {
     path: AppRoutesConfig.routeNames.notFound,
     component: PetarError404Component,
