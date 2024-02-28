@@ -58,7 +58,7 @@ export class BrunoLoginComponent {
         .subscribe(value => {
           if (value) {
             this.loginMessage = 'Login successful.';
-            this.router.navigate([this.routes.routeNames.landing]);
+            this.router.navigate([this.routes.routeNames.restaurants]);
             this.loginMessage = 'Navigation successful';
           } else {
             this.loginMessage = 'Login failed.';

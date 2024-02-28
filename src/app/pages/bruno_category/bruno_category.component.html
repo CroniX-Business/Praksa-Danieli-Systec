@@ -12,11 +12,6 @@
     </a>
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a [routerLink]="routes.routes.landing" class="nav-link text-white">
-          Home
-        </a>
-      </li>
       <li>
         <a [routerLink]="routes.routes.restaurants" class="nav-link text-white">
           Restaurants
@@ -28,7 +23,9 @@
     </ul>
     <hr />
     <div class="dropdown text-center">
-      <button (click)="logout()" class="bg-transparent border-0 text-white">
+      <button
+        [routerLink]="routes.routes.login"
+        class="bg-transparent border-0 text-white">
         <a><strong>Logout</strong> </a>
       </button>
     </div>

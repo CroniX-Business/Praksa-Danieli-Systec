@@ -28,7 +28,9 @@
     </ul>
     <hr />
     <div class="dropdown text-center">
-      <button (click)="logout()" class="bg-transparent border-0 text-white">
+      <button
+        [routerLink]="routes.routes.login"
+        class="bg-transparent border-0 text-white">
         <a><strong>Logout</strong> </a>
       </button>
     </div>

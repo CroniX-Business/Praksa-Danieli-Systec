@@ -16,9 +16,4 @@ export class BrunoCategoryComponent {
   public constructor(protected router: Router) {}
 
   protected routes = AppRoutesConfig;
-
-  public logout(): void {
-    this.router.navigate([this.routes.routeNames.login]);
-    return;
-  }
 }
