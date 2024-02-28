@@ -2,6 +2,7 @@ export const AppRoutesConfig = {
   routeNames: {
     login: 'login',
     register: 'register',
+    home: 'home',
     category: 'category',
     restaurant: 'restaurant',
     error: '404',
@@ -9,6 +10,7 @@ export const AppRoutesConfig = {
   routes: {
     login: '/login',
     register: '/register',
+    home: '/home',
     category: '/category',
     restaurant: '/restaurant',
     error: '/404',
