@@ -4,6 +4,8 @@ import { PetarRegisterComponent } from './pages/petar_register/petar_register.co
 import { PetarHomepageComponent } from './pages/petar_homepage/petar_homepage.component';
 import { PetarError404Component } from './pages/petar_error404/petar_error404.component';
 import { AppRoutesConfig } from './config/routes.config';
+import { PetarRestaurantComponent } from './pages/petar_restaurant/petar_restaurant.component';
+import { PetarCategoryComponent } from './pages/petar_category/petar_category.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
@@ -15,6 +17,14 @@ export const routes: Routes = [
   {
     path: AppRoutesConfig.routeNames.homepage,
     component: PetarHomepageComponent,
+  },
+  {
+    path: AppRoutesConfig.routeNames.restaurants,
+    component: PetarRestaurantComponent,
+  },
+  {
+    path: AppRoutesConfig.routeNames.category,
+    component: PetarCategoryComponent,
   },
   {
     path: AppRoutesConfig.routeNames.notFound,

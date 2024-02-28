@@ -1,4 +1,5 @@
-<div>
+<div
+  class="d-flex flex-column justify-content-center align-items-center vh-100">
   <div class="text-center">
     <img
       src="./assets/images/logo.png"
@@ -73,7 +74,8 @@
             >Field is required.</span
           >
         </div>
-        <div class="submit-button-container d-flex justify-content-center">
+        <div
+          class="submit-button-container d-flex flex-column align-items-center">
           <button
             type="submit"
             class="submit text-light mt-5 w-50 border rounded-2 fs-6 pe-auto"
@@ -81,7 +83,7 @@
             [disabled]="loginForm.invalid">
             Login
           </button>
-          <div class="text-center" *ngIf="loginMessage !== null">
+          <div class="text-center mt-3" *ngIf="loginMessage !== null">
             {{ loginMessage }}
           </div>
         </div>
@@ -99,7 +101,7 @@
     class="language mt-5 text-center w-100 d-flex align-items-center justify-content-center fs-5">
     <p class="me-3 d-inline-block align-middle m-0 text-black-50">Language</p>
     <select
-      class="d-inline-block align-middle w-25 fs-5 text-black-50 border border-2 rounded-2">
+      class="d-inline-block align-middle fs-5 text-black-50 border border-2 rounded-2">
       <option
         *ngFor="let language of appLanguages.languageOptions"
         [value]="language.code">
