@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { appRouteConfig } from '../../configs/routes.config';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dragan-login',
   standalone: true,
@@ -25,7 +26,10 @@ import { appRouteConfig } from '../../configs/routes.config';
 })
 export class DraganLoginComponent {
   public loginMessage: string | null = null;
-  public constructor(private authService: DraganAuthService) {}
+  public constructor(
+    private authService: DraganAuthService,
+    private router: Router
+  ) {}
   public routes = appRouteConfig;
   public myForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -46,7 +50,7 @@ export class DraganLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.loginMessage = 'Login success!';
+            this.router.navigate([this.routes.routesConfig.home]);
           } else this.loginMessage = 'Login failed!';
         });
     }
