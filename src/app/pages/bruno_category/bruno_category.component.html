@@ -13,7 +13,9 @@
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page"> Home </a>
+        <a [routerLink]="routes.routes.landing" class="nav-link text-white">
+          Home
+        </a>
       </li>
       <li>
         <a [routerLink]="routes.routes.restaurants" class="nav-link text-white">
@@ -21,9 +23,7 @@
         </a>
       </li>
       <li>
-        <a [routerLink]="routes.routes.categories" class="nav-link text-white">
-          Category
-        </a>
+        <a class="nav-link active" aria-current="page"> Category </a>
       </li>
     </ul>
     <hr />

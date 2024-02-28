@@ -5,14 +5,14 @@ import { AppRoutesConfig } from '../../configs/app-routes.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-bruno-landing',
+  selector: 'app-bruno-category',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
-  templateUrl: './bruno_landing.component.html',
-  styleUrl: './bruno_landing.component.css',
+  templateUrl: './bruno_category.component.html',
+  styleUrl: './bruno_category.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrunoLandingComponent {
+export class BrunoCategoryComponent {
   public constructor(protected router: Router) {}
 
   protected routes = AppRoutesConfig;
