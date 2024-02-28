@@ -5,6 +5,7 @@ export const appRouteConfig = {
     error404: '/error404',
     home: '/home',
     restaurant: '/restaurant',
+    categories: '/categories',
   },
   routeNames: {
     login: 'login',
@@ -12,5 +13,6 @@ export const appRouteConfig = {
     error404: 'error404',
     home: 'home',
     restaurant: 'restaurant',
+    categories: 'categories',
   },
 };

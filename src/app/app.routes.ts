@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './pages/pageNotFound/pageNotFound.compone
 import { appRouteConfig } from './configs/routes.config';
 import { MyHomepageComponent } from './pages/my-homepage/my-homepage.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: appRouteConfig.routeNames.restaurant,
     component: RestaurantComponent,
+  },
+  {
+    path: appRouteConfig.routeNames.categories,
+    component: CategoriesComponent,
   },
   { path: '**', component: PageNotFoundComponent },
 ];
