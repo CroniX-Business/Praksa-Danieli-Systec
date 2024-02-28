@@ -60,7 +60,7 @@ export class DominikLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.router.navigate([this.routesConfig.main]);
+            this.router.navigate([this.routesConfig.restaurant]);
           } else this.loginMsg = 'Login failed!';
         });
   }
