@@ -1,22 +1,20 @@
 <div
-  class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 w-25">
-  <span class="fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto"
-    >Ime Prezime</span
-  >
+  class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100">
+  <span class="fs-4 d-flex align-items-center mb-2">Ime Prezime</span>
   <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <a
         routerLink="{{ AppRoutesConfig.routes.restaurants }}"
         class="link nav-link text-white">
-        Restaurants
+        <i class="fa-regular fa-house"></i>&nbsp; Restaurants
       </a>
     </li>
     <li>
       <a
         routerLink="{{ AppRoutesConfig.routes.category }}"
         class="link nav-link text-white">
-        Category
+        <i class="fa-solid fa-list"></i>&nbsp; Category
       </a>
     </li>
   </ul>
@@ -25,7 +23,7 @@
     <a
       class="text-decoration-none text-white"
       routerLink="{{ AppRoutesConfig.routes.login }}"
-      >Sign out</a
+      ><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Sign out</a
     >
   </div>
 </div>

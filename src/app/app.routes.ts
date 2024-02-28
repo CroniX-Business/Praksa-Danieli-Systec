@@ -9,25 +9,34 @@ import { PetarCategoryComponent } from './pages/petar_category/petar_category.co
 
 export const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
-  { path: AppRoutesConfig.routeNames.login, component: PetarLoginComponent },
+  {
+    path: AppRoutesConfig.routeNames.login,
+    component: PetarLoginComponent,
+    title: 'Login',
+  },
   {
     path: AppRoutesConfig.routeNames.register,
     component: PetarRegisterComponent,
+    title: 'Register',
   },
   {
     path: AppRoutesConfig.routeNames.homepage,
     component: PetarHomepageComponent,
+    title: 'Homepage',
   },
   {
     path: AppRoutesConfig.routeNames.restaurants,
     component: PetarRestaurantComponent,
+    title: 'Restaurants',
   },
   {
     path: AppRoutesConfig.routeNames.category,
     component: PetarCategoryComponent,
+    title: 'Category',
   },
   {
     path: AppRoutesConfig.routeNames.notFound,
     component: PetarError404Component,
+    title: '404',
   },
 ];

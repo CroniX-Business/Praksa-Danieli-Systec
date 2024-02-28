@@ -2,6 +2,10 @@
   display: block;
 }
 
+.sidebar {
+  width: 300px;;
+}
+
 .link:hover {
   background-color:rgb(0, 0, 181);
 }
