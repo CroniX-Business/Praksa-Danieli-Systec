@@ -3,6 +3,9 @@ import { DraganLoginComponent } from './pages/dragan_login/dragan_login.componen
 import { DraganRegisterComponent } from './pages/dragan_register/dragan_register.component';
 import { PageNotFoundComponent } from './pages/pageNotFound/pageNotFound.component';
 import { appRouteConfig } from './configs/routes.config';
+import { MyHomepageComponent } from './pages/my-homepage/my-homepage.component';
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -15,4 +18,9 @@ export const routes: Routes = [
     component: DraganRegisterComponent,
   },
   { path: '**', component: PageNotFoundComponent },
+  { path: appRouteConfig.routeNames.home, component: MyHomepageComponent },
+  {
+    path: appRouteConfig.routeNames.restaurant,
+    component: RestaurantComponent,
+  },
 ];

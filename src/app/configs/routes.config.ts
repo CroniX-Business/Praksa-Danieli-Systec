@@ -3,10 +3,14 @@ export const appRouteConfig = {
     login: '/login',
     register: '/register',
     error404: '/error404',
+    home: '/home',
+    restaurant: '/restaurant',
   },
   routeNames: {
     login: 'login',
     register: 'register',
     error404: 'error404',
+    home: 'home',
+    restaurant: 'restaurant',
   },
 };

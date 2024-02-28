@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-homepage',
+  selector: 'app-categories',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css',
+  templateUrl: './categories.component.html',
+  styleUrl: './categories.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomepageComponent {}
+export class CategoriesComponent {}
