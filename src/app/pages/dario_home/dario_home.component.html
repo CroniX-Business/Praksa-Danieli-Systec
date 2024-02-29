@@ -32,8 +32,13 @@
     </ul>
     <hr />
     <div class="dropdown ms-5">
-      <strong [routerLink]="appRoutes.routes.login" role="button"
-        >Sign out</strong
+      <strong
+        ><a
+          [routerLink]="appRoutes.routes.login"
+          role="button"
+          (click)="authService.removeSession()"
+          >Sign out</a
+        ></strong
       >
     </div>
   </div>

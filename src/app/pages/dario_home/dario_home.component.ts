@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppRoutesConfig } from '../../configs/routes.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DarioCategoryComponent } from '../dario_category/dario_category.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dario-home',
@@ -20,4 +21,5 @@ import { DarioCategoryComponent } from '../dario_category/dario_category.compone
 })
 export class DarioHomeComponent {
   public appRoutes = AppRoutesConfig;
+  public authService = new AuthService();
 }
