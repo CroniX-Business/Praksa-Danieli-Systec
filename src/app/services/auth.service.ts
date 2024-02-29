@@ -26,7 +26,7 @@ export class AuthService {
     if (Math.random() >= 0.5) {
       const tokenPayload = this.validateToken(this.token);
       if (tokenPayload) {
-        localStorage.setItem('token', this.token);
+        this.setSession(this.token);
         console.log('User authenticated:', tokenPayload.expires_at);
         return of(true);
       }
@@ -35,7 +35,11 @@ export class AuthService {
     return of(false);
   }
 
-  public logout(): void {
+  public setSession(token: string): void {
+    localStorage.setItem('token', token);
+  }
+
+  public removeSession(): void {
     localStorage.removeItem('token');
   }
 }

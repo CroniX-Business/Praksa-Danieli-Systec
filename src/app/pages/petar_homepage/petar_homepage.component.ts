@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AppRoutesConfig } from '../../config/routes.config';
 import { PetarRestaurantComponent } from '../petar_restaurant/petar_restaurant.component';
 import { PetarCategoryComponent } from '../petar_category/petar_category.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-petar-homepage',
@@ -22,4 +23,10 @@ import { PetarCategoryComponent } from '../petar_category/petar_category.compone
 })
 export class PetarHomepageComponent {
   public AppRoutesConfig = AppRoutesConfig;
+
+  public constructor(private authService: AuthService) {}
+
+  public logOut(): void {
+    this.authService.removeSession();
+  }
 }
