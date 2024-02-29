@@ -21,9 +21,9 @@ export class AuthService {
       return null;
     }
   }
-
   public login(username: string, password: string): Observable<boolean> {
-    if (username === 'bok' && password === 'bok') {
+    console.log('login', username, password);
+    if (Math.random() >= 0.5) {
       const tokenPayload = this.validateToken(this.token);
       if (tokenPayload) {
         localStorage.setItem('token', this.token);
