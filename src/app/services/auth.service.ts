@@ -34,4 +34,8 @@ export class AuthService {
     console.log('Authentication failed.');
     return of(false);
   }
+
+  public logout(): void {
+    localStorage.removeItem('token');
+  }
 }
