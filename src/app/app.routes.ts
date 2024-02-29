@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './pages/pageNotFound/pageNotFound.compone
 import { appRouteConfig } from './configs/routes.config';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
-import { HomepageComponent } from './pages/homepage/homepage.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
@@ -18,14 +18,25 @@ export const routes: Routes = [
     path: appRouteConfig.routeNames.register,
     component: DraganRegisterComponent,
   },
-  { path: appRouteConfig.routeNames.home, component: HomepageComponent },
   {
-    path: appRouteConfig.routeNames.restaurant,
-    component: RestaurantComponent,
+    path: appRouteConfig.routeNames.home,
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: appRouteConfig.routeNames.restaurant,
+        pathMatch: 'full',
+      },
+      {
+        path: appRouteConfig.routeNames.restaurant,
+        component: RestaurantComponent,
+      },
+      {
+        path: appRouteConfig.routeNames.categories,
+        component: CategoriesComponent,
+      },
+    ],
   },
-  {
-    path: appRouteConfig.routeNames.categories,
-    component: CategoriesComponent,
-  },
+
   { path: '**', component: PageNotFoundComponent },
 ];

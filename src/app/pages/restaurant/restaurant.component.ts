@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { appRouteConfig } from '../../configs/routes.config';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-restaurant',
   standalone: true,
@@ -11,7 +11,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    SidebarComponent,
+    HomeComponent,
   ],
   templateUrl: './restaurant.component.html',
   styleUrl: './restaurant.component.css',

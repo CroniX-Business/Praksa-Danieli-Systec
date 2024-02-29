@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-categories',
@@ -14,7 +14,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    SidebarComponent,
+    HomeComponent,
   ],
 })
 export class CategoriesComponent {}

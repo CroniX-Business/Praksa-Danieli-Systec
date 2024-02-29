@@ -6,7 +6,7 @@ import { DraganLoginComponent } from './pages/dragan_login/dragan_login.componen
 import { DraganRegisterComponent } from './pages/dragan_register/dragan_register.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { SidebarComponent } from './pages/sidebar/sidebar.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,7 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
     DraganLoginComponent,
     DraganRegisterComponent,
     RouterModule.forRoot(routes),
-    SidebarComponent,
+    HomeComponent,
   ],
 })
 export class AppModule {}

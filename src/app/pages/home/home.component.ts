@@ -4,13 +4,13 @@ import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { appRouteConfig } from '../../configs/routes.config';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent {
-  public routes = appRouteConfig.routesConfig;
+export class HomeComponent {
+  public routes = appRouteConfig;
 }
