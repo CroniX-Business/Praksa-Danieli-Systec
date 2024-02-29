@@ -29,10 +29,7 @@ export class BrunoLoginComponent {
   public time = new Date();
   public form = new FormGroup({
     username: new FormControl(null, Validators.required),
-    password: new FormControl(null, [
-      Validators.minLength(7),
-      Validators.required,
-    ]),
+    password: new FormControl(null, [Validators.required]),
   });
   public routes = AppRoutesConfig;
   public config = config;
