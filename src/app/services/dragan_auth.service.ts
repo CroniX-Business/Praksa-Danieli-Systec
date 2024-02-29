@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, of } from 'rxjs';
-
-interface myJWTPayload {
-  expires_at: number;
-}
+import * as moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,10 +12,9 @@ export class DraganAuthService {
   };
   private token =
     'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.OujaXZN0F_7IiIAGRtxEYnrf3tTYXQc82ki3YzybJOw';
-
-  private validateToken(token: string): myJWTPayload | null {
+  private validateToken(token: string): string | null {
     try {
-      const decoded_token = jwtDecode(token) as myJWTPayload;
+      const decoded_token: string = jwtDecode(token);
       return decoded_token;
     } catch (e) {
       console.log('error', e);
@@ -38,7 +34,7 @@ export class DraganAuthService {
     return of(false);
   }
 
-  public setSession(decoded_token: string): void {
+  private setSession(decoded_token: string): void {
     localStorage.setItem('token', decoded_token);
   }
   public logout(): void {
