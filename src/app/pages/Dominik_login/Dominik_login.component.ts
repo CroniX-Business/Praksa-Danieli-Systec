@@ -33,6 +33,7 @@ import {
 })
 export class DominikLoginComponent {
   public routesConfig = AppRoutesConfig;
+
   public constructor(
     private authService: AuthService,
     private router: Router
@@ -64,7 +65,12 @@ export class DominikLoginComponent {
               this.routesConfig.routeConfig.main,
               this.routesConfig.routeNames.restaurants,
             ]);
-          } else this.loginMsg = 'Login failed!';
+          } else {
+            this.loginMsg = 'Login failed!';
+          }
         });
   }
 }
+// function type(decodedHeader: JwtPayload): any {
+//   throw new Error('Function not implemented.');
+// }
