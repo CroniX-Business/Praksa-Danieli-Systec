@@ -29,12 +29,10 @@ export class BrunoRegisterComponent {
       Validators.pattern(usernameRegex),
     ]),
     password: new FormControl('', [
-      Validators.minLength(8),
       Validators.pattern(passwordRegex),
       Validators.required,
     ]),
     confirmPassword: new FormControl('', [
-      Validators.minLength(8),
       Validators.required,
       Validators.pattern(passwordRegex),
     ]),
