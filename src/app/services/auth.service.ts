@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -24,9 +23,15 @@ export class AuthService {
     localStorage.removeItem(name);
   }
 
-  public login(userName: string, userPass: string): Observable<boolean> {
+  public login(userName: string, userPass: string): boolean {
     console.log('User:' + userName + ' Pass:' + userPass);
-    return of(Math.random() >= 0.5);
+    const result = Math.random() >= 0.5;
+    if (result) {
+      const validation = this.validateToken(this.jwt_Token);
+      console.log(validation);
+      if (validation != null) {
+        return true;
+      } else return false;
+    } else return false;
   }
-  public constructor() {}
 }

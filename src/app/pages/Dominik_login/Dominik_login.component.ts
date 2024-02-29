@@ -54,28 +54,16 @@ export class DominikLoginComponent {
       this.applyform.controls.userName.value != null &&
       this.applyform.controls.userPassword.value != null
     )
-      this.authService
-        .login(
+      if (
+        this.authService.login(
           this.applyform.controls.userName.value,
           this.applyform.controls.userPassword.value
         )
-        .subscribe(value => {
-          if (value) {
-            const validation = this.authService.validateToken(
-              this.authService.jwt_Token
-            );
-            console.log(validation);
-            if (validation != null) {
-              this.authService.setSession(this.authService.jwt_Token);
-              this.router.navigate([
-                this.routesConfig.routeConfig.main,
-                this.routesConfig.routeNames.restaurants,
-              ]);
-            }
-          } else {
-            this.loginMsg = 'Login failed!';
-          }
-        });
+      )
+        this.router.navigate([
+          this.routesConfig.routeConfig.main,
+          this.routesConfig.routeNames.restaurants,
+        ]);
   }
 }
 // function type(decodedHeader: JwtPayload): any {

@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AppRoutesConfig } from '../../configs/routes.config';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dominik-main',
@@ -13,5 +15,13 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 })
 export class DominikMainComponent {
   public routesConfig = AppRoutesConfig;
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
   public sidebar = false;
+  public logOut(): void {
+    this.authService.removeSession(this.authService.jwt_Token);
+    this.router.navigate([this.routesConfig.routeConfig.login]);
+  }
 }

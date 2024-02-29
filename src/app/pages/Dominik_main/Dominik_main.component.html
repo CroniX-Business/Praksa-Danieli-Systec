@@ -31,9 +31,7 @@
 
     <ul class="list-unstyled CTAs">
       <li>
-        <a routerLink="{{ routesConfig.routeConfig.login }}" class="download"
-          >Log out</a
-        >
+        <a (pointerdown)="logOut()" class="download">Log out</a>
       </li>
     </ul>
   </nav>
