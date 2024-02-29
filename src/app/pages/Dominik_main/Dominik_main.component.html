@@ -15,14 +15,14 @@
       <p>DANIELI SYSTEC</p>
       <li>
         <a
-          routerLink="{{ routesConfig.main + '/' + routesConfig.restaurants }}"
+          routerLink="{{ routesConfig.routeNames.restaurants }}"
           class="pointerCursors"
           >Restaurants</a
         >
       </li>
       <li>
         <a
-          routerLink="{{ routesConfig.main + '/' + routesConfig.category }}"
+          routerLink="{{ routesConfig.routeNames.category }}"
           class="pointerCursors"
           >Category</a
         >
@@ -31,7 +31,9 @@
 
     <ul class="list-unstyled CTAs">
       <li>
-        <a routerLink="{{ routesConfig.login }}" class="download">Log out</a>
+        <a routerLink="{{ routesConfig.routeConfig.login }}" class="download"
+          >Log out</a
+        >
       </li>
     </ul>
   </nav>

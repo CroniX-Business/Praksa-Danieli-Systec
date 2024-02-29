@@ -32,7 +32,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikLoginComponent {
-  public routesConfig = AppRoutesConfig.routeConfig;
+  public routesConfig = AppRoutesConfig;
   public constructor(
     private authService: AuthService,
     private router: Router
@@ -61,7 +61,8 @@ export class DominikLoginComponent {
         .subscribe(value => {
           if (value) {
             this.router.navigate([
-              this.routesConfig.main + '/' + this.routesConfig.restaurants,
+              this.routesConfig.routeConfig.main,
+              this.routesConfig.routeNames.restaurants,
             ]);
           } else this.loginMsg = 'Login failed!';
         });

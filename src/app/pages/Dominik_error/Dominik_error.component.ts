@@ -12,5 +12,5 @@ import { AppRoutesConfig } from '../../configs/routes.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikErrorComponent {
-  public routesConfig = AppRoutesConfig.routeConfig;
+  public routesConfig = AppRoutesConfig;
 }

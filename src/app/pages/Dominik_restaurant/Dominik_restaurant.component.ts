@@ -12,6 +12,6 @@ import { AppRoutesConfig } from '../../configs/routes.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikRestaurantComponent {
-  public routesConfig = AppRoutesConfig.routeConfig;
+  public routesConfig = AppRoutesConfig;
   public sidebar = false;
 }

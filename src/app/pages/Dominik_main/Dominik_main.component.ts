@@ -12,6 +12,6 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DominikMainComponent {
-  public routesConfig = AppRoutesConfig.routeConfig;
+  public routesConfig = AppRoutesConfig;
   public sidebar = false;
 }
