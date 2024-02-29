@@ -61,10 +61,17 @@ export class DominikLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.router.navigate([
-              this.routesConfig.routeConfig.main,
-              this.routesConfig.routeNames.restaurants,
-            ]);
+            const validation = this.authService.validateToken(
+              this.authService.jwt_Token
+            );
+            console.log(validation);
+            if (validation != null) {
+              this.authService.setSession(this.authService.jwt_Token);
+              this.router.navigate([
+                this.routesConfig.routeConfig.main,
+                this.routesConfig.routeNames.restaurants,
+              ]);
+            }
           } else {
             this.loginMsg = 'Login failed!';
           }
