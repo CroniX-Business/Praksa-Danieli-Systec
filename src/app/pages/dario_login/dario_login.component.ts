@@ -40,7 +40,7 @@ export class DarioLoginComponent {
   public appLCFG = AppLanguagesConfig;
   public loginMessage: string | null = null;
 
-  public appRoutes = AppRoutesConfig.routes;
+  public appRoutes = AppRoutesConfig;
 
   public constructor(
     private authService: AuthService,
@@ -64,7 +64,10 @@ export class DarioLoginComponent {
         )
         .subscribe(value => {
           if (value) {
-            this.router.navigate([this.appRoutes.restaurant]);
+            this.router.navigate([
+              this.appRoutes.routes.home,
+              this.appRoutes.routeNames.restaurant,
+            ]);
           }
         });
     }
