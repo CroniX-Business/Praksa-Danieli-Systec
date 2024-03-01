@@ -23,18 +23,40 @@ export class AuthService {
     else return null;
   }
 
-  public checkExpire(): void {
+  public getTokenExpiration(): number {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) {
-      const currentMoment = moment();
-      const currentMoments = currentMoment.unix().toString();
       const expiremoment: number = +expiresat;
-      const currentmoment: number = +currentMoments;
-      if (currentmoment > expiremoment) {
-        localStorage.removeItem('Login_expire_time');
-        this.router.navigate([this.routesConfig.routeConfig.login]);
-      }
-    }
+      return expiremoment;
+    } else return 0;
+  }
+
+  public hasTokenExpired(): boolean {
+    const currentMoment = moment();
+    const currentMoments = currentMoment.unix().toString();
+    const expiretime = this.getTokenExpiration();
+    const currentmoment: number = +currentMoments;
+    if (expiretime < currentmoment) return true;
+    else return false;
+  }
+
+  // public checkExpire(): void {
+  //   const expiresat = localStorage.getItem('Login_expire_time');
+  //   if (expiresat) {
+  //     const currentMoment = moment();
+  //     const currentMoments = currentMoment.unix().toString();
+  //     const expiremoment: number = +expiresat;
+  //     const currentmoment: number = +currentMoments;
+  //     if (currentmoment > expiremoment) {
+  //       localStorage.removeItem('Login_expire_time');
+  //       this.router.navigate([this.routesConfig.routeConfig.login]);
+  //     }
+  //   }
+  // }
+
+  public isLoggedIn(): boolean {
+    if (this.hasTokenExpired()) return false;
+    else return true;
   }
 
   public addSeconds(): void {
