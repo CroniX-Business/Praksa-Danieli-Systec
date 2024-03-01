@@ -5,6 +5,7 @@ import { DominikMainComponent } from './pages/Dominik_main/Dominik_main.componen
 import { DominikRestaurantComponent } from './pages/Dominik_restaurant/Dominik_restaurant.component';
 import { DominikCategoryComponent } from './pages/Dominik_category/Dominik_category.component';
 import { AppRoutesConfig } from './configs/routes.config';
+import { AuthGuard } from './guards/authGuard.guard';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -18,14 +19,20 @@ export const routes: Routes = [
     path: AppRoutesConfig.routeNames.main,
     component: DominikMainComponent,
     title: 'Main page',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     children: [
       {
         path: AppRoutesConfig.routeNames.restaurants,
         component: DominikRestaurantComponent,
+        canActivate: [AuthGuard],
+        canLoad: [AuthGuard],
       },
       {
         path: AppRoutesConfig.routeNames.category,
         component: DominikCategoryComponent,
+        canActivate: [AuthGuard],
+        canLoad: [AuthGuard],
       },
     ],
   },
