@@ -8,6 +8,7 @@ import { PetarError404Component } from './pages/petar_error404/petar_error404.co
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { routes } from './app.routes';
     PetarError404Component,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

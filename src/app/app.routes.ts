@@ -6,6 +6,8 @@ import { AppRoutesConfig } from './config/routes.config';
 import { PetarRestaurantComponent } from './pages/petar_restaurant/petar_restaurant.component';
 import { PetarCategoryComponent } from './pages/petar_category/petar_category.component';
 import { PetarHomepageComponent } from './pages/petar_homepage/petar_homepage.component';
+import { AuthGuard } from './guards/auth.guard';
+
 export const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
   {
@@ -22,6 +24,7 @@ export const routes: Routes = [
     path: AppRoutesConfig.routeNames.homepage,
     component: PetarHomepageComponent,
     title: 'Homepage',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
