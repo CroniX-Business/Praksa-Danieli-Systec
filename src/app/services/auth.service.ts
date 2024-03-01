@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 export class AuthService {
   public routesConfig = AppRoutesConfig;
   public constructor(private router: Router) {}
-
+  //jwt 10 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAifQ.YnIHeTs6BV7pRX6CpDmxkrvxS1CRdSYE-n7eTjD8IK0
+  //jwt 1000 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg
   public jwt_Token: string =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg';
+    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAifQ.YnIHeTs6BV7pRX6CpDmxkrvxS1CRdSYE-n7eTjD8IK0';
   public decodedHeader = jwtDecode(this.jwt_Token);
 
   public validateToken(token: string): JwtPayload | null {
@@ -36,41 +37,25 @@ export class AuthService {
     const currentMoments = currentMoment.unix().toString();
     const expiretime = this.getTokenExpiration();
     const currentmoment: number = +currentMoments;
-    if (expiretime < currentmoment) return true;
-    else return false;
+    if (expiretime < currentmoment) return false;
+    else return true;
   }
 
-  // public checkExpire(): void {
-  //   const expiresat = localStorage.getItem('Login_expire_time');
-  //   if (expiresat) {
-  //     const currentMoment = moment();
-  //     const currentMoments = currentMoment.unix().toString();
-  //     const expiremoment: number = +expiresat;
-  //     const currentmoment: number = +currentMoments;
-  //     if (currentmoment > expiremoment) {
-  //       localStorage.removeItem('Login_expire_time');
-  //       this.router.navigate([this.routesConfig.routeConfig.login]);
-  //     }
-  //   }
-  // }
-
   public isLoggedIn(): boolean {
-    if (this.hasTokenExpired()) return false;
-    else return true;
+    const token = localStorage.getItem('token');
+    return token ? this.hasTokenExpired() : false;
   }
 
   public addSeconds(): void {
     const decodedToken = this.validateToken(this.jwt_Token);
     const loginmoment = moment();
-    console.log(loginmoment);
     loginmoment.add(decodedToken?.expires_at, 'seconds');
     loginmoment.unix;
-    console.log(loginmoment);
     localStorage.setItem('Login_expire_time', loginmoment.unix().toString());
   }
 
-  public setSession(name: string): void {
-    localStorage.setItem(name, this.jwt_Token);
+  public setSession(name: string, value: string): void {
+    localStorage.setItem(name, value);
   }
   public removeSession(name: string): void {
     localStorage.removeItem(name);
@@ -82,9 +67,8 @@ export class AuthService {
     const result = Math.random() >= 0.5;
     if (result) {
       const validation = this.validateToken(this.jwt_Token);
-      console.log(validation);
       if (validation != null) {
-        this.setSession(this.jwt_Token);
+        this.setSession('token', this.jwt_Token);
         return true;
       } else return false;
     } else return false;

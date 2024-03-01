@@ -5,8 +5,8 @@ import { DominikMainComponent } from './pages/Dominik_main/Dominik_main.componen
 import { DominikRestaurantComponent } from './pages/Dominik_restaurant/Dominik_restaurant.component';
 import { DominikCategoryComponent } from './pages/Dominik_category/Dominik_category.component';
 import { AppRoutesConfig } from './configs/routes.config';
-import { AuthGuard } from './guards/authGuard.guard';
 import { Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routeNames.login, pathMatch: 'full' },

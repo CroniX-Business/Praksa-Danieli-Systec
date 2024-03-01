@@ -7,6 +7,7 @@ import { DominikRegisterComponent } from './pages/Dominik_register/Dominik_regis
 import { DominikErrorComponent } from './pages/Dominik_error/Dominik_error.component';
 import { DominikRestaurantComponent } from './pages/Dominik_restaurant/Dominik_restaurant.component';
 import { DominikCategoryComponent } from './pages/Dominik_category/Dominik_category.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { DominikCategoryComponent } from './pages/Dominik_category/Dominik_categ
     DominikRestaurantComponent,
     DominikCategoryComponent,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
