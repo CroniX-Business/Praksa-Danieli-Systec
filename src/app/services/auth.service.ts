@@ -1,45 +1,73 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
-
-interface CustomJwtPayload {
-  expires_at: number;
-}
+import moment from 'moment';
+import { JwtPayload } from '../models/JwtPayload';
+import { AppRoutesConfig } from '../config/routes.config';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg';
+  private AppRoutesConfig = AppRoutesConfig;
 
-  private validateToken(token: string): CustomJwtPayload | null {
-    try {
-      const payload = jwtDecode(token) as CustomJwtPayload;
-      return payload;
-    } catch (e) {
-      console.error('Error decoding token:', e);
-      return null;
-    }
-  }
+  public constructor() {}
+
+  private token =
+    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMzAifQ.7SZiZ6cpdJyemU-z38u9KbMJ0jOeS4QZ--Dmp_GVjN4';
+
   public login(username: string, password: string): Observable<boolean> {
     console.log('login', username, password);
     if (Math.random() >= 0.5) {
       const tokenPayload = this.validateToken(this.token);
       if (tokenPayload) {
-        this.setSession(this.token);
-        console.log('User authenticated:', tokenPayload.expires_at);
         return of(true);
       }
     }
     console.log('Authentication failed.');
     return of(false);
   }
+  private validateToken(token: string): JwtPayload | null {
+    try {
+      const payload = jwtDecode(token) as JwtPayload;
 
-  public setSession(token: string): void {
-    localStorage.setItem('token', token);
+      const expiresAt = +moment().unix() + +payload.expires_at;
+      this.setSession('expireAt', String(expiresAt));
+      this.setSession('token', this.token);
+
+      if (this.checkExpires()) {
+        return payload;
+      } else {
+        console.log('Token has expired');
+        this.logOut();
+        return null;
+      }
+    } catch (e) {
+      console.error('Error decoding token:', e);
+      return null;
+    }
+  }
+  public checkExpires(): boolean {
+    const expiresAt = +(localStorage.getItem('expireAt') || '0');
+    if (expiresAt > +moment().unix()) {
+      return true;
+    }
+    return false;
+  }
+  private setSession(key: string, value: string): void {
+    localStorage.setItem(key, value);
   }
 
-  public removeSession(): void {
+  public logOut(): void {
+    this.removeSession();
+  }
+
+  private removeSession(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('expireAt');
+  }
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return token ? this.validateToken(token) !== null : false;
   }
 }
