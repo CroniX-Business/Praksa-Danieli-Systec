@@ -40,12 +40,16 @@ export class AuthService {
 
   private getTokenExpiration(): number {
     const stringTime = localStorage.getItem('value');
+    console.log(parseInt(stringTime!));
     return parseInt(stringTime!);
   }
 
   private hasTokenExpired(): boolean {
     const time = moment().unix();
     const exp_time = this.getTokenExpiration();
+    if (exp_time === undefined || Number.isNaN(exp_time)) {
+      return true;
+    }
     if (time > exp_time) {
       return true;
     } else return false;
