@@ -34,7 +34,7 @@ export class PetarHomepageComponent {
 
   @HostListener('window:beforeunload', ['$event'])
   public onBeforeUnload(): void {
-    if (!this.authService.checkExpires()) {
+    if (!this.authService.hasTokenExpired()) {
       this.authService.logOut();
       this.router.navigate([AppRoutesConfig.routes.login]);
     }
@@ -42,7 +42,7 @@ export class PetarHomepageComponent {
 
   @HostListener('document:click', ['$event'])
   public onGlobalClick(): void {
-    if (!this.authService.checkExpires()) {
+    if (!this.authService.hasTokenExpired()) {
       this.authService.logOut();
       this.router.navigate([AppRoutesConfig.routes.login]);
     }

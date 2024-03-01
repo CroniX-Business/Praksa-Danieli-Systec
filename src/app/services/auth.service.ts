@@ -34,7 +34,7 @@ export class AuthService {
       this.setSession('expireAt', String(expiresAt));
       this.setSession('token', this.token);
 
-      if (this.checkExpires()) {
+      if (this.hasTokenExpired()) {
         return payload;
       } else {
         console.log('Token has expired');
@@ -46,12 +46,15 @@ export class AuthService {
       return null;
     }
   }
-  public checkExpires(): boolean {
-    const expiresAt = +(localStorage.getItem('expireAt') || '0');
-    if (expiresAt > +moment().unix()) {
+  public hasTokenExpired(): boolean {
+    if (this.getTokenExpiration() > +moment().unix()) {
       return true;
     }
     return false;
+  }
+
+  public getTokenExpiration(): number {
+    return +(localStorage.getItem('expireAt') || '0');
   }
   private setSession(key: string, value: string): void {
     localStorage.setItem(key, value);
@@ -66,7 +69,7 @@ export class AuthService {
     localStorage.removeItem('expireAt');
   }
 
-  public isAuthenticated(): boolean {
+  public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
     return token ? this.validateToken(token) !== null : false;
   }
