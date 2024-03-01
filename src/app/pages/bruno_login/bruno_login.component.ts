@@ -55,15 +55,7 @@ export class BrunoLoginComponent {
         .subscribe(value => {
           if (value) {
             this.loginMessage = 'Login successful.';
-            if (
-              this.authService.validateToken(
-                this.authService.getToken(),
-                this.form.controls.username.value!
-              )
-            ) {
-              console.log('Token successfully validated!');
-              this.router.navigate([this.routes.routeNames.landing]);
-            }
+            this.router.navigate([this.routes.routeNames.landing]);
           } else {
             this.loginMessage = 'Login failed.';
           }

@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutesConfig } from '../../configs/app-routes.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-bruno-landing',
@@ -13,7 +14,13 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrunoLandingComponent {
-  public constructor(protected router: Router) {}
+  public constructor(
+    protected router: Router,
+    protected authService: AuthService
+  ) {}
 
   protected routes = AppRoutesConfig;
+  public logout(): void {
+    this.authService.logout();
+  }
 }

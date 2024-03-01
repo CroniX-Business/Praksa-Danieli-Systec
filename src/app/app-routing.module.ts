@@ -7,6 +7,7 @@ import { AppRoutesConfig } from './configs/app-routes.config';
 import { BrunoCategoryComponent } from './pages/bruno_category/bruno_category.component';
 import { BrunoRestaurantComponent } from './pages/bruno_restaurant/bruno_restaurant.component';
 import { BrunoLandingComponent } from './pages/bruno_landing/bruno_landing.component';
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: AppRoutesConfig.routes.login, pathMatch: 'full' },
   { path: AppRoutesConfig.routeNames.login, component: BrunoLoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: AppRoutesConfig.routeNames.landing,
     component: BrunoLandingComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
