@@ -13,7 +13,7 @@ export class AuthService {
   public constructor() {}
 
   private token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg';
+    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
 
   public login(username: string, password: string): Observable<boolean> {
     console.log('login', username, password);
@@ -47,7 +47,7 @@ export class AuthService {
     }
   }
   public hasTokenExpired(): boolean {
-    if (this.getTokenExpiration() > +moment().unix()) {
+    if (this.getTokenExpiration() > moment().unix()) {
       return true;
     }
     return false;
@@ -71,6 +71,6 @@ export class AuthService {
 
   public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token ? this.validateToken(token) !== null : false;
+    return token ? this.hasTokenExpired() : false;
   }
 }
