@@ -35,10 +35,19 @@ export class AuthService {
     }
   }
 
-  public checkExpirationDate(): boolean {
+  public getTokenExpiration(): number {
     const expirationDate = +(localStorage.getItem('expires_at') || '0');
-    if (expirationDate > moment().unix()) return true;
+    return expirationDate;
+  }
+
+  public hasTokenExpired(): boolean {
+    if (this.getTokenExpiration() < moment().unix()) return true;
     return false;
+  }
+
+  public isLoggedIn(): boolean {
+    if (this.hasTokenExpired()) return false;
+    return true;
   }
 
   private setSession(decodedToken: JwtPayload): void {

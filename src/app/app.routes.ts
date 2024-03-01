@@ -6,6 +6,7 @@ import { DarioNotFoundComponent } from './pages/dario_not_found/dario_not_found.
 import { DarioHomeComponent } from './pages/dario_home/dario_home.component';
 import { DarioCategoryComponent } from './pages/dario_category/dario_category.component';
 import { DarioRestaurantComponent } from './pages/dario_restaurant/dario_restaurant.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -27,6 +28,7 @@ export const appRoutes: Routes = [
     path: AppRoutesConfig.routeNames.home,
     component: DarioHomeComponent,
     title: 'Home page',
+    canActivate: [AuthGuard],
     children: [
       {
         path: AppRoutesConfig.routeNames.category,

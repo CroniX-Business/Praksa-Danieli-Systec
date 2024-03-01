@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+} from '@angular/core';
 import { AppRoutesConfig } from '../../configs/routes.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DarioCategoryComponent } from '../dario_category/dario_category.component';
 import { AuthService } from '../../services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dario-home',
   standalone: true,
@@ -21,9 +25,20 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DarioHomeComponent {
   public appRoutes = AppRoutesConfig;
-  public authService = new AuthService();
+
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   public logOut(): void {
     this.authService.removeSession();
+  }
+
+  @HostListener('click') public myClick(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.authService.removeSession();
+      this.router.navigate([AppRoutesConfig.routeNames.login]);
+    }
   }
 }
