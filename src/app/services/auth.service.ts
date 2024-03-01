@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, of } from 'rxjs';
 import { JwtPayload } from '../models/JwtPayload';
+import moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,13 @@ export class AuthService {
   public constructor() {}
 
   private jwtToken =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg';
+    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
 
   public logIn(username: string, password: string): Observable<boolean> {
     console.log(username);
     console.log(password);
     const decodedToken = this.validateToken(this.jwtToken);
+
     if (decodedToken !== null) {
       this.setSession(decodedToken);
     }
@@ -33,10 +35,18 @@ export class AuthService {
     }
   }
 
-  private setSession(decodedToken: JwtPayload): void {
-    localStorage.setItem('value', decodedToken.expires_at.toString());
+  public checkExpirationDate(): boolean {
+    const expirationDate = +(localStorage.getItem('expires_at') || '0');
+    if (expirationDate > moment().unix()) return true;
+    return false;
   }
-  private removeSession(): void {
-    localStorage.removeItem('value');
+
+  private setSession(decodedToken: JwtPayload): void {
+    const loginMoment = moment();
+    loginMoment.add(decodedToken?.expires_at, 'seconds');
+    localStorage.setItem('expires_at', loginMoment.unix().toString());
+  }
+  public removeSession(): void {
+    localStorage.removeItem('expires_at');
   }
 }

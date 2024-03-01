@@ -22,4 +22,8 @@ import { AuthService } from '../../services/auth.service';
 export class DarioHomeComponent {
   public appRoutes = AppRoutesConfig;
   public authService = new AuthService();
+
+  public logOut(): void {
+    this.authService.removeSession();
+  }
 }
