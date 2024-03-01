@@ -14,7 +14,6 @@ import { DraganAuthService } from '../../services/dragan_auth.service';
 export class HomeComponent {
   public routes = appRouteConfig;
   public constructor(private authService: DraganAuthService) {}
-
   public onLogout(): void {
     this.authService.logout();
   }
