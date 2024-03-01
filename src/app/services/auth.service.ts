@@ -17,12 +17,13 @@ export class AuthService {
     console.log(username);
     console.log(password);
     const decodedToken = this.validateToken(this.jwtToken);
+    const tempBoolean = Math.random() >= 0.5;
 
-    if (decodedToken !== null) {
+    if (decodedToken !== null && tempBoolean) {
       this.setSession(decodedToken);
     }
 
-    return of(Math.random() >= 0.5);
+    return of(tempBoolean);
   }
 
   public validateToken(token: string): JwtPayload | null {
@@ -50,7 +51,7 @@ export class AuthService {
     return true;
   }
 
-  private setSession(decodedToken: JwtPayload): void {
+  public setSession(decodedToken: JwtPayload): void {
     const loginMoment = moment();
     loginMoment.add(decodedToken?.expires_at, 'seconds');
     localStorage.setItem('expires_at', loginMoment.unix().toString());
