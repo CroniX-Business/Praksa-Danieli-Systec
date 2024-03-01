@@ -6,7 +6,7 @@ import { appRouteConfig } from './configs/routes.config';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import { loginGuard } from './guards/auth.guards';
 export const routes: Routes = [
   {
     path: '',
@@ -30,10 +30,12 @@ export const routes: Routes = [
       {
         path: appRouteConfig.routeNames.restaurant,
         component: RestaurantComponent,
+        canActivate: [loginGuard],
       },
       {
         path: appRouteConfig.routeNames.categories,
         component: CategoriesComponent,
+        canActivate: [loginGuard],
       },
     ],
   },

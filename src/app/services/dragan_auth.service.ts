@@ -49,4 +49,21 @@ export class DraganAuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('timeout');
   }
+  public getTokenExpiration(): string | null {
+    return localStorage.getItem('timeout');
+  }
+  public hasTokenExpired(): boolean {
+    const tokenExpiration = this.getTokenExpiration();
+    if (tokenExpiration) {
+      const numTokenExpiration = parseInt(tokenExpiration);
+      const currentTime = moment().unix();
+      if (numTokenExpiration < currentTime) {
+        return true;
+      } else return false;
+    }
+    return true;
+  }
+  public isLoggedIn(): boolean {
+    return this.hasTokenExpired();
+  }
 }
