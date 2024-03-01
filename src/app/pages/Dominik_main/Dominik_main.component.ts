@@ -16,11 +16,13 @@ import { Router } from '@angular/router';
 export class DominikMainComponent {
   public routesConfig = AppRoutesConfig;
   public constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) {}
   public sidebar = false;
   public logOut(): void {
+    const expiresat = localStorage.getItem('Login_expire_time');
+    if (expiresat) localStorage.removeItem('Login_expire_time');
     this.authService.removeSession(this.authService.jwt_Token);
     this.router.navigate([this.routesConfig.routeConfig.login]);
   }
