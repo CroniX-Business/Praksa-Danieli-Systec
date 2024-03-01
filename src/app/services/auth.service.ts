@@ -34,7 +34,7 @@ export class AuthService {
       this.setSession('expireAt', String(expiresAt));
       this.setSession('token', this.token);
 
-      if (this.hasTokenExpired()) {
+      if (!this.hasTokenExpired()) {
         return payload;
       } else {
         console.log('Token has expired');
@@ -48,9 +48,9 @@ export class AuthService {
   }
   public hasTokenExpired(): boolean {
     if (this.getTokenExpiration() > moment().unix()) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public getTokenExpiration(): number {
@@ -71,6 +71,6 @@ export class AuthService {
 
   public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token ? this.hasTokenExpired() : false;
+    return token ? !this.hasTokenExpired() : false;
   }
 }
