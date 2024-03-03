@@ -4,13 +4,14 @@ import { jwtDecode } from 'jwt-decode';
 import moment from 'moment';
 import { JwtPayload } from '../models/JwtPayload';
 import { AppRoutesConfig } from '../config/routes.config';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private AppRoutesConfig = AppRoutesConfig;
 
-  public constructor() {}
+  public constructor(private router: Router) {}
 
   private token =
     'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
@@ -20,48 +21,66 @@ export class AuthService {
     if (Math.random() >= 0.5) {
       const tokenPayload = this.validateToken(this.token);
       if (tokenPayload) {
+        const expiresAt = +moment().unix() + +tokenPayload.expires_at;
+        this.setSession('expireAt', String(expiresAt));
+        this.setSession('token', this.token);
+
         return of(true);
       }
     }
     console.log('Authentication failed.');
     return of(false);
   }
+
   private validateToken(token: string): JwtPayload | null {
     try {
-      const payload = jwtDecode(token) as JwtPayload;
+      const payload = this.decodeToken(token);
 
-      const expiresAt = +moment().unix() + +payload.expires_at;
-      this.setSession('expireAt', String(expiresAt));
-      this.setSession('token', this.token);
-
-      if (!this.hasTokenExpired()) {
-        return payload;
-      } else {
+      if (this.hasTokenExpired()) {
         console.log('Token has expired');
         this.logOut();
         return null;
+      } else {
+        return payload;
       }
     } catch (e) {
       console.error('Error decoding token:', e);
       return null;
     }
   }
-  public hasTokenExpired(): boolean {
-    if (this.getTokenExpiration() > moment().unix()) {
-      return false;
+
+  private decodeToken(token: string): JwtPayload | null {
+    try {
+      const payload = jwtDecode(token) as JwtPayload;
+
+      return payload;
+    } catch (e) {
+      console.error('Error decoding token:', e);
+      return null;
     }
-    return true;
+  }
+
+  public hasTokenExpired(): boolean {
+    const currentUnixTime = moment().unix();
+    const tokenExpirationUnixTime = this.getTokenExpiration();
+
+    const currentMoment = moment.unix(currentUnixTime);
+    const tokenExpirationMoment = moment.unix(tokenExpirationUnixTime);
+
+    return tokenExpirationMoment.isBefore(currentMoment);
   }
 
   public getTokenExpiration(): number {
     return +(localStorage.getItem('expireAt') || '0');
   }
+
   private setSession(key: string, value: string): void {
     localStorage.setItem(key, value);
   }
 
   public logOut(): void {
     this.removeSession();
+    this.router.navigate([AppRoutesConfig.routes.login]);
   }
 
   private removeSession(): void {
@@ -71,6 +90,6 @@ export class AuthService {
 
   public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token ? !this.hasTokenExpired() : false;
+    return token ? this.hasTokenExpired() : false;
   }
 }

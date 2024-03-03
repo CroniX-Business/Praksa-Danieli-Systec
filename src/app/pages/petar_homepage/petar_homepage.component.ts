@@ -28,23 +28,14 @@ import { Router } from '@angular/router';
 })
 export class PetarHomepageComponent {
   public AppRoutesConfig = AppRoutesConfig;
-  public authService = new AuthService();
+  public authService = new AuthService(this.router);
 
   public constructor(private router: Router) {}
 
-  @HostListener('window:beforeunload', ['$event'])
-  public onBeforeUnload(): void {
-    if (!this.authService.hasTokenExpired()) {
-      this.authService.logOut();
-      this.router.navigate([AppRoutesConfig.routes.login]);
-    }
-  }
-
-  @HostListener('document:click', ['$event'])
+  @HostListener('document:click')
   public onGlobalClick(): void {
     if (this.authService.hasTokenExpired()) {
       this.authService.logOut();
-      this.router.navigate([AppRoutesConfig.routes.login]);
     }
   }
 
