@@ -37,12 +37,6 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return token ? this.hasTokenExpired() : !this.hasTokenExpired();
   }
-  public addSeconds(): void {
-    const decodedToken = this.validateToken(this.jwt_Token);
-    const loginmoment = moment();
-    loginmoment.add(decodedToken?.expires_at, 'seconds');
-    localStorage.setItem('Login_expire_time', loginmoment.toString());
-  }
   public setSession(name: string, value: string): void {
     localStorage.setItem(name, value);
   }
@@ -51,11 +45,16 @@ export class AuthService {
   }
   public login(userName: string, userPass: string): boolean {
     console.log('User:' + userName + ' Pass:' + userPass);
-    this.addSeconds();
     const result = Math.random() >= 0.5;
     if (result) {
       const validation = this.validateToken(this.jwt_Token);
       if (validation != null) {
+        this.setSession(
+          'Login_expire_time',
+          moment()
+            .add(this.validateToken(this.jwt_Token)?.expires_at, 'seconds')
+            .toString()
+        );
         this.setSession('token', this.jwt_Token);
         return true;
       } else return false;
