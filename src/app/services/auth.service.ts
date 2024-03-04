@@ -21,10 +21,6 @@ export class AuthService {
     if (Math.random() >= 0.5) {
       const tokenPayload = this.validateToken(this.token);
       if (tokenPayload) {
-        const expiresAt = +moment().unix() + +tokenPayload.expires_at;
-        this.setSession('expireAt', String(expiresAt));
-        this.setSession('token', this.token);
-
         return of(true);
       }
     }
@@ -52,6 +48,10 @@ export class AuthService {
   private decodeToken(token: string): JwtPayload | null {
     try {
       const payload = jwtDecode(token) as JwtPayload;
+
+      const expiresAt = +moment().unix() + +payload.expires_at;
+      this.setSession('expireAt', String(expiresAt));
+      this.setSession('token', this.token);
 
       return payload;
     } catch (e) {
