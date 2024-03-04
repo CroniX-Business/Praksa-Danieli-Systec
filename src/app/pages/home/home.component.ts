@@ -30,7 +30,7 @@ export class HomeComponent {
 
   @HostListener('document:click')
   public checkLoginStatus(): void {
-    if (this.authService.hasTokenExpired()) {
+    if (!this.authService.isLoggedIn()) {
       this.authService.logout();
     }
   }

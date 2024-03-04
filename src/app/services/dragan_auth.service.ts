@@ -13,6 +13,7 @@ export class DraganAuthService {
 
   private token =
     'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.OujaXZN0F_7IiIAGRtxEYnrf3tTYXQc82ki3YzybJOw';
+
   private validateToken(token: string): JwtPayload | null {
     try {
       const decoded_token = jwtDecode(token) as JwtPayload;
@@ -22,6 +23,7 @@ export class DraganAuthService {
       return null;
     }
   }
+
   public authenticate(username: string, password: string): Observable<boolean> {
     console.log(username, password);
 
@@ -41,21 +43,26 @@ export class DraganAuthService {
     }
     return of(false);
   }
+
   private setTimeout(number: number): void {
     localStorage.setItem('timeout', number.toString());
   }
+
   private setSession(decoded_token: string): void {
     localStorage.setItem('token', decoded_token);
   }
+
   public logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('timeout');
 
     this.router.navigate([appRouteConfig.routesConfig.login]);
   }
-  public getTokenExpiration(): number {
+
+  private getTokenExpiration(): number {
     return +(localStorage.getItem('timeout') || 0);
   }
+
   public hasTokenExpired(): boolean {
     const tokenExpiration = this.getTokenExpiration();
     const currentUnixTime = moment().unix();
@@ -65,6 +72,7 @@ export class DraganAuthService {
 
     return tokenExpirationMoment.isBefore(currentMoment);
   }
+
   public isLoggedIn(): boolean {
     return !this.hasTokenExpired();
   }
