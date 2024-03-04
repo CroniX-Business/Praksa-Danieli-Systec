@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivateFn } from '@angular/router';
+import { CanActivateFn } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AppRoutesConfig } from '../config/routes.config';
 
@@ -7,10 +7,7 @@ import { AppRoutesConfig } from '../config/routes.config';
 export class AuthGuard {
   public AppRoutesConfig = AppRoutesConfig;
 
-  public constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  public constructor(private authService: AuthService) {}
 
   public canActivate: CanActivateFn = () => {
     if (this.authService.isLoggedIn()) {
