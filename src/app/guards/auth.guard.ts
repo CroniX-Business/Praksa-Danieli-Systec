@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthGuard {
-  public AppRoutesConfig = AppRoutesConfig;
-
   public constructor(
     private authService: AuthService,
     private router: Router
