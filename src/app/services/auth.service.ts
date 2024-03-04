@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private AppRoutesConfig = AppRoutesConfig;
-
   public constructor(private router: Router) {}
 
   private token =
