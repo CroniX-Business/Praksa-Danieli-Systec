@@ -69,7 +69,7 @@ export class AuthService {
 
   private setSession(payload: JwtPayload): void {
     const expiresAt = +moment().unix() + +payload.expires_at;
-    localStorage.setItem('token', this.token);
+    localStorage.setItem('Payload', String(payload));
     localStorage.setItem('expireAt', String(expiresAt));
   }
 
