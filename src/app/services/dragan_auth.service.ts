@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, of } from 'rxjs';
 import { JwtPayload } from '../models/JwtPayload';
+import { Router } from '@angular/router';
+import { appRouteConfig } from '../configs/routes.config';
 import moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
 export class DraganAuthService {
-  public constructor() {}
+  public constructor(private router: Router) {}
 
   private token =
     'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.OujaXZN0F_7IiIAGRtxEYnrf3tTYXQc82ki3YzybJOw';
@@ -48,20 +50,20 @@ export class DraganAuthService {
   public logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('timeout');
+
+    this.router.navigate([appRouteConfig.routesConfig.login]);
   }
-  public getTokenExpiration(): string | null {
-    return localStorage.getItem('timeout');
+  public getTokenExpiration(): number {
+    return +(localStorage.getItem('timeout') || 0);
   }
   public hasTokenExpired(): boolean {
     const tokenExpiration = this.getTokenExpiration();
-    if (tokenExpiration) {
-      const numTokenExpiration = parseInt(tokenExpiration);
-      const currentTime = moment().unix();
-      if (numTokenExpiration < currentTime) {
-        return true;
-      } else return false;
-    }
-    return true;
+    const currentUnixTime = moment().unix();
+
+    const currentMoment = moment.unix(currentUnixTime);
+    const tokenExpirationMoment = moment.unix(tokenExpiration);
+
+    return tokenExpirationMoment.isBefore(currentMoment);
   }
   public isLoggedIn(): boolean {
     return !this.hasTokenExpired();

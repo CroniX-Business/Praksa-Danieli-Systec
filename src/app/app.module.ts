@@ -7,10 +7,10 @@ import { DraganRegisterComponent } from './pages/dragan_register/dragan_register
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HomeComponent } from './pages/home/home.component';
-
+import { loginGuard } from './guards/auth.guards';
 @NgModule({
   declarations: [AppComponent],
-  providers: [],
+  providers: [loginGuard],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,

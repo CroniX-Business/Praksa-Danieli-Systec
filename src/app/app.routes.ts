@@ -21,6 +21,7 @@ export const routes: Routes = [
   {
     path: appRouteConfig.routeNames.home,
     component: HomeComponent,
+    canActivate: [loginGuard],
     children: [
       {
         path: '',
@@ -30,12 +31,10 @@ export const routes: Routes = [
       {
         path: appRouteConfig.routeNames.restaurant,
         component: RestaurantComponent,
-        canActivate: [loginGuard],
       },
       {
         path: appRouteConfig.routeNames.categories,
         component: CategoriesComponent,
-        canActivate: [loginGuard],
       },
     ],
   },
