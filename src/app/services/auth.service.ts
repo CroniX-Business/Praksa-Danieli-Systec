@@ -22,14 +22,14 @@ export class AuthService {
     else return null;
   }
 
-  public getTokenExpiration(): string {
+  private getTokenExpiration(): string {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) {
       return expiresat;
     } else return '0';
   }
 
-  public hasTokenExpired(): boolean {
+  private hasTokenExpired(): boolean {
     const currentMoment = moment(new Date()).format();
     const currentmoment = currentMoment.toString();
     const expiretime = this.getTokenExpiration();
@@ -42,7 +42,7 @@ export class AuthService {
       : !this.hasTokenExpired();
   }
 
-  public setSession(payload: JwtPayload): void {
+  private setSession(payload: JwtPayload): void {
     localStorage.setItem(
       'Login_expire_time',
       moment(new Date()).add(payload.expires_at, 'seconds').format().toString()
