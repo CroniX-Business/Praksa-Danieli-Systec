@@ -24,7 +24,6 @@ export class AuthService {
         return of(true);
       }
     }
-    console.log('Authentication failed.');
     return of(false);
   }
 
@@ -33,7 +32,6 @@ export class AuthService {
       const payload = this.decodeToken(token);
 
       if (this.hasTokenExpired()) {
-        console.log('Token has expired');
         this.logOut();
         return null;
       } else {
@@ -57,7 +55,11 @@ export class AuthService {
     }
   }
 
-  public hasTokenExpired(): boolean {
+  public checkToken(): boolean {
+    return this.hasTokenExpired();
+  }
+
+  private hasTokenExpired(): boolean {
     const currentUnixTime = moment().unix();
     const tokenExpirationUnixTime = this.getTokenExpiration();
 
@@ -67,7 +69,7 @@ export class AuthService {
     return tokenExpirationMoment.isBefore(currentMoment);
   }
 
-  public getTokenExpiration(): number {
+  private getTokenExpiration(): number {
     return +(localStorage.getItem('expireAt') || '0');
   }
 

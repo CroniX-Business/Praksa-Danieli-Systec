@@ -34,7 +34,7 @@ export class PetarHomepageComponent {
 
   @HostListener('document:click')
   public onGlobalClick(): void {
-    if (this.authService.hasTokenExpired()) {
+    if (this.authService.checkToken()) {
       this.authService.logOut();
     }
   }
