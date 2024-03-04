@@ -38,6 +38,14 @@ export class AuthService {
     } else return false;
   }
 
+  private setSession(value: string, token: string): void {
+    localStorage.setItem(value, token);
+  }
+
+  private removeSession(value: string): void {
+    localStorage.removeItem(value);
+  }
+
   private getTokenExpiration(): number {
     const stringTime = localStorage.getItem('value');
     console.log(parseInt(stringTime!));
@@ -56,10 +64,7 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    if (this.hasTokenExpired()) {
-      return false;
-    }
-    return true;
+    return !this.hasTokenExpired();
   }
 
   public login(username: string, password: string): Observable<boolean> {
@@ -73,7 +78,7 @@ export class AuthService {
             const validated = this.validateToken(this.token);
             const time = new JwtPayload();
             validated!.exp = time.exp;
-            localStorage.setItem('value', validated!.exp.toString());
+            this.setSession('value', validated!.exp.toString());
             observer.next(true);
             observer.complete();
           } catch (error) {
@@ -89,6 +94,6 @@ export class AuthService {
     });
   }
   public logout(): void {
-    localStorage.removeItem('value');
+    this.removeSession('value');
   }
 }
