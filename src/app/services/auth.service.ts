@@ -89,7 +89,6 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    const token = localStorage.getItem('token');
-    return token ? this.hasTokenExpired() : false;
+    return this.hasTokenExpired();
   }
 }
