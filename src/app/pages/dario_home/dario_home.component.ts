@@ -27,17 +27,13 @@ export class DarioHomeComponent {
   public appRoutes = AppRoutesConfig;
 
   public constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) {}
 
-  public logOut(): void {
-    this.authService.removeSession();
-  }
-
   @HostListener('click') public myClick(): void {
     if (!this.authService.isLoggedIn()) {
-      this.authService.removeSession();
+      this.authService.logOut();
       this.router.navigate([AppRoutesConfig.routeNames.login]);
     }
   }

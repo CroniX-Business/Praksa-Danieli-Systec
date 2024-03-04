@@ -26,7 +26,11 @@ export class AuthService {
     return of(tempBoolean);
   }
 
-  public validateToken(token: string): JwtPayload | null {
+  public logOut(): void {
+    this.removeSession();
+  }
+
+  private validateToken(token: string): JwtPayload | null {
     const decodedToken = jwtDecode(token);
     if (token == null) return null;
     try {
@@ -36,27 +40,27 @@ export class AuthService {
     }
   }
 
-  public getTokenExpiration(): number {
+  private getTokenExpiration(): number {
     const expirationDate = +(localStorage.getItem('expires_at') || '0');
     return expirationDate;
   }
 
-  public hasTokenExpired(): boolean {
+  private hasTokenExpired(): boolean {
     if (this.getTokenExpiration() < moment().unix()) return true;
     return false;
   }
 
   public isLoggedIn(): boolean {
-    if (this.hasTokenExpired()) return false;
-    return true;
+    return !this.hasTokenExpired();
   }
 
-  public setSession(decodedToken: JwtPayload): void {
+  private setSession(decodedToken: JwtPayload): void {
     const loginMoment = moment();
     loginMoment.add(decodedToken?.expires_at, 'seconds');
     localStorage.setItem('expires_at', loginMoment.unix().toString());
   }
-  public removeSession(): void {
+
+  private removeSession(): void {
     localStorage.removeItem('expires_at');
   }
 }
