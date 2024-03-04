@@ -3,14 +3,12 @@ import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../models/JwtPayload';
 import moment from 'moment';
 import { AppRoutesConfig } from '../configs/routes.config';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public routesConfig = AppRoutesConfig;
-  public constructor(private router: Router) {}
   //jwt 10 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAifQ.YnIHeTs6BV7pRX6CpDmxkrvxS1CRdSYE-n7eTjD8IK0
   //jwt 1000 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg
   public jwt_Token: string =
@@ -23,7 +21,6 @@ export class AuthService {
     if (decodedToken) return decodedToken as JwtPayload;
     else return null;
   }
-
   public getTokenExpiration(): number {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) {
@@ -31,7 +28,6 @@ export class AuthService {
       return expiremoment;
     } else return 0;
   }
-
   public hasTokenExpired(): boolean {
     const currentMoment = moment();
     const currentMoments = currentMoment.unix().toString();
@@ -40,12 +36,10 @@ export class AuthService {
     if (expiretime < currentmoment) return false;
     else return true;
   }
-
   public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token ? this.hasTokenExpired() : false;
+    return token ? this.hasTokenExpired() : !this.hasTokenExpired();
   }
-
   public addSeconds(): void {
     const decodedToken = this.validateToken(this.jwt_Token);
     const loginmoment = moment();
@@ -53,14 +47,12 @@ export class AuthService {
     loginmoment.unix;
     localStorage.setItem('Login_expire_time', loginmoment.unix().toString());
   }
-
   public setSession(name: string, value: string): void {
     localStorage.setItem(name, value);
   }
   public removeSession(name: string): void {
     localStorage.removeItem(name);
   }
-
   public login(userName: string, userPass: string): boolean {
     console.log('User:' + userName + ' Pass:' + userPass);
     this.addSeconds();
