@@ -14,5 +14,5 @@ import { AppRoutesConfig } from '../../config/routes.config';
 })
 export class PetarError404Component {
   public appConfig = AppConfig;
-  public AppRoutesConfig = AppRoutesConfig;
+  public appRoutesConfig = AppRoutesConfig;
 }

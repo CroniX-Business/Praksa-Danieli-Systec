@@ -27,7 +27,7 @@ import { Router } from '@angular/router';
   ],
 })
 export class PetarHomepageComponent {
-  public AppRoutesConfig = AppRoutesConfig;
+  public appRoutesConfig = AppRoutesConfig;
   public authService = new AuthService(this.router);
 
   public constructor(private router: Router) {}

@@ -29,7 +29,7 @@ import { Router } from '@angular/router';
 export class PetarLoginComponent {
   public appConfig = AppConfig;
   public appLanguages = AppLanguages;
-  public AppRoutesConfig = AppRoutesConfig;
+  public appRoutesConfig = AppRoutesConfig;
 
   public show: boolean = true;
   public loginMessage: string = '';

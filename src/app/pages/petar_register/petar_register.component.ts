@@ -33,7 +33,7 @@ import { Router } from '@angular/router';
 })
 export class PetarRegisterComponent {
   public appConfig = AppConfig;
-  public AppRoutesConfig = AppRoutesConfig;
+  public appRoutesConfig = AppRoutesConfig;
 
   public show: boolean = true;
   public showRepeat: boolean = true;
