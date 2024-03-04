@@ -11,8 +11,8 @@ export class AuthGuard {
 
   public canActivate: CanActivateFn = () => {
     if (this.authService.isLoggedIn()) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   };
 }

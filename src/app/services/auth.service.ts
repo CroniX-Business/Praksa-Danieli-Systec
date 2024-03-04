@@ -48,10 +48,7 @@ export class AuthService {
   private decodeToken(token: string): JwtPayload | null {
     try {
       const payload = jwtDecode(token) as JwtPayload;
-
-      const expiresAt = +moment().unix() + +payload.expires_at;
-      this.setSession('expireAt', String(expiresAt));
-      this.setSession('token', this.token);
+      this.setSession(payload);
 
       return payload;
     } catch (e) {
@@ -74,8 +71,10 @@ export class AuthService {
     return +(localStorage.getItem('expireAt') || '0');
   }
 
-  private setSession(key: string, value: string): void {
-    localStorage.setItem(key, value);
+  private setSession(payload: JwtPayload): void {
+    const expiresAt = +moment().unix() + +payload.expires_at;
+    localStorage.setItem('token', this.token);
+    localStorage.setItem('expireAt', String(expiresAt));
   }
 
   public logOut(): void {
@@ -89,6 +88,6 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    return this.hasTokenExpired();
+    return !this.hasTokenExpired();
   }
 }
