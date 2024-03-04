@@ -53,10 +53,6 @@ export class AuthService {
     }
   }
 
-  public callTokenExpiration(): boolean {
-    return this.hasTokenExpired();
-  }
-
   private hasTokenExpired(): boolean {
     const currentUnixTime = moment().unix();
     const tokenExpirationUnixTime = this.getTokenExpiration();
