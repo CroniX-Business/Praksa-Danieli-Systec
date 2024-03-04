@@ -11,7 +11,7 @@ export class AuthGuard {
     private router: Router
   ) {}
 
-  public canActivate: CanActivateFn = () => {
+  private canActivate: CanActivateFn = () => {
     if (this.authService.isLoggedIn()) {
       return true;
     }

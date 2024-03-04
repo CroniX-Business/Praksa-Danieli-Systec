@@ -53,7 +53,7 @@ export class AuthService {
     }
   }
 
-  public checkToken(): boolean {
+  public callTokenExpiration(): boolean {
     return this.hasTokenExpired();
   }
 
