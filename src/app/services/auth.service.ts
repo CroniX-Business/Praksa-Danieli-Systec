@@ -21,20 +21,17 @@ export class AuthService {
     if (decodedToken) return decodedToken as JwtPayload;
     else return null;
   }
-  public getTokenExpiration(): number {
+  public getTokenExpiration(): string {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) {
-      const expiremoment: number = +expiresat;
-      return expiremoment;
-    } else return 0;
+      return expiresat;
+    } else return '0';
   }
   public hasTokenExpired(): boolean {
     const currentMoment = moment();
-    const currentMoments = currentMoment.unix().toString();
+    const currentmoment = currentMoment.toString();
     const expiretime = this.getTokenExpiration();
-    const currentmoment: number = +currentMoments;
-    if (expiretime < currentmoment) return false;
-    else return true;
+    return !moment(expiretime).isBefore(currentmoment);
   }
   public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
@@ -44,8 +41,7 @@ export class AuthService {
     const decodedToken = this.validateToken(this.jwt_Token);
     const loginmoment = moment();
     loginmoment.add(decodedToken?.expires_at, 'seconds');
-    loginmoment.unix;
-    localStorage.setItem('Login_expire_time', loginmoment.unix().toString());
+    localStorage.setItem('Login_expire_time', loginmoment.toString());
   }
   public setSession(name: string, value: string): void {
     localStorage.setItem(name, value);
