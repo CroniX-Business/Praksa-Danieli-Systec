@@ -23,7 +23,7 @@ export class DominikMainComponent {
   public logOut(): void {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) localStorage.removeItem('Login_expire_time');
-    this.authService.removeSession(this.authService.jwt_Token);
+    this.authService.removeSession();
     localStorage.removeItem('Login_expire_time');
     this.router.navigate([this.routesConfig.routeConfig.login]);
   }

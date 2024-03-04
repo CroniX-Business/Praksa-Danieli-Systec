@@ -6,6 +6,10 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+html, body {
+    margin: 0px;
+    height: 100%;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -52,7 +56,6 @@ a:focus {
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
-
 .wrapper {
     display: flex;
     width: 100%;
@@ -60,6 +63,8 @@ a:focus {
 }
 
 #sidebar {
+    border: 2px solid black;
+    height: 200vh;
     min-width: 250px;
     max-width: 250px;
     background: #f73831;

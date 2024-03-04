@@ -5,7 +5,7 @@
     class="m-auto d-flex justify-content-center mb-5 mt-5"
     width="250"
     height="97" />
-  <form [formGroup]="applyform" (submit)="(submitFunction)">
+  <form [formGroup]="applyform" (submit)="onSubmit()">
     <div id="main_login_div" class="align-content-center m-auto d-block">
       <h3 class="ms-5 mt-5 mb-4">Login</h3>
       <label for="Username" class="ms-sm-5 required">Username</label>
@@ -65,7 +65,6 @@
       <br />
       <div class="d-flex justify-content-center">
         <button
-          (click)="onSubmit()"
           type="submit"
           [disabled]="applyform.invalid"
           class="mt-4 mb-4 btn btn-secondary"

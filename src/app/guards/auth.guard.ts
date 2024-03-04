@@ -14,6 +14,7 @@ export class AuthGuard {
 
   public canActivate: CanActivateFn = () => {
     if (!this.authService.isLoggedIn()) {
+      this.authService.removeSession();
       this.router.navigate([AppRoutesConfig.routeNames.login]);
       return false;
     }

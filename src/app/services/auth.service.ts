@@ -21,41 +21,47 @@ export class AuthService {
     if (decodedToken) return decodedToken as JwtPayload;
     else return null;
   }
+
   public getTokenExpiration(): string {
     const expiresat = localStorage.getItem('Login_expire_time');
     if (expiresat) {
       return expiresat;
     } else return '0';
   }
+
   public hasTokenExpired(): boolean {
-    const currentMoment = moment();
+    const currentMoment = moment(new Date()).format();
     const currentmoment = currentMoment.toString();
     const expiretime = this.getTokenExpiration();
     return !moment(expiretime).isBefore(currentmoment);
   }
+
   public isLoggedIn(): boolean {
-    const token = localStorage.getItem('token');
-    return token ? this.hasTokenExpired() : !this.hasTokenExpired();
+    return localStorage.getItem('token')
+      ? this.hasTokenExpired()
+      : !this.hasTokenExpired();
   }
-  public setSession(name: string, value: string): void {
-    localStorage.setItem(name, value);
+
+  public setSession(payload: JwtPayload): void {
+    localStorage.setItem(
+      'Login_expire_time',
+      moment(new Date()).add(payload.expires_at, 'seconds').format().toString()
+    );
+    localStorage.setItem('token', this.jwt_Token);
   }
-  public removeSession(name: string): void {
-    localStorage.removeItem(name);
+
+  public removeSession(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('Login_expire_time');
   }
+
   public login(userName: string, userPass: string): boolean {
     console.log('User:' + userName + ' Pass:' + userPass);
     const result = Math.random() >= 0.5;
     if (result) {
       const validation = this.validateToken(this.jwt_Token);
       if (validation != null) {
-        this.setSession(
-          'Login_expire_time',
-          moment()
-            .add(this.validateToken(this.jwt_Token)?.expires_at, 'seconds')
-            .toString()
-        );
-        this.setSession('token', this.jwt_Token);
+        this.setSession(jwtDecode(this.jwt_Token));
         return true;
       } else return false;
     } else return false;
