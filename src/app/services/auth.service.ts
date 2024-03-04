@@ -29,15 +29,6 @@ export class AuthService {
     return this.token;
   }
 
-  private checkIfValid(): boolean {
-    const token = this.getToken();
-    const validated = this.validateToken(token);
-    const time = moment().unix();
-    if (time > validated!.exp) {
-      return true;
-    } else return false;
-  }
-
   private setSession(value: string, token: string): void {
     localStorage.setItem(value, token);
   }
