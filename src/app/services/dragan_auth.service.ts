@@ -64,6 +64,6 @@ export class DraganAuthService {
     return true;
   }
   public isLoggedIn(): boolean {
-    return this.hasTokenExpired();
+    return !this.hasTokenExpired();
   }
 }
