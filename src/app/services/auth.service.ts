@@ -48,7 +48,6 @@ export class AuthService {
 
   private getTokenExpiration(): number {
     const stringTime = localStorage.getItem('value');
-    console.log(parseInt(stringTime!));
     return parseInt(stringTime!);
   }
 
@@ -82,7 +81,6 @@ export class AuthService {
             observer.next(true);
             observer.complete();
           } catch (error) {
-            console.log(error);
             observer.next(false);
             observer.complete();
           }
