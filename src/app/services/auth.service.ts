@@ -25,10 +25,6 @@ export class AuthService {
     return null;
   }
 
-  private getToken(): string {
-    return this.token;
-  }
-
   private setSession(value: string, token: string): void {
     localStorage.setItem(value, token);
   }
@@ -39,7 +35,10 @@ export class AuthService {
 
   private getTokenExpiration(): number {
     const stringTime = localStorage.getItem('value');
-    return parseInt(stringTime!);
+    if (stringTime !== null) {
+      return parseInt(stringTime);
+    }
+    return 0;
   }
 
   private hasTokenExpired(): boolean {
@@ -48,9 +47,10 @@ export class AuthService {
     if (exp_time === undefined || Number.isNaN(exp_time)) {
       return true;
     }
-    if (time > exp_time) {
-      return true;
-    } else return false;
+    if (moment(time).isBefore(exp_time)) {
+      return false;
+    }
+    return true;
   }
 
   public isLoggedIn(): boolean {
@@ -67,9 +67,13 @@ export class AuthService {
           try {
             const validated = this.validateToken(this.token);
             const time = new JwtPayload();
-            validated!.exp = time.exp;
-            this.setSession('value', validated!.exp.toString());
-            observer.next(true);
+            if (validated !== null) {
+              validated.exp = time.exp;
+              this.setSession('value', validated.exp.toString());
+              observer.next(true);
+              observer.complete();
+            }
+            observer.next(false);
             observer.complete();
           } catch (error) {
             observer.next(false);
