@@ -35,7 +35,7 @@ export class DraganAuthService {
           .unix(currentTime)
           .add(payload.expires_at, 'seconds')
           .unix();
-        this.setSession(JSON.stringify(payload));
+        this.setSession(String(payload.expires_at));
         this.setTimeout(timeoutTime);
         console.log('success');
         return of(true);
