@@ -25,12 +25,14 @@ export class AuthService {
     return null;
   }
 
-  private setSession(value: string, token: string): void {
-    localStorage.setItem(value, token);
+  private setSession(token: JwtPayload): void {
+    if (token !== null) {
+      localStorage.setItem('value', token.exp.toString());
+    }
   }
 
-  private removeSession(value: string): void {
-    localStorage.removeItem(value);
+  private removeSession(): void {
+    localStorage.removeItem('value');
   }
 
   private getTokenExpiration(): number {
@@ -69,7 +71,7 @@ export class AuthService {
             const time = new JwtPayload();
             if (validated !== null) {
               validated.exp = time.exp;
-              this.setSession('value', validated.exp.toString());
+              this.setSession(validated);
               observer.next(true);
               observer.complete();
             }
@@ -87,6 +89,6 @@ export class AuthService {
     });
   }
   public logout(): void {
-    this.removeSession('value');
+    this.removeSession();
   }
 }
