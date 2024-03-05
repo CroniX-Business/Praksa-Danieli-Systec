@@ -64,13 +64,12 @@ export class AuthService {
   }
 
   private getTokenExpiration(): number {
-    return +(localStorage.getItem('expireAt') || '0');
+    return +(localStorage.getItem('expires_at') || '0');
   }
 
   private setSession(payload: JwtPayload): void {
-    const expiresAt = +moment().unix() + +payload.expires_at;
-    localStorage.setItem('Payload', String(payload.expires_at));
-    localStorage.setItem('expireAt', String(expiresAt));
+    const expires_at = +moment().unix() + +payload.expires_at;
+    localStorage.setItem('expires_at', String(expires_at));
   }
 
   public logOut(): void {
@@ -79,8 +78,7 @@ export class AuthService {
   }
 
   private removeSession(): void {
-    localStorage.removeItem('Payload');
-    localStorage.removeItem('expireAt');
+    localStorage.removeItem('expires_at');
   }
 
   public isLoggedIn(): boolean {
