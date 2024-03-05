@@ -44,6 +44,10 @@ export class DraganAuthService {
     return of(false);
   }
 
+  private removeSession(): void {
+    localStorage.removeItem('payload');
+    localStorage.removeItem('timeout');
+  }
   private setTimeout(number: number): void {
     localStorage.setItem('timeout', number.toString());
   }
@@ -53,9 +57,7 @@ export class DraganAuthService {
   }
 
   public logout(): void {
-    localStorage.removeItem('payload');
-    localStorage.removeItem('timeout');
-
+    this.removeSession();
     this.router.navigate([appRouteConfig.routesConfig.login]);
   }
 

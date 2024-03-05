@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
 import { DraganAuthService } from '../services/dragan_auth.service';
 import { appRouteConfig } from '../configs/routes.config';
 import { Router } from '@angular/router';
@@ -10,11 +9,11 @@ export class loginGuard {
     private router: Router
   ) {}
 
-  public canActivate: CanActivateFn = () => {
+  public canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
       return true;
     }
     this.router.navigate([appRouteConfig.routesConfig.login]);
     return false;
-  };
+  }
 }
