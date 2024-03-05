@@ -31,7 +31,9 @@
     <ul class="list-unstyled CTAs">
       <li>
         <strong>
-          <a (pointerdown)="logOut()" class="download pointerCursors"
+          <a
+            (pointerdown)="authService.logOut()"
+            class="download pointerCursors"
             >Log out</a
           >
         </strong>

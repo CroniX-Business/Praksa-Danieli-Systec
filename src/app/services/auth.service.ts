@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../models/JwtPayload';
 import moment from 'moment';
+import { Router } from '@angular/router';
+import { AppRoutesConfig } from '../configs/routes.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  public constructor(private router: Router) {}
+  public routesConfig = AppRoutesConfig;
   //jwt 10 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAifQ.YnIHeTs6BV7pRX6CpDmxkrvxS1CRdSYE-n7eTjD8IK0
   //jwt 1000 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg
   public jwt_Token: string =
@@ -35,7 +39,7 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    return localStorage.getItem('token')
+    return localStorage.getItem('Login_expire_time')
       ? this.hasTokenExpired()
       : !this.hasTokenExpired();
   }
@@ -45,12 +49,15 @@ export class AuthService {
       'Login_expire_time',
       moment(new Date()).add(payload.expires_at, 'seconds').format().toString()
     );
-    localStorage.setItem('token', this.jwt_Token);
   }
 
   public removeSession(): void {
-    localStorage.removeItem('token');
     localStorage.removeItem('Login_expire_time');
+  }
+
+  public logOut(): void {
+    this.removeSession();
+    this.router.navigate([this.routesConfig.routeConfig.login]);
   }
 
   public login(userName: string, userPass: string): boolean {
