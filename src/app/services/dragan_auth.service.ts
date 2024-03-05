@@ -35,7 +35,7 @@ export class DraganAuthService {
           .unix(currentTime)
           .add(payload.expires_at, 'seconds')
           .unix();
-        this.setSession(this.token);
+        this.setSession(JSON.stringify(payload));
         this.setTimeout(timeoutTime);
         console.log('success');
         return of(true);
@@ -49,11 +49,11 @@ export class DraganAuthService {
   }
 
   private setSession(decoded_token: string): void {
-    localStorage.setItem('token', decoded_token);
+    localStorage.setItem('payload', decoded_token);
   }
 
   public logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('payload');
     localStorage.removeItem('timeout');
 
     this.router.navigate([appRouteConfig.routesConfig.login]);
