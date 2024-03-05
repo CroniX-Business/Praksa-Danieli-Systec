@@ -79,7 +79,7 @@ export class AuthService {
   }
 
   private removeSession(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('Payload');
     localStorage.removeItem('expireAt');
   }
 
