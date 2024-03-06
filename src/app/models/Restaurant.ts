@@ -1,0 +1,18 @@
+export class Restaurant {
+  public Name: string;
+  public Address: string;
+  public Phone_number: string;
+  public Created_date: string;
+
+  private constructor(
+    name: string,
+    address: string,
+    phone_number: string,
+    created_date: string
+  ) {
+    this.Name = name;
+    this.Address = address;
+    this.Phone_number = phone_number;
+    this.Created_date = created_date;
+  }
+}

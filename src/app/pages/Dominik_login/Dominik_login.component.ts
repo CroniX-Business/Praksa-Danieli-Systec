@@ -66,6 +66,3 @@ export class DominikLoginComponent {
         ]);
   }
 }
-// function type(decodedHeader: JwtPayload): any {
-//   throw new Error('Function not implemented.');
-// }
