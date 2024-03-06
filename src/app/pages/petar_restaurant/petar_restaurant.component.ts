@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { RestaurantService } from '../../services/restaurant.service';
+import { Restaurant } from '../../models/Restaurant';
 
 @Component({
   selector: 'app-petar-restaurant',
@@ -8,6 +11,18 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   templateUrl: './petar_restaurant.component.html',
   styleUrl: './petar_restaurant.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+    GridModule,
+  ],
 })
-export class PetarRestaurantComponent {}
+export class PetarRestaurantComponent {
+  public gridData: Restaurant[] = [];
+
+  public constructor(private restaurantService: RestaurantService) {
+    this.gridData = this.restaurantService.getRestaurantsForGrid();
+  }
+}

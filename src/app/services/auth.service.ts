@@ -12,7 +12,7 @@ export class AuthService {
   public constructor(private router: Router) {}
 
   private token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.wPM5REaziDe8DHIK0MpU6waFZoTZhAE3_XkpnWHRYYY';
 
   public login(username: string, password: string): Observable<boolean> {
     console.log('login', username, password);
