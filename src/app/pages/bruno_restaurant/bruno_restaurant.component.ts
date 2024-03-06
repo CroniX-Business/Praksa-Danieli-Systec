@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppRoutesConfig } from '../../configs/app-routes.config';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { RestaurantService } from '../../services/restaurant.service';
@@ -25,9 +24,13 @@ export class BrunoRestaurantComponent {
   public constructor(
     protected router: Router,
     protected restaurantService: RestaurantService
-  ) {}
+  ) {
+    this.restaurantService
+      .getRestaurantsForGrid()
+      .subscribe((restaurants: Restaurant[]) => {
+        this.restaurants = restaurants;
+      });
+  }
 
-  protected routes = AppRoutesConfig;
-  protected restaurants: Restaurant[] =
-    this.restaurantService.getRestaurantsForGrid();
+  protected restaurants: Restaurant[] = [];
 }
