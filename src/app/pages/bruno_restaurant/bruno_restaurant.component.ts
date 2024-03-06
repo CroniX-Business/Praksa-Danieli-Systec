@@ -26,6 +26,7 @@ export class BrunoRestaurantComponent {
     protected router: Router,
     protected restaurantService: RestaurantService
   ) {}
+
   protected routes = AppRoutesConfig;
   protected restaurants: Restaurant[] =
     this.restaurantService.getRestaurantsForGrid();
