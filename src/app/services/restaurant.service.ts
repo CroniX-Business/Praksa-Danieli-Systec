@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../models/restaurant';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -122,15 +123,9 @@ export class RestaurantService {
       phoneNumber: '555-2345',
       createdDate: '2022-05-05',
     },
-    {
-      name: 'Diner Delight',
-      address: '1717 Walnut Street, Riverside, State',
-      phoneNumber: '555-6789',
-      createdDate: '2022-04-20',
-    },
   ];
 
-  public getRestaurantsForGrid(): Restaurant[] {
-    return this.restaurantsArray;
+  public getRestaurantsForGrid(): Observable<Array<Restaurant>> {
+    return of(this.restaurantsArray);
   }
 }

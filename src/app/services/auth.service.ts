@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, of } from 'rxjs';
-import { JwtPayload } from '../models/JwtPayload';
+import { JwtPayload } from '../models/jwtpayload';
 import moment from 'moment';
 
 @Injectable({

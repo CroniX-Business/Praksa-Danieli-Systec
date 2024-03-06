@@ -37,4 +37,8 @@ export class DarioHomeComponent {
       this.router.navigate([AppRoutesConfig.routeNames.login]);
     }
   }
+
+  public logOut(): void {
+    this.authService.logOut();
+  }
 }

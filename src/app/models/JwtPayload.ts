@@ -1,4 +1,3 @@
-export class JwtPayload {
-  public expires_at: number = 0;
-  public constructor() {}
+export interface JwtPayload {
+  expires_at: number;
 }

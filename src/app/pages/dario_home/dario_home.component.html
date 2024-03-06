@@ -1,14 +1,14 @@
-<div class="d-flex flex-row h-100">
-  <div class="d-flex flex-column p-3 text-white bg-dark justify-content-center">
-    <a
-      class="d-flex text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <span class="fs-4 align-items-center">Dario Vidovic</span>
+<div class="d-flex flex-nowrap h-100">
+  <div
+    class="d-flex flex-column p-3 text-white bg-dark justify-content-center min-vh-100 test text-center">
+    <a class="d-flex mb-3 me-md-auto text-white text-decoration-none">
+      <span class="fs-4">Dario Vidovic</span>
     </a>
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
         <a
-          class="nav-link text-white"
+          class="nav-link text-white text-center"
           [routerLink]="appRoutes.routeNames.restaurant">
           Restaurants
         </a>
@@ -28,7 +28,7 @@
           [routerLink]="appRoutes.routes.login"
           role="button"
           class="text-center"
-          (click)="authService.logOut()"
+          (click)="logOut()"
           >Sign out</a
         ></strong
       >

@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.test {
+  width: 140px;
+}
