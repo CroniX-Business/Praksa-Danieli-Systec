@@ -1,2 +1,11 @@
 <h1 class="text-center">Restourant</h1>
-<div class="text-center">Hello restaourant</div>
+<kendo-grid [data]="gridData">
+  <kendo-grid-column field="id" Restaurant="ID"></kendo-grid-column>
+  <kendo-grid-column
+    field="name"
+    Restaurant="Restaurant Name"></kendo-grid-column>
+  <kendo-grid-column field="location" Restaurant="Address"></kendo-grid-column>
+  <kendo-grid-column
+    field="createdAt"
+    Restaurant="Created At"></kendo-grid-column>
+</kendo-grid>

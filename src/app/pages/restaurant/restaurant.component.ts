@@ -3,6 +3,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { appRouteConfig } from '../../configs/routes.config';
 import { HomeComponent } from '../home/home.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { Restaurant } from '../../models/Restaurant';
+import { RestaurantService } from '../../services/restaurant.service';
 @Component({
   selector: 'app-restaurant',
   standalone: true,
@@ -12,6 +15,7 @@ import { HomeComponent } from '../home/home.component';
     RouterLink,
     RouterLinkActive,
     HomeComponent,
+    GridModule,
   ],
   templateUrl: './restaurant.component.html',
   styleUrl: './restaurant.component.css',
@@ -19,4 +23,8 @@ import { HomeComponent } from '../home/home.component';
 })
 export class RestaurantComponent {
   public routes = appRouteConfig;
+  public gridData: Restaurant[] = [];
+  public constructor(public restaurantServis: RestaurantService) {
+    this.gridData = restaurantServis.getRestaurants();
+  }
 }
