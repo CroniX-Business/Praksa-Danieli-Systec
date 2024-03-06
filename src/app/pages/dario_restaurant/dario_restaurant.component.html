@@ -1,1 +1,11 @@
-<p>Restaurants</p>
+<kendo-grid
+  class="p-3 text-center"
+  [data]="restaurantService.getRestaurantsForGrid()">
+  <kendo-grid-column field="name" title="Name"></kendo-grid-column>
+  <kendo-grid-column field="address" title="Address"> </kendo-grid-column>
+  <kendo-grid-column field="phoneNumber" title="Phone number">
+  </kendo-grid-column>
+  <kendo-grid-column field="createdDate" title="Created date">
+  </kendo-grid-column>
+  ></kendo-grid
+>

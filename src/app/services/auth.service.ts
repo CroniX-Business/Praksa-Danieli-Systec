@@ -10,8 +10,11 @@ import moment from 'moment';
 export class AuthService {
   public constructor() {}
 
+  //private jwtToken =
+  //'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
+
   private jwtToken =
-    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTUifQ.RrvUhhztFRvg3LDpMbbMDFGRywKUa4ModOplpGph6VI';
+    'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMDAifQ.dE9UqgVYhXOoRDREBiaaeJ7-0MlEwF-OVAkFuKO1bB0';
 
   public logIn(username: string, password: string): Observable<boolean> {
     console.log(username);
