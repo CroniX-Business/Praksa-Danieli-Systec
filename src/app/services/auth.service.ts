@@ -15,7 +15,6 @@ export class AuthService {
   //jwt 1000 sec eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAwMCJ9.a7oxY1v0hfTctwCHdqLS7dDSo7j4eP8Uw-2TrHgxdEg
   public jwt_Token: string =
     'eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzX2F0IjoiMTAifQ.YnIHeTs6BV7pRX6CpDmxkrvxS1CRdSYE-n7eTjD8IK0';
-  public decodedHeader = jwtDecode(this.jwt_Token);
 
   public validateToken(token: string): JwtPayload | null {
     const decodedToken = jwtDecode(token);
@@ -39,9 +38,7 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    return localStorage.getItem('Login_expire_time')
-      ? this.hasTokenExpired()
-      : !this.hasTokenExpired();
+    return !this.hasTokenExpired();
   }
 
   private setSession(payload: JwtPayload): void {

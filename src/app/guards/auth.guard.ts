@@ -13,7 +13,7 @@ export class AuthGuard {
   ) {}
 
   public canActivate: CanActivateFn = () => {
-    if (!this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigate([AppRoutesConfig.routeNames.login]);
       return false;
     }
