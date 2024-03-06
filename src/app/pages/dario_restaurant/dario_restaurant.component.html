@@ -1,4 +1,8 @@
-<kendo-grid class="p-3 text-center" [data]="restaurants">
+<kendo-grid
+  class="p-3 text-center"
+  [data]="restaurants"
+  [selectable]="{ enabled: true, checkboxOnly: true }">
+  <kendo-grid-checkbox-column [width]="40"></kendo-grid-checkbox-column>
   <kendo-grid-column
     field="name"
     class="text-center"
