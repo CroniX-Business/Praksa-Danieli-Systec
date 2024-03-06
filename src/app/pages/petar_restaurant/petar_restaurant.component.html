@@ -1,15 +1,30 @@
 <p class="text-center fs-1">Restaurants</p>
 
 <div class="d-flex justify-content-center">
-  <kendo-grid [data]="gridData" [height]="760" class="w-75">
+  <kendo-grid [data]="gridData" [height]="750" class="bg-black ms-3 me-3">
     <kendo-grid-column
-      field="restaurantID"
-      title="RestaurantID"></kendo-grid-column>
-    <kendo-grid-column field="name" title="Name"></kendo-grid-column>
-    <kendo-grid-column field="address" title="Address"></kendo-grid-column>
+      class="fw-bold"
+      field="name"
+      title="Name"
+      [headerClass]="'justify-content-center bg-secondary text-white'"
+      [class]="''"></kendo-grid-column>
     <kendo-grid-column
+      class="text-center"
+      field="address"
+      title="Address"
+      [headerClass]="'justify-content-center bg-secondary text-white'"
+      [class]="'p-3'"></kendo-grid-column>
+    <kendo-grid-column
+      class="text-center"
       field="phoneNumber"
-      title="Phone Number"></kendo-grid-column>
-    <kendo-grid-column field="createdAt" title="Created At"></kendo-grid-column>
+      title="Phone Number"
+      [headerClass]="'justify-content-center bg-secondary text-white'"
+      [class]="''"></kendo-grid-column>
+    <kendo-grid-column
+      class="text-center"
+      field="createdAt"
+      title="Created"
+      [headerClass]="'justify-content-center bg-secondary text-white'"
+      [class]="''"></kendo-grid-column>
   </kendo-grid>
 </div>
