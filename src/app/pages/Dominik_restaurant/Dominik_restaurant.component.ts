@@ -26,6 +26,8 @@ export class DominikRestaurantComponent implements OnInit {
   public routesConfig = AppRoutesConfig;
   public sidebar = false;
   public Product = [];
+  public selectedItems = new Array<number>();
+
   public ngOnInit(): void {
     this.loadData();
   }
@@ -37,5 +39,17 @@ export class DominikRestaurantComponent implements OnInit {
         this.gridData = Restaurants;
       });
   }
-  public onDelete(): void {}
+  public onDelete(): void {
+    let popped = 0;
+    const temporarylen = this.gridData.length;
+    for (let i = 0; i < this.gridData.length; i++) {
+      if (i + popped == temporarylen) break;
+      for (let j = 0; j < this.selectedItems.length; j++) {
+        if (this.gridData[i].RestoID == this.selectedItems[j]) {
+          this.gridData.splice(i, 1);
+          popped += 1;
+        }
+      }
+    }
+  }
 }

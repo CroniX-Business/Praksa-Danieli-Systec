@@ -1,7 +1,14 @@
 <h1>Restoraunts</h1>
-<form (submit)="onDelete()">
-  <button type="submit" class="m-2 bg-danger">Delete</button>
-  <kendo-grid [data]="gridData" class="m-2" editable:True>
+<form>
+  <button type="button" class="m-2 bg-danger" (click)="onDelete()">
+    Delete
+  </button>
+  <kendo-grid
+    [data]="gridData"
+    class="m-2"
+    kendoGridSelectBy="RestoID"
+    [selectable]="{ checkboxOnly: true }"
+    [(selectedKeys)]="selectedItems">
     <kendo-grid-checkbox-column></kendo-grid-checkbox-column>
     <kendo-grid-column field="Name" title="Name"> </kendo-grid-column>
     <kendo-grid-column field="Address" title="Address"> </kendo-grid-column>
