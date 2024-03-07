@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 import { AppRoutesConfig } from '../../configs/routes.config';
 import { GridModule } from '@progress/kendo-angular-grid';
@@ -20,12 +20,22 @@ import { RestaurantService } from '../../services/restaurant.service';
   styleUrl: './Dominik_restaurant.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DominikRestaurantComponent {
+export class DominikRestaurantComponent implements OnInit {
+  public constructor(private restaurantService: RestaurantService) {}
   public gridData: Restaurant[] = [];
   public routesConfig = AppRoutesConfig;
   public sidebar = false;
   public Product = [];
-  public constructor(private restaurantService: RestaurantService) {
-    this.gridData = this.restaurantService.getRestaurantsForGrid();
+  public ngOnInit(): void {
+    this.loadData();
   }
+
+  public loadData(): void {
+    this.restaurantService
+      .getRestaurantsForGrid()
+      .subscribe((Restaurants: Restaurant[]) => {
+        this.gridData = Restaurants;
+      });
+  }
+  public onDelete(): void {}
 }
