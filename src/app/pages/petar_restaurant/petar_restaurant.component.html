@@ -1,7 +1,88 @@
 <p class="text-center fs-1">Restaurants</p>
 
+<button kendoButton *ngIf="!openedDel" (click)="openDel()" class="ms-3 mb-2">
+  Delete Restaurants
+</button>
+<kendo-dialog
+  title="Please confirm"
+  *ngIf="openedDel"
+  (close)="deleteRestaurant(false)"
+  [minWidth]="250"
+  [width]="450">
+  <p class="m-5 text-center">Are you sure you want to continue?</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="deleteRestaurant(false)">No</button>
+    <button kendoButton (click)="deleteRestaurant(true)" themeColor="primary">
+      Yes
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<button kendoButton *ngIf="!openedAdd" (click)="openAdd()" class="ms-3 mb-2">
+  Add Restaurant
+</button>
+<kendo-dialog
+  title="Please confirm"
+  *ngIf="openedAdd"
+  (close)="addRestaurant(false)"
+  [minWidth]="250"
+  [width]="450">
+  <form [formGroup]="addRestaurantFormGroup" class="d-flex flex-column">
+    <label for="name" class="required fs-6 text-black-50 mt-4 d-block"
+      >Restaurant name</label
+    >
+    <input
+      type="text"
+      formControlName="name"
+      id="name"
+      class="input-form d-block border border-2 rounded-2 w-100 h-100"
+      required />
+    <label for="address" class="required fs-6 text-black-50 mt-4 d-block"
+      >Address</label
+    >
+    <input
+      type="text"
+      formControlName="address"
+      id="address"
+      class="input-form d-block border border-2 rounded-2 w-100"
+      required />
+    <label for="address" class="required fs-6 text-black-50 mt-4 d-block"
+      >Phone number</label
+    >
+    <input
+      type="text"
+      formControlName="phoneNumber"
+      id="phoneNumber"
+      class="input-form d-block border border-2 rounded-2 w-100"
+      required />
+  </form>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="addRestaurant(false)">No</button>
+    <button kendoButton (click)="addRestaurant(true)" themeColor="primary">
+      Yes
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
 <div class="d-flex justify-content-center">
-  <kendo-grid [data]="gridData" [height]="750" class="bg-black ms-3 me-3">
+  <kendo-grid
+    [data]="gridData"
+    [selectable]="true"
+    kendoGridSelectBy="restaurantId"
+    [(selectedKeys)]="restaurantIDs"
+    [autoSize]="true"
+    [style.maxHeight.px]="750"
+    class="bg-black ms-3 me-3">
+    <kendo-grid-checkbox-column
+      [width]="50"
+      class="text-center"></kendo-grid-checkbox-column>
+    <kendo-grid-column
+      class="text-center"
+      field="restaurantId"
+      title="ID"
+      [width]="50"
+      [headerClass]="'justify-content-center bg-secondary text-white'"
+      [class]="''"></kendo-grid-column>
     <kendo-grid-column
       class="fw-bold"
       field="name"
@@ -13,7 +94,7 @@
       field="address"
       title="Address"
       [headerClass]="'justify-content-center bg-secondary text-white'"
-      [class]="'p-3'"></kendo-grid-column>
+      [class]="''"></kendo-grid-column>
     <kendo-grid-column
       class="text-center"
       field="phoneNumber"
