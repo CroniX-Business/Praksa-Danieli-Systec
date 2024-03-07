@@ -1,6 +1,16 @@
 <h1 class="text-center">Restourant</h1>
-<kendo-grid [data]="gridData">
-  <kendo-grid-column field="id" Restaurant="ID"></kendo-grid-column>
+<kendo-grid
+  [data]="gridData"
+  [selectable]="true"
+  kendoGridSelectBy="id"
+  [(selectedKeys)]="mySelection">
+  <kendo-grid-checkbox-column
+    [width]="40"
+    [showSelectAll]="true"></kendo-grid-checkbox-column>
+  <kendo-grid-column
+    field="id"
+    Restaurant="ID"
+    [width]="40"></kendo-grid-column>
   <kendo-grid-column
     field="name"
     Restaurant="Restaurant Name"></kendo-grid-column>
@@ -9,3 +19,4 @@
     field="createdAt"
     Restaurant="Created At"></kendo-grid-column>
 </kendo-grid>
+<button class="btn btn-primary" (click)="onClick()">Delete selected</button>

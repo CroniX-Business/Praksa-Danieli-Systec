@@ -22,9 +22,13 @@ import { RestaurantService } from '../../services/restaurant.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RestaurantComponent {
+  public mySelection: Array<number> = [];
   public routes = appRouteConfig;
   public gridData: Restaurant[] = [];
   public constructor(public restaurantServis: RestaurantService) {
     this.gridData = restaurantServis.getRestaurants();
+  }
+  public onClick(): void {
+    console.log(this.mySelection);
   }
 }
