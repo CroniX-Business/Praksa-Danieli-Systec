@@ -18,7 +18,7 @@
   </div>
 </div>
 <div
-  [ngStyle]="{ display: modalShower ? 'block' : 'hidden' }"
+  [ngStyle]="{ display: modalShower ? 'block' : 'none' }"
   class="modal"
   tabindex="-1"
   role="dialog">
@@ -44,7 +44,11 @@
           (click)="deleteSelected()">
           DELETE
         </button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="modalShower = !modalShower">
           Close
         </button>
       </div>
