@@ -19,4 +19,18 @@
     field="createdAt"
     Restaurant="Created At"></kendo-grid-column>
 </kendo-grid>
-<button class="btn btn-primary" (click)="onClick()">Delete selected</button>
+<button class="btn btn-primary" (click)="open()">Delete selected</button>
+<kendo-dialog
+  title="Please confirm"
+  *ngIf="opened"
+  (close)="close('cancel')"
+  [minWidth]="250"
+  [width]="450">
+  <p style="margin: 30px; text-align: center">
+    Are you sure you want to continue?
+  </p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="close('no')">No</button>
+    <button kendoButton (click)="close('yes')" themeColor="primary">Yes</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

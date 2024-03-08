@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HomeComponent } from './pages/home/home.component';
 import { loginGuard } from './guards/auth.guards';
+import { provideAnimations } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent],
-  providers: [loginGuard],
+  providers: [loginGuard, provideAnimations()],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
