@@ -1,6 +1,8 @@
 <kendo-grid
   class="p-3 text-center"
   [data]="restaurants"
+  kendoGridSelectBy="id"
+  [(selectedKeys)]="selectedItems"
   [selectable]="{ enabled: true, checkboxOnly: true }">
   <kendo-grid-checkbox-column [width]="40"></kendo-grid-checkbox-column>
   <kendo-grid-column
@@ -28,3 +30,24 @@
     title="Created date">
   </kendo-grid-column>
 </kendo-grid>
+<kendo-button
+  [disabled]="selectedItems.length <= 0"
+  iconClass="fa-solid fa-trash"
+  (click)="open()"
+  >Delete</kendo-button
+>
+
+<kendo-dialog
+  title="Please confirm"
+  *ngIf="opened"
+  (close)="close('cancel')"
+  [minWidth]="250"
+  [width]="450">
+  <p style="margin: 30px; text-align: center">
+    Are you sure you want to continue?
+  </p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="close('no')">No</button>
+    <button kendoButton (click)="close('yes')" themeColor="primary">Yes</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
