@@ -5,6 +5,7 @@ import { AppRoutesConfig } from '../../configs/routes.config';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { Restaurant } from '../../models/Restaurant';
 import { RestaurantService } from '../../services/restaurant.service';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 @Component({
   selector: 'app-dominik-restaurant',
@@ -15,6 +16,7 @@ import { RestaurantService } from '../../services/restaurant.service';
     RouterLinkActive,
     RouterOutlet,
     GridModule,
+    ButtonsModule,
   ],
   templateUrl: './Dominik_restaurant.component.html',
   styleUrl: './Dominik_restaurant.component.css',
@@ -27,6 +29,7 @@ export class DominikRestaurantComponent implements OnInit {
   public sidebar = false;
   public Product = [];
   public selectedItems = new Array<number>();
+  public deletedRestoraunts: Restaurant[] = [];
 
   public ngOnInit(): void {
     this.loadData();
@@ -46,10 +49,17 @@ export class DominikRestaurantComponent implements OnInit {
       if (i + popped == temporarylen) break;
       for (let j = 0; j < this.selectedItems.length; j++) {
         if (this.gridData[i].RestoID == this.selectedItems[j]) {
+          this.deletedRestoraunts.push(this.gridData[i]);
           this.gridData.splice(i, 1);
           popped += 1;
         }
       }
+    }
+  }
+  public onAdd(): void {
+    if (this.deletedRestoraunts.length > 0) {
+      this.gridData.push(this.deletedRestoraunts[0]);
+      this.deletedRestoraunts.shift();
     }
   }
 }

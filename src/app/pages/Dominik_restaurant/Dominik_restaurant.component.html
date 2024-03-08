@@ -1,7 +1,10 @@
 <h1>Restoraunts</h1>
 <form>
-  <button type="button" class="m-2 bg-danger" (click)="onDelete()">
+  <button kendoButton type="button" class="m-2 bg-danger" (click)="onDelete()">
     Delete
+  </button>
+  <button kendoButton type="button" class="m-2 bg-info" (click)="onAdd()">
+    Add
   </button>
   <kendo-grid
     [data]="gridData"
