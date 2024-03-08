@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { RestaurantService } from '../../services/restaurant.service';
@@ -31,10 +36,24 @@ import {
   ],
 })
 export class PetarRestaurantComponent implements OnInit {
-  public gridData: Restaurant[] = [];
+  public restaurants: Restaurant[] = [];
   public restaurantIDs: Array<number> = [];
 
-  public constructor(private restaurantService: RestaurantService) {}
+  public constructor(
+    private restaurantService: RestaurantService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  public ngOnInit(): void {
+    this.loadData();
+  }
+
+  public loadData(): void {
+    this.restaurantService.getRestaurantsForGrid().subscribe(restaurants => {
+      this.restaurants = restaurants;
+      this.cdr.detectChanges();
+    });
+  }
 
   public openedDel = false;
   public openedAdd = false;
@@ -73,21 +92,10 @@ export class PetarRestaurantComponent implements OnInit {
     this.openedAdd = false;
   }
 
-  public ngOnInit(): void {
-    this.loadData();
-  }
-
-  public loadData(): void {
-    this.restaurantService
-      .getRestaurantsForGrid()
-      .subscribe((restaurants: Restaurant[]) => {
-        this.gridData = restaurants;
-      });
-  }
-
   public deleteRestaurant(status: boolean): void {
     if (status === true) {
       this.restaurantService.deleteRestaurants(this.restaurantIDs);
+      this.loadData();
     }
     this.openedDel = false;
   }

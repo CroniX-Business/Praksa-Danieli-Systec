@@ -66,19 +66,17 @@
 
 <div class="d-flex justify-content-center">
   <kendo-grid
-    [data]="gridData"
+    [data]="restaurants"
+    kendoGridSelectBy="id"
     [selectable]="true"
-    kendoGridSelectBy="restaurantId"
     [(selectedKeys)]="restaurantIDs"
-    [autoSize]="true"
-    [style.maxHeight.px]="750"
     class="bg-black ms-3 me-3">
     <kendo-grid-checkbox-column
       [width]="50"
       class="text-center"></kendo-grid-checkbox-column>
     <kendo-grid-column
       class="text-center"
-      field="restaurantId"
+      field="id"
       title="ID"
       [width]="50"
       [headerClass]="'justify-content-center bg-secondary text-white'"
@@ -103,7 +101,7 @@
       [class]="''"></kendo-grid-column>
     <kendo-grid-column
       class="text-center"
-      field="createdAt"
+      field="createdDate"
       title="Created"
       [headerClass]="'justify-content-center bg-secondary text-white'"
       [class]="''"></kendo-grid-column>

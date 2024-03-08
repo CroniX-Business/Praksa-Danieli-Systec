@@ -1,21 +1,27 @@
 export class Restaurant {
-  public restaurantId: number;
-  public name: string;
   public address: string;
+  public createdDate: string;
+  public id: number;
+  public isActive: boolean;
+  public modifiedDate: string;
+  public name: string;
   public phoneNumber: string;
-  public createdAt: string;
 
   private constructor(
-    restaurantId: number,
-    name: string,
     address: string,
-    phoneNumber: string,
-    createdAt: string
+    createdDate: string,
+    id: number,
+    isActive: boolean,
+    modifiedDate: string,
+    name: string,
+    phoneNumber: string
   ) {
-    this.restaurantId = restaurantId;
-    this.name = name;
     this.address = address;
+    this.createdDate = createdDate;
+    this.id = id;
+    this.isActive = isActive;
+    this.modifiedDate = modifiedDate;
+    this.name = name;
     this.phoneNumber = phoneNumber;
-    this.createdAt = createdAt;
   }
 }

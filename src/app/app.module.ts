@@ -8,6 +8,7 @@ import { PetarError404Component } from './pages/petar_error404/petar_error404.co
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -23,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
     PetarError404Component,
     ButtonsModule,
     DialogsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [AuthGuard, provideAnimations()],
