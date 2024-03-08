@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { RestaurantService } from '../../services/restaurant.service';
-import { Restaurant } from '../../models/Restaurant';
+import { Restaurant } from '../../models/restaurant';
+import { RestaurantService } from '../../services/restaurantService';
 
 @Component({
   selector: 'app-bruno-restaurant',
@@ -21,9 +21,14 @@ import { Restaurant } from '../../models/Restaurant';
 })
 export class BrunoRestaurantComponent implements OnInit {
   public constructor(private restaurantService: RestaurantService) {}
+  public selectedItems = new Array<number>();
+  public restaurants: Array<Restaurant> = [];
+  public modalShower: boolean = false;
+
   public ngOnInit(): void {
     this.loadData();
   }
+
   private loadData(): void {
     this.restaurantService
       .getRestaurantsForGrid()
@@ -32,5 +37,8 @@ export class BrunoRestaurantComponent implements OnInit {
       });
   }
 
-  protected restaurants: Restaurant[] = [];
+  public deleteSelected(): void {
+    this.restaurantService.removeRestaurants(this.selectedItems);
+    this.modalShower = !this.modalShower;
+  }
 }
